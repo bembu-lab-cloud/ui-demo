@@ -251,6 +251,18 @@
   ::-webkit-scrollbar{width:10px;height:10px;}
   ::-webkit-scrollbar-thumb{background:var(--slate-200);border-radius:999px;}
   ::-webkit-scrollbar-thumb:hover{background:var(--slate-400);}
+
+  /* Mobile: stack sidebar/main, show one at a time */
+  #back-to-list{display:none;}
+  @media (max-width: 860px){
+    #sidebar{width:100%;min-width:0;}
+    #main{display:none;}
+    body.screen-selected #sidebar{display:none;}
+    body.screen-selected #main{display:flex;}
+    #back-to-list{display:inline-flex;}
+    #topbar{padding:0 12px;gap:8px;}
+    #topbar .btn span.btn-label{display:none;}
+  }
 </style>
 </head>
 <body>
@@ -269,12 +281,13 @@
 
 <main id="main">
   <div id="topbar">
+    <button type="button" class="btn" id="back-to-list">← Danh sách</button>
     <div class="title-wrap">
       <span class="crumb" id="crumb-feature">—</span>
       <span class="screen-title" id="crumb-screen">Chọn một màn hình để xem</span>
     </div>
     <a class="btn primary" id="open-new-tab" href="#" target="_blank" rel="noopener">
-      Mở tab mới ↗
+      <span class="btn-label">Mở tab mới</span> ↗
     </a>
   </div>
   <div id="stage">
@@ -377,6 +390,7 @@ const stage = document.getElementById("stage");
 const crumbFeature = document.getElementById("crumb-feature");
 const crumbScreen = document.getElementById("crumb-screen");
 const openNewTab = document.getElementById("open-new-tab");
+const backToList = document.getElementById("back-to-list");
 
 function selectScreen(linkEl){
   document.querySelectorAll(".screen-item a.active").forEach(el => el.classList.remove("active"));
@@ -388,11 +402,16 @@ function selectScreen(linkEl){
   openNewTab.href = path;
 
   stage.innerHTML = `<iframe src="${path}" title="${linkEl.dataset.title}"></iframe>`;
+  document.body.classList.add("screen-selected");
 
   if (history.replaceState) {
     history.replaceState(null, "", "#" + path);
   }
 }
+
+backToList.addEventListener("click", () => {
+  document.body.classList.remove("screen-selected");
+});
 
 // Search filter
 const search = document.getElementById("search");
