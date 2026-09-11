@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nhân Lực Xanh — Chi tiết đơn hàng (S2.2)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif; background:#EDF1EF; color:#0E1512; }
+  h1,h2,h3,.font-display { font-family: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif; }
+  :focus-visible { outline: 3px solid #00B14F; outline-offset: 2px; border-radius: 6px; }
+  .frame { width: 390px; height: 844px; }
+  .frame-inner::-webkit-scrollbar { width: 0; }
+  @media (prefers-reduced-motion: reduce) { .animate-pulse, .animate-spin { animation: none !important; } }
+</style>
+</head>
+<body class="antialiased">
+
+<div class="max-w-full overflow-x-auto px-6 py-10">
+  <div class="flex gap-10 items-start w-max mx-auto">
+
+    <!-- ================= STATE 1: MẶC ĐỊNH — ĐANG TUYỂN (có thưởng) ================= -->
+    <div>
+      <h2 class="font-display text-lg font-extrabold text-[#0A2E22] mb-3 px-1">Trạng thái: Mặc định — Đang tuyển</h2>
+      <div class="frame mx-auto bg-[#0E1512] rounded-[2.75rem] border-[8px] border-[#0E1512] shadow-2xl overflow-hidden flex flex-col relative">
+        <div class="bg-[#F5F8F6] flex-1 flex flex-col overflow-hidden rounded-[2.1rem] relative">
+
+          <!-- App bar -->
+          <header class="shrink-0 bg-white border-b-4 border-[#00B14F] px-3 py-3 flex items-center justify-between z-20">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <button aria-label="Quay lại" class="cursor-pointer shrink-0 w-10 h-10 rounded-2xl flex items-center justify-center text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <h1 class="font-display text-lg font-extrabold text-[#0A2E22] truncate">Chi tiết đơn hàng</h1>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button aria-label="Lưu tin" class="cursor-pointer w-10 h-10 rounded-2xl border-2 border-slate-200 flex items-center justify-center text-[#0A2E22] hover:border-[#00B14F] transition-colors duration-200">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
+              </button>
+              <button aria-label="Chia sẻ" class="cursor-pointer w-10 h-10 rounded-2xl border-2 border-slate-200 flex items-center justify-center text-[#0A2E22] hover:border-[#00B14F] transition-colors duration-200">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5 8.6 10.5"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <!-- Scrollable content -->
+          <main class="frame-inner flex-1 overflow-y-auto pb-32">
+
+            <!-- Job header -->
+            <div class="px-4 pt-4">
+              <span class="inline-flex items-center gap-1.5 bg-[#E7F8EE] text-[#0A2E22] text-xs font-bold px-3 py-1.5 rounded-full mb-2.5">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z"/><path d="m9 12 2 2 4-4"/></svg>
+                Đang tuyển
+              </span>
+              <h2 class="font-display text-2xl font-extrabold text-[#0A2E22] leading-tight mb-1.5">Công nhân đóng gói — Ca ngày</h2>
+              <p class="text-sm text-slate-600 flex items-center gap-1.5 mb-0.5">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Cty TNHH Sản Xuất Sao Việt
+              </p>
+              <p class="text-sm text-slate-500 flex items-center gap-1.5">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                KCN Sóng Thần, Dĩ An, Bình Dương
+              </p>
+            </div>
+
+            <!-- BONUS HERO BLOCK — dominant element, integrated right under the header -->
+            <div class="px-4 mt-4">
+              <section aria-label="Cơ chế thưởng" class="bg-[#FF8A00] rounded-3xl p-5">
+                <div class="flex items-center gap-2 mb-1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 shrink-0"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <span class="text-xs font-bold uppercase tracking-wide text-[#0E1512]/70">Tổng thưởng có thể nhận</span>
+                </div>
+                <p class="font-display text-[32px] leading-none font-extrabold text-[#0E1512] mb-4">12.000.000đ</p>
+
+                <div class="space-y-2">
+                  <!-- Mốc 1: nhận việc ngay -->
+                  <div class="bg-white/60 rounded-2xl p-3.5 flex items-start justify-between gap-3">
+                    <div class="flex items-start gap-2.5 min-w-0">
+                      <span class="w-8 h-8 rounded-xl bg-white/70 flex items-center justify-center shrink-0">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><path d="M5 3v18"/><path d="M5 4h13l-2.5 4L18 12H5"/></svg>
+                      </span>
+                      <div class="min-w-0">
+                        <p class="font-display text-sm font-bold text-[#0E1512]">Nhận việc ngay</p>
+                        <p class="text-xs text-[#0E1512]/70 mt-0.5 leading-snug">Chi cùng kỳ lương đầu tiên · 1 đợt chi</p>
+                      </div>
+                    </div>
+                    <p class="font-display text-lg font-extrabold text-[#0E1512] shrink-0 whitespace-nowrap">2.000.000đ</p>
+                  </div>
+                  <!-- Mốc 2: đủ N công -->
+                  <div class="bg-white/60 rounded-2xl p-3.5 flex items-start justify-between gap-3">
+                    <div class="flex items-start gap-2.5 min-w-0">
+                      <span class="w-8 h-8 rounded-xl bg-white/70 flex items-center justify-center shrink-0">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="m9 15 2 2 4-4"/></svg>
+                      </span>
+                      <div class="min-w-0">
+                        <p class="font-display text-sm font-bold text-[#0E1512]">Đủ 26 công</p>
+                        <p class="text-xs text-[#0E1512]/70 mt-0.5 leading-snug">Chi cùng kỳ lương tháng thứ 2 · 1 đợt chi</p>
+                      </div>
+                    </div>
+                    <p class="font-display text-lg font-extrabold text-[#0E1512] shrink-0 whitespace-nowrap">3.000.000đ</p>
+                  </div>
+                  <!-- Mốc 3: đủ N tháng -->
+                  <div class="bg-white/60 rounded-2xl p-3.5 flex items-start justify-between gap-3">
+                    <div class="flex items-start gap-2.5 min-w-0">
+                      <span class="w-8 h-8 rounded-xl bg-white/70 flex items-center justify-center shrink-0">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M7.5 15h1M11.5 15h1M15.5 15h1M7.5 18h1M11.5 18h1"/></svg>
+                      </span>
+                      <div class="min-w-0">
+                        <p class="font-display text-sm font-bold text-[#0E1512]">Đủ 3 tháng làm việc</p>
+                        <p class="text-xs text-[#0E1512]/70 mt-0.5 leading-snug">Chia 2 đợt, mỗi đợt cách nhau 1 tháng · 2 đợt chi</p>
+                      </div>
+                    </div>
+                    <p class="font-display text-lg font-extrabold text-[#0E1512] shrink-0 whitespace-nowrap">7.000.000đ</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <!-- Quick stats: headcount + deadline -->
+            <div class="px-4 mt-4 grid grid-cols-2 gap-3">
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mb-1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <p class="font-display text-xl font-extrabold text-[#0A2E22] leading-none">12 người</p>
+                <p class="text-xs text-slate-500 mt-1">Còn tuyển</p>
+              </div>
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mb-1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                <p class="font-display text-xl font-extrabold text-[#0A2E22] leading-none">20/09/2026</p>
+                <p class="text-xs text-slate-500 mt-1">Hạn nộp hồ sơ</p>
+              </div>
+            </div>
+
+            <!-- Mô tả công việc -->
+            <div class="px-4 mt-5">
+              <h3 class="font-display text-lg font-bold text-[#0A2E22] mb-2">Mô tả công việc</h3>
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+                <p class="text-base text-[#0E1512] leading-relaxed">Đóng gói thành phẩm theo quy trình nhà máy, kiểm tra số lượng và chất lượng trước khi nhập kho, sắp xếp hàng hoá lên pallet theo hướng dẫn của tổ trưởng. Công việc trong xưởng có máy lạnh, đứng và đi lại nhẹ trong ca.</p>
+              </div>
+            </div>
+
+            <!-- Yêu cầu ứng viên -->
+            <div class="px-4 mt-5">
+              <h3 class="font-display text-lg font-bold text-[#0A2E22] mb-2">Yêu cầu ứng viên</h3>
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 space-y-2.5">
+                <p class="flex items-start gap-2 text-base text-[#0E1512]"><svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"/></svg>Độ tuổi 18–40, nam hoặc nữ</p>
+                <p class="flex items-start gap-2 text-base text-[#0E1512]"><svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"/></svg>Sức khoẻ tốt, không cần kinh nghiệm</p>
+                <p class="flex items-start gap-2 text-base text-[#0E1512]"><svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"/></svg>Có CMND/CCCD hoặc giấy tờ tuỳ thân hợp lệ</p>
+              </div>
+            </div>
+
+            <!-- Ca làm việc & Thu nhập (salary uses Money-small, muted — subordinate to bonus) -->
+            <div class="px-4 mt-5">
+              <h3 class="font-display text-lg font-bold text-[#0A2E22] mb-2">Ca làm việc &amp; Thu nhập</h3>
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 space-y-3">
+                <div class="flex items-center gap-2.5">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                  <p class="text-base text-[#0E1512]">Ca ngày: 7h30 – 16h30, nghỉ trưa 1 giờ</p>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v3"/></svg>
+                  <p class="text-base text-[#0E1512]">Làm việc 6 ngày/tuần, nghỉ Chủ Nhật</p>
+                </div>
+                <div class="pt-1 border-t-2 border-slate-100">
+                  <p class="text-[13px] font-medium text-slate-500 mt-3">Lương cơ bản 6.500.000đ/tháng</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phúc lợi -->
+            <div class="px-4 mt-5">
+              <h3 class="font-display text-lg font-bold text-[#0A2E22] mb-2">Phúc lợi</h3>
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 space-y-2.5">
+                <p class="flex items-start gap-2 text-base text-[#0E1512]"><svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"/></svg>Bao ăn 2 bữa/ngày, có xe đưa đón</p>
+                <p class="flex items-start gap-2 text-base text-[#0E1512]"><svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"/></svg>Đóng BHXH, BHYT, BHTN đầy đủ</p>
+                <p class="flex items-start gap-2 text-base text-[#0E1512]"><svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"/></svg>Hỗ trợ chỗ ở cho công nhân xa</p>
+              </div>
+            </div>
+
+            <!-- Địa chỉ nhà máy + bản đồ -->
+            <div class="px-4 mt-5">
+              <h3 class="font-display text-lg font-bold text-[#0A2E22] mb-2">Địa chỉ nhà máy</h3>
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+                <p class="text-base text-[#0E1512] mb-3">Số 7, Đường số 2, KCN Sóng Thần 1, Dĩ An, Bình Dương</p>
+                <div class="relative h-32 rounded-2xl overflow-hidden border-2 border-slate-200 bg-slate-100">
+                  <svg viewBox="0 0 100 60" preserveAspectRatio="none" class="absolute inset-0 w-full h-full opacity-50">
+                    <g stroke="#CBD5E1" stroke-width="0.6"><path d="M0 15h100M0 30h100M0 45h100M20 0v60M50 0v60M80 0v60"/></g>
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center gap-1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                    <span class="text-xs font-semibold text-slate-500">Bản đồ vị trí nhà máy</span>
+                  </div>
+                </div>
+                <button class="cursor-pointer mt-3 w-full min-h-[44px] text-[#0A2E22] font-bold text-sm rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200 flex items-center justify-center gap-2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><path d="M3 11l18-8-8 18-2-8-8-2Z"/></svg>
+                  Mở chỉ đường
+                </button>
+              </div>
+            </div>
+
+          </main>
+
+          <!-- Sticky bottom CTAs — always visible, per accessibility constraints (conversion point) -->
+          <div class="shrink-0 bg-white border-t-2 border-slate-100 px-4 py-3 flex gap-2 z-20">
+            <button class="cursor-pointer flex-1 min-h-[44px] bg-white border-2 border-[#0A2E22] hover:bg-[#E7F8EE] text-[#0A2E22] font-bold text-sm rounded-2xl transition-colors duration-200 flex items-center justify-center gap-1.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5"/><path d="M16 8.2a3 3 0 1 1 0 5.8"/><path d="M22 20c0-2.6-1.9-4.6-4.5-5.2"/></svg>
+              Giới thiệu người
+            </button>
+            <button class="cursor-pointer flex-1 min-h-[44px] bg-[#00B14F] hover:bg-[#00963f] text-[#0E1512] font-bold text-sm rounded-2xl transition-colors duration-200">Đăng ký phỏng vấn</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= STATE 2: ĐÃ ĐÓNG / HẾT HẠN ================= -->
+    <div>
+      <h2 class="font-display text-lg font-extrabold text-[#0A2E22] mb-3 px-1">Trạng thái: Đã đóng / hết hạn</h2>
+      <div class="frame mx-auto bg-[#0E1512] rounded-[2.75rem] border-[8px] border-[#0E1512] shadow-2xl overflow-hidden flex flex-col relative">
+        <div class="bg-[#F5F8F6] flex-1 flex flex-col overflow-hidden rounded-[2.1rem] relative">
+
+          <header class="shrink-0 bg-white border-b-4 border-[#00B14F] px-3 py-3 flex items-center justify-between z-20">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <button aria-label="Quay lại" class="cursor-pointer shrink-0 w-10 h-10 rounded-2xl flex items-center justify-center text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <h1 class="font-display text-lg font-extrabold text-[#0A2E22] truncate">Chi tiết đơn hàng</h1>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button aria-label="Lưu tin" class="cursor-pointer w-10 h-10 rounded-2xl border-2 border-slate-200 flex items-center justify-center text-[#0A2E22] hover:border-[#00B14F] transition-colors duration-200">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
+              </button>
+              <button aria-label="Chia sẻ" class="cursor-pointer w-10 h-10 rounded-2xl border-2 border-slate-200 flex items-center justify-center text-[#0A2E22] hover:border-[#00B14F] transition-colors duration-200">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5 8.6 10.5"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <main class="frame-inner flex-1 overflow-y-auto pb-32">
+
+            <!-- Closed banner -->
+            <div class="px-4 pt-4">
+              <div class="bg-[#FEE2E2] rounded-2xl p-3.5 flex items-center gap-2.5">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg>
+                <p class="text-sm font-semibold text-[#B91C1C]">Đơn hàng đã đóng — đã tuyển đủ số lượng</p>
+              </div>
+            </div>
+
+            <div class="px-4 pt-3">
+              <h2 class="font-display text-2xl font-extrabold text-[#0A2E22] leading-tight mb-1.5">Công nhân đóng gói — Ca ngày</h2>
+              <p class="text-sm text-slate-600 flex items-center gap-1.5 mb-0.5">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Cty TNHH Sản Xuất Sao Việt
+              </p>
+              <p class="text-sm text-slate-500 flex items-center gap-1.5">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                KCN Sóng Thần, Dĩ An, Bình Dương
+              </p>
+            </div>
+
+            <!-- Bonus hero — still shown for reference, un-dimmed content, only actions change -->
+            <div class="px-4 mt-4">
+              <section aria-label="Cơ chế thưởng" class="bg-[#FF8A00] rounded-3xl p-5">
+                <div class="flex items-center gap-2 mb-1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 shrink-0"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <span class="text-xs font-bold uppercase tracking-wide text-[#0E1512]/70">Tổng thưởng có thể nhận</span>
+                </div>
+                <p class="font-display text-[32px] leading-none font-extrabold text-[#0E1512] mb-4">12.000.000đ</p>
+                <div class="space-y-2">
+                  <div class="bg-white/60 rounded-2xl p-3.5 flex items-start justify-between gap-3">
+                    <div class="flex items-start gap-2.5 min-w-0">
+                      <span class="w-8 h-8 rounded-xl bg-white/70 flex items-center justify-center shrink-0">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><path d="M5 3v18"/><path d="M5 4h13l-2.5 4L18 12H5"/></svg>
+                      </span>
+                      <div class="min-w-0">
+                        <p class="font-display text-sm font-bold text-[#0E1512]">Nhận việc ngay</p>
+                        <p class="text-xs text-[#0E1512]/70 mt-0.5 leading-snug">Chi cùng kỳ lương đầu tiên · 1 đợt chi</p>
+                      </div>
+                    </div>
+                    <p class="font-display text-lg font-extrabold text-[#0E1512] shrink-0 whitespace-nowrap">2.000.000đ</p>
+                  </div>
+                  <div class="bg-white/60 rounded-2xl p-3.5 flex items-start justify-between gap-3">
+                    <div class="flex items-start gap-2.5 min-w-0">
+                      <span class="w-8 h-8 rounded-xl bg-white/70 flex items-center justify-center shrink-0">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="m9 15 2 2 4-4"/></svg>
+                      </span>
+                      <div class="min-w-0">
+                        <p class="font-display text-sm font-bold text-[#0E1512]">Đủ 26 công</p>
+                        <p class="text-xs text-[#0E1512]/70 mt-0.5 leading-snug">Chi cùng kỳ lương tháng thứ 2 · 1 đợt chi</p>
+                      </div>
+                    </div>
+                    <p class="font-display text-lg font-extrabold text-[#0E1512] shrink-0 whitespace-nowrap">3.000.000đ</p>
+                  </div>
+                  <div class="bg-white/60 rounded-2xl p-3.5 flex items-start justify-between gap-3">
+                    <div class="flex items-start gap-2.5 min-w-0">
+                      <span class="w-8 h-8 rounded-xl bg-white/70 flex items-center justify-center shrink-0">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M7.5 15h1M11.5 15h1M15.5 15h1M7.5 18h1M11.5 18h1"/></svg>
+                      </span>
+                      <div class="min-w-0">
+                        <p class="font-display text-sm font-bold text-[#0E1512]">Đủ 3 tháng làm việc</p>
+                        <p class="text-xs text-[#0E1512]/70 mt-0.5 leading-snug">Chia 2 đợt, mỗi đợt cách nhau 1 tháng · 2 đợt chi</p>
+                      </div>
+                    </div>
+                    <p class="font-display text-lg font-extrabold text-[#0E1512] shrink-0 whitespace-nowrap">7.000.000đ</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div class="px-4 mt-4 grid grid-cols-2 gap-3">
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mb-1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <p class="font-display text-xl font-extrabold text-slate-400 leading-none">0 người</p>
+                <p class="text-xs text-slate-500 mt-1">Còn tuyển</p>
+              </div>
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mb-1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                <p class="font-display text-xl font-extrabold text-slate-400 leading-none">Đã hết hạn</p>
+                <p class="text-xs text-slate-500 mt-1">Hạn nộp hồ sơ</p>
+              </div>
+            </div>
+
+            <div class="px-4 mt-5">
+              <h3 class="font-display text-lg font-bold text-[#0A2E22] mb-2">Mô tả công việc</h3>
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+                <p class="text-base text-[#0E1512] leading-relaxed">Đóng gói thành phẩm theo quy trình nhà máy, kiểm tra số lượng và chất lượng trước khi nhập kho, sắp xếp hàng hoá lên pallet theo hướng dẫn của tổ trưởng.</p>
+              </div>
+            </div>
+
+            <div class="px-4 mt-5">
+              <h3 class="font-display text-lg font-bold text-[#0A2E22] mb-2">Ca làm việc &amp; Thu nhập</h3>
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+                <div class="flex items-center gap-2.5 mb-3">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                  <p class="text-base text-[#0E1512]">Ca ngày: 7h30 – 16h30, nghỉ trưa 1 giờ</p>
+                </div>
+                <p class="text-[13px] font-medium text-slate-500 pt-3 border-t-2 border-slate-100">Lương cơ bản 6.500.000đ/tháng</p>
+              </div>
+            </div>
+
+            <div class="px-4 mt-5">
+              <h3 class="font-display text-lg font-bold text-[#0A2E22] mb-2">Địa chỉ nhà máy</h3>
+              <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+                <p class="text-base text-[#0E1512]">Số 7, Đường số 2, KCN Sóng Thần 1, Dĩ An, Bình Dương</p>
+              </div>
+            </div>
+
+          </main>
+
+          <!-- Sticky CTAs — disabled, with visible reason (M6-02) -->
+          <div class="shrink-0 bg-white border-t-2 border-slate-100 px-4 pt-3 pb-2 flex flex-col gap-2 z-20">
+            <div class="flex gap-2">
+              <button disabled aria-disabled="true" class="cursor-not-allowed flex-1 min-h-[44px] bg-slate-200 text-slate-400 font-bold text-sm rounded-2xl flex items-center justify-center gap-1.5">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5"/></svg>
+                Giới thiệu người
+              </button>
+              <button disabled aria-disabled="true" class="cursor-not-allowed flex-1 min-h-[44px] bg-slate-200 text-slate-400 font-bold text-sm rounded-2xl">Đăng ký phỏng vấn</button>
+            </div>
+            <p class="text-center text-xs font-semibold text-slate-500">Đơn hàng đã đóng — không thể ứng tuyển thêm</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= STATE 3: ĐANG TẢI ================= -->
+    <div>
+      <h2 class="font-display text-lg font-extrabold text-[#0A2E22] mb-3 px-1">Trạng thái: Đang tải</h2>
+      <div class="frame mx-auto bg-[#0E1512] rounded-[2.75rem] border-[8px] border-[#0E1512] shadow-2xl overflow-hidden flex flex-col relative">
+        <div class="bg-[#F5F8F6] flex-1 flex flex-col overflow-hidden rounded-[2.1rem] relative">
+
+          <header class="shrink-0 bg-white border-b-4 border-[#00B14F] px-3 py-3 flex items-center justify-between z-20">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <button aria-label="Quay lại" class="cursor-pointer shrink-0 w-10 h-10 rounded-2xl flex items-center justify-center text-[#0A2E22]">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <h1 class="font-display text-lg font-extrabold text-[#0A2E22] truncate">Chi tiết đơn hàng</h1>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <span class="w-10 h-10 rounded-2xl border-2 border-slate-200 flex items-center justify-center text-slate-300">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
+              </span>
+              <span class="w-10 h-10 rounded-2xl border-2 border-slate-200 flex items-center justify-center text-slate-300">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5 8.6 10.5"/></svg>
+              </span>
+            </div>
+          </header>
+
+          <main class="frame-inner flex-1 overflow-y-auto pb-32">
+            <div class="px-4 pt-4">
+              <p class="text-sm font-semibold text-slate-500 flex items-center gap-2 mb-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 animate-spin"><path d="M21 12a9 9 0 1 1-9-9"/></svg>
+                Đang tải chi tiết đơn hàng...
+              </p>
+              <div class="animate-pulse bg-slate-200 h-6 w-24 rounded-full mb-3"></div>
+              <div class="animate-pulse bg-slate-200 h-7 w-4/5 rounded mb-2"></div>
+              <div class="animate-pulse bg-slate-200 h-4 w-3/5 rounded mb-1.5"></div>
+              <div class="animate-pulse bg-slate-200 h-4 w-2/5 rounded"></div>
+            </div>
+
+            <!-- Bonus block skeleton — text content prioritized to load first per async note, shown here as placeholder shape -->
+            <div class="px-4 mt-4">
+              <div class="animate-pulse bg-slate-200 rounded-3xl h-52"></div>
+            </div>
+
+            <div class="px-4 mt-4 grid grid-cols-2 gap-3">
+              <div class="animate-pulse bg-slate-200 rounded-3xl h-20"></div>
+              <div class="animate-pulse bg-slate-200 rounded-3xl h-20"></div>
+            </div>
+
+            <div class="px-4 mt-5">
+              <div class="animate-pulse bg-slate-200 h-5 w-2/5 rounded mb-2"></div>
+              <div class="animate-pulse bg-slate-200 rounded-3xl h-24"></div>
+            </div>
+
+            <div class="px-4 mt-5">
+              <div class="animate-pulse bg-slate-200 h-5 w-2/5 rounded mb-2"></div>
+              <div class="animate-pulse bg-slate-200 rounded-3xl h-32"></div>
+            </div>
+
+            <div class="px-4 mt-5">
+              <div class="animate-pulse bg-slate-200 h-5 w-2/5 rounded mb-2"></div>
+              <div class="animate-pulse bg-slate-200 rounded-3xl h-36"></div>
+            </div>
+          </main>
+
+          <!-- Sticky CTAs stay active even while secondary content is still loading, per Async behavior spec -->
+          <div class="shrink-0 bg-white border-t-2 border-slate-100 px-4 py-3 flex gap-2 z-20">
+            <button class="cursor-pointer flex-1 min-h-[44px] bg-white border-2 border-[#0A2E22] hover:bg-[#E7F8EE] text-[#0A2E22] font-bold text-sm rounded-2xl transition-colors duration-200 flex items-center justify-center gap-1.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5"/><path d="M16 8.2a3 3 0 1 1 0 5.8"/><path d="M22 20c0-2.6-1.9-4.6-4.5-5.2"/></svg>
+              Giới thiệu người
+            </button>
+            <button class="cursor-pointer flex-1 min-h-[44px] bg-[#00B14F] hover:bg-[#00963f] text-[#0E1512] font-bold text-sm rounded-2xl transition-colors duration-200">Đăng ký phỏng vấn</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

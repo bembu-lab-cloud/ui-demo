@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lịch sử chấm công — Nhân Lực Xanh</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif; background:#EEF2F0; color:#0E1512; }
+  h1,h2,h3,.font-display,.font-title { font-family: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif; }
+  :focus-visible { outline: 3px solid #00B14F; outline-offset: 2px; border-radius: 4px; }
+  .frame { width:390px; min-width:390px; }
+  .screen { background:#F5F8F6; }
+  .day-btn { transition: background-color 200ms, border-color 200ms; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body class="antialiased p-6 md:p-10">
+
+<h1 class="font-display text-2xl font-extrabold text-[#0A2E22] mb-1">Lịch sử chấm công — S4.4</h1>
+<p class="text-slate-600 mb-6">3 trạng thái màn hình, xem cạnh nhau (cuộn ngang).</p>
+
+<div class="flex gap-8 overflow-x-auto pb-8 items-start">
+
+<!-- ============ STATE 1: MẶC ĐỊNH — LỊCH THÁNG (HỖN HỢP TRẠNG THÁI) ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Mặc định — Lịch tháng</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:820px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-3 flex-shrink-0" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Lịch sử chấm công</h3>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-5 space-y-5">
+      <p class="text-slate-500 text-sm -mt-1">Đang xem: Công ty TNHH Cơ khí Phương Nam</p>
+
+      <!-- Month nav -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-3 flex items-center justify-between">
+        <button aria-label="Tháng trước" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <p class="font-display text-lg font-extrabold text-[#0A2E22]">Tháng 9, 2026</p>
+        <button aria-label="Tháng sau" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <!-- Calendar card -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-3">
+        <div class="grid grid-cols-7 gap-1 mb-1">
+          <span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 2</span>
+          <span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 3</span>
+          <span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 4</span>
+          <span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 5</span>
+          <span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 6</span>
+          <span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 7</span>
+          <span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">CN</span>
+        </div>
+        <div class="grid grid-cols-7 gap-1">
+          <button class="day-btn relative aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5 hover:bg-[#E7F8EE] cursor-pointer" aria-label="Ngày 1 tháng 9, trạng thái Hợp lệ"><span class="font-title font-bold text-[14px] text-[#0A2E22]">1</span><span class="w-4 h-4 rounded-full bg-[#0A2E22] flex items-center justify-center"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5"><path d="M20 6L9 17l-5-5"/></svg></span></button>
+          <button class="day-btn relative aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5 hover:bg-[#E7F8EE] cursor-pointer" aria-label="Ngày 2 tháng 9, trạng thái Hợp lệ"><span class="font-title font-bold text-[14px] text-[#0A2E22]">2</span><span class="w-4 h-4 rounded-full bg-[#0A2E22] flex items-center justify-center"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5"><path d="M20 6L9 17l-5-5"/></svg></span></button>
+          <button class="day-btn relative aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5 hover:bg-[#E7F8EE] cursor-pointer" aria-label="Ngày 3 tháng 9, trạng thái Chờ duyệt"><span class="font-title font-bold text-[14px] text-[#0A2E22]">3</span><span class="w-4 h-4 rounded-full bg-[#1D4ED8] flex items-center justify-center"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span></button>
+          <button class="day-btn relative aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5 bg-[#FEE2E2]/50 hover:bg-[#FEE2E2] cursor-pointer" aria-label="Ngày 4 tháng 9, trạng thái Bị từ chối"><span class="font-title font-bold text-[14px] text-[#0A2E22]">4</span><span class="w-4 h-4 rounded-full bg-[#B91C1C] flex items-center justify-center"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span></button>
+          <button class="day-btn relative aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5 hover:bg-[#E7F8EE] cursor-pointer" aria-label="Ngày 5 tháng 9, trạng thái Hợp lệ"><span class="font-title font-bold text-[14px] text-[#0A2E22]">5</span><span class="w-4 h-4 rounded-full bg-[#0A2E22] flex items-center justify-center"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5"><path d="M20 6L9 17l-5-5"/></svg></span></button>
+          <button class="day-btn aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5 hover:bg-slate-50 cursor-pointer" aria-label="Ngày 6 tháng 9, không có bản ghi"><span class="text-[14px] text-slate-400 font-medium">6</span></button>
+          <button class="day-btn aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5 hover:bg-slate-50 cursor-pointer" aria-label="Ngày 7 tháng 9, không có bản ghi"><span class="text-[14px] text-slate-400 font-medium">7</span></button>
+          <button class="day-btn relative aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5 hover:bg-[#E7F8EE] cursor-pointer" aria-label="Ngày 8 tháng 9, trạng thái Hợp lệ"><span class="font-title font-bold text-[14px] text-[#0A2E22]">8</span><span class="w-4 h-4 rounded-full bg-[#0A2E22] flex items-center justify-center"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5"><path d="M20 6L9 17l-5-5"/></svg></span></button>
+          <button class="day-btn relative aspect-square rounded-2xl ring-2 ring-[#00B14F] bg-[#E7F8EE] flex flex-col items-center justify-center gap-0.5 cursor-pointer" aria-label="Ngày 9 tháng 9, hôm nay, trạng thái Chờ đồng bộ"><span class="font-title font-bold text-[14px] text-[#0A2E22]">9</span><span class="w-4 h-4 rounded-full border-2 border-dashed border-[#64748B] bg-white flex items-center justify-center"><svg viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5"><path d="M21 12a9 9 0 1 0-3.2 6.9"/><path d="M21 3v6h-6"/></svg></span></button>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">10</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">11</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">12</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">13</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">14</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">15</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">16</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">17</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">18</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">19</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">20</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">21</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">22</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">23</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">24</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">25</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">26</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">27</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">28</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">29</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[14px] text-slate-300 font-medium">30</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[13px] text-slate-200 font-medium">1</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[13px] text-slate-200 font-medium">2</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[13px] text-slate-200 font-medium">3</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[13px] text-slate-200 font-medium">4</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center" aria-hidden="true"><span class="text-[13px] text-slate-200 font-medium">5</span></div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+        <p class="font-title font-bold text-[15px] text-[#0A2E22] mb-3">Chú giải trạng thái</p>
+        <div class="grid grid-cols-2 gap-x-3 gap-y-3">
+          <div class="flex items-center gap-2">
+            <span class="w-4 h-4 rounded-full border-2 border-dashed border-[#64748B] bg-white flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5"><path d="M21 12a9 9 0 1 0-3.2 6.9"/><path d="M21 3v6h-6"/></svg></span>
+            <span class="text-[13px] text-slate-600 font-medium">Chờ đồng bộ</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-4 h-4 rounded-full bg-[#1D4ED8] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span>
+            <span class="text-[13px] text-slate-600 font-medium">Chờ duyệt</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-4 h-4 rounded-full bg-[#0A2E22] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <span class="text-[13px] text-slate-600 font-medium">Hợp lệ</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-4 h-4 rounded-full bg-[#B91C1C] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+            <span class="text-[13px] text-slate-600 font-medium">Bị từ chối</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="cursor-pointer w-full flex items-center justify-center gap-2 min-h-[44px] rounded-2xl text-[#0A2E22] font-semibold text-sm hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Xem bảng công dạng Excel
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STATE 2: CHI TIẾT NGÀY — BOTTOM SHEET (BỊ TỪ CHỐI) ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Chi tiết ngày — Bị từ chối</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden relative flex flex-col" style="height:820px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-3 flex-shrink-0" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Lịch sử chấm công</h3>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-5 space-y-5">
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-3 flex items-center justify-between">
+        <span class="w-11 h-11 flex items-center justify-center rounded-2xl opacity-30"><svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M15 18l-6-6 6-6"/></svg></span>
+        <p class="font-display text-lg font-extrabold text-[#0A2E22]">Tháng 9, 2026</p>
+        <span class="w-11 h-11 flex items-center justify-center rounded-2xl opacity-30"><svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M9 18l6-6-6-6"/></svg></span>
+      </div>
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-3 opacity-60">
+        <div class="grid grid-cols-7 gap-1 mb-1">
+          <span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 2</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 3</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 4</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 5</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 6</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 7</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">CN</span>
+        </div>
+        <div class="grid grid-cols-7 gap-1">
+          <div class="aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5"><span class="font-title font-bold text-[14px] text-[#0A2E22]">1</span><span class="w-4 h-4 rounded-full bg-[#0A2E22]"></span></div>
+          <div class="aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5"><span class="font-title font-bold text-[14px] text-[#0A2E22]">2</span><span class="w-4 h-4 rounded-full bg-[#0A2E22]"></span></div>
+          <div class="aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5"><span class="font-title font-bold text-[14px] text-[#0A2E22]">3</span><span class="w-4 h-4 rounded-full bg-[#1D4ED8]"></span></div>
+          <div class="aspect-square rounded-2xl bg-[#FEE2E2] flex flex-col items-center justify-center gap-0.5 ring-2 ring-[#B91C1C]"><span class="font-title font-bold text-[14px] text-[#0A2E22]">4</span><span class="w-4 h-4 rounded-full bg-[#B91C1C]"></span></div>
+          <div class="aspect-square rounded-2xl flex flex-col items-center justify-center gap-0.5"><span class="font-title font-bold text-[14px] text-[#0A2E22]">5</span><span class="w-4 h-4 rounded-full bg-[#0A2E22]"></span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-400 font-medium">6</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-400 font-medium">7</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrim -->
+    <div class="absolute inset-0 bg-black/40" aria-hidden="true"></div>
+
+    <!-- Bottom sheet -->
+    <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl max-h-[86%] flex flex-col" role="dialog" aria-modal="true" aria-label="Chi tiết chấm công ngày 4 tháng 9">
+      <div class="flex justify-center pt-3 flex-shrink-0"><span class="w-10 h-1.5 rounded-full bg-slate-300"></span></div>
+      <div class="flex items-center justify-between px-5 pt-3 flex-shrink-0">
+        <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Thứ Sáu, 04/09/2026</h3>
+        <button aria-label="Đóng" class="cursor-pointer w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto px-5 pt-3 pb-5 space-y-4">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FEE2E2] text-[#B91C1C] text-sm font-semibold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+          Bị từ chối
+        </span>
+        <div class="bg-[#F5F8F6] rounded-2xl border-2 border-slate-200 p-3 grid grid-cols-2 gap-3">
+          <div>
+            <p class="text-slate-500 text-xs font-semibold uppercase mb-0.5">Giờ vào</p>
+            <p class="font-title font-bold text-[16px] text-[#0A2E22]">07:04:32</p>
+          </div>
+          <div>
+            <p class="text-slate-500 text-xs font-semibold uppercase mb-0.5">Giờ ra</p>
+            <p class="font-title font-bold text-[16px] text-[#0A2E22]">16:02:10</p>
+          </div>
+          <div>
+            <p class="text-slate-500 text-xs font-semibold uppercase mb-0.5">Loại ngày</p>
+            <p class="font-title font-bold text-[16px] text-[#0A2E22]">Ngày thường</p>
+          </div>
+          <div>
+            <p class="text-slate-500 text-xs font-semibold uppercase mb-0.5">Toạ độ</p>
+            <p class="font-title font-bold text-[14px] text-[#0A2E22]">10.7626, 106.6602</p>
+          </div>
+        </div>
+        <div>
+          <p class="text-slate-500 text-xs font-semibold uppercase mb-1.5">Ảnh chấm công</p>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="rounded-2xl border-2 border-slate-200 bg-slate-800 flex flex-col items-center justify-center gap-1" style="height:100px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="text-slate-300 text-xs font-semibold">Ảnh vào ca</span>
+            </div>
+            <div class="rounded-2xl border-2 border-slate-200 bg-slate-800 flex flex-col items-center justify-center gap-1" style="height:100px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="text-slate-300 text-xs font-semibold">Ảnh ra ca</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-[#FEE2E2] rounded-2xl p-3 flex gap-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0 mt-0.5"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+          <div>
+            <p class="text-[#B91C1C] font-title font-bold text-[14px] mb-0.5">Lý do từ chối</p>
+            <p class="text-[#B91C1C] text-sm leading-relaxed">Ảnh chấm công ra ca không rõ khuôn mặt, không xác minh được danh tính. Vui lòng liên hệ quản lý nếu cần hỗ trợ.</p>
+          </div>
+        </div>
+        <button class="cursor-pointer w-full bg-[#00B14F] hover:bg-[#00A047] text-[#0E1512] font-bold rounded-2xl min-h-[52px] flex items-center justify-center gap-2 transition-colors duration-200 text-base">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          Gửi giải trình
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STATE 3: TRỐNG — CHƯA CÓ BẢN GHI CHẤM CÔNG ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Trống — Chưa có bản ghi</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:820px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-3 flex-shrink-0" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Lịch sử chấm công</h3>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-5 space-y-5">
+      <p class="text-slate-500 text-sm -mt-1">Đang xem: Công ty TNHH Cơ khí Phương Nam</p>
+
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-3 flex items-center justify-between">
+        <button aria-label="Tháng trước" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <p class="font-display text-lg font-extrabold text-[#0A2E22]">Tháng 6, 2026</p>
+        <button aria-label="Tháng sau" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-3 opacity-50">
+        <div class="grid grid-cols-7 gap-1 mb-1">
+          <span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 2</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 3</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 4</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 5</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 6</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">Th 7</span><span class="text-center text-slate-500 text-xs font-semibold uppercase py-1">CN</span>
+        </div>
+        <div class="grid grid-cols-7 gap-1">
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">1</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">2</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">3</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">4</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">5</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">6</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">7</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">8</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">9</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">10</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">11</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">12</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">13</span></div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center"><span class="text-[14px] text-slate-300 font-medium">14</span></div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-6 flex flex-col items-center text-center gap-3 mt-2">
+        <span class="w-16 h-16 rounded-2xl bg-[#E7F8EE] flex items-center justify-center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M3 10h18M8 2v4M16 2v4"/><path d="M9 15l2 2 4-4"/></svg>
+        </span>
+        <p class="font-display text-lg font-extrabold text-[#0A2E22]">Bạn chưa có ngày công nào</p>
+        <p class="text-slate-600 text-sm leading-relaxed">Chưa có bản ghi chấm công nào trong khoảng thời gian này. Hãy chấm công lần đầu để bắt đầu theo dõi ngày công của bạn.</p>
+        <button class="cursor-pointer w-full bg-[#00B14F] hover:bg-[#00A047] text-[#0E1512] font-bold rounded-2xl min-h-[52px] flex items-center justify-center gap-2 transition-colors duration-200 text-base mt-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+          Chấm công ngay
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

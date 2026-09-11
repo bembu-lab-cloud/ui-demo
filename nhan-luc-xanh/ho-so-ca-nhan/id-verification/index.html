@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xác minh CCCD — Wizard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { fontFamily: {
+    display: ['"Be Vietnam Pro"','sans-serif'],
+    body: ['"Source Sans 3"','sans-serif']
+  } } } }
+</script>
+<style>
+  body { font-family: 'Source Sans 3', sans-serif; }
+  .font-display { font-family: 'Be Vietnam Pro', sans-serif; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+  .focus-ring:focus-visible { outline: none; box-shadow: 0 0 0 3px #00B14F, 0 0 0 5px #F5F8F6; }
+</style>
+</head>
+<body class="antialiased">
+
+<div class="min-h-screen bg-[#F5F8F6] py-10">
+  <div class="px-6 mb-6">
+    <p class="font-body text-[13px] font-semibold text-slate-500 uppercase tracking-wide">ho-so-ca-nhan / id-verification</p>
+    <h1 class="font-display text-[26px] font-extrabold text-[#0A2E22]">Xác minh CCCD — luồng wizard 4 bước</h1>
+    <p class="font-body text-[15px] text-slate-600 mt-1 max-w-2xl">Quét mã QR CCCD và nhập tay luôn song song ngang hàng ở bước 1. Kết quả quét luôn hiển thị lại dưới dạng form có thể sửa trước khi lưu.</p>
+  </div>
+
+  <div class="overflow-x-auto pb-6">
+    <div class="flex gap-8 px-6 w-max">
+
+      <!-- ============ FRAME 1 — BƯỚC 1: CHỌN PHƯƠNG THỨC ============ -->
+      <div class="w-[390px] shrink-0">
+        <h2 class="font-display text-[16px] font-bold text-[#0A2E22] mb-3">Bước 1 — Chọn phương thức</h2>
+        <div class="w-[390px] bg-white rounded-[2rem] border-2 border-slate-200 overflow-hidden flex flex-col">
+          <!-- App bar -->
+          <header class="flex items-center gap-2 px-3 h-16 bg-white border-b-4 border-[#00B14F] shrink-0">
+            <button aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-2xl text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
+            </button>
+            <h3 class="font-display text-[20px] font-extrabold text-[#0A2E22] leading-tight">Chọn phương thức</h3>
+          </header>
+          <!-- Progress -->
+          <div class="px-4 pt-3 pb-1 bg-white shrink-0">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-body text-[13px] font-semibold text-slate-500">Xác minh CCCD</span>
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#E7F8EE] font-body text-[13px] font-bold text-[#0A2E22]">Bước 1/4</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <div class="w-7 h-7 rounded-full bg-[#00B14F] flex items-center justify-center shrink-0"><span class="font-display text-[13px] font-extrabold text-[#0E1512]">1</span></div>
+              <div class="h-[3px] flex-1 rounded-full bg-slate-200"></div>
+              <div class="w-7 h-7 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center shrink-0"><span class="font-display text-[13px] font-extrabold text-slate-400">2</span></div>
+              <div class="h-[3px] flex-1 rounded-full bg-slate-200"></div>
+              <div class="w-7 h-7 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center shrink-0"><span class="font-display text-[13px] font-extrabold text-slate-400">3</span></div>
+              <div class="h-[3px] flex-1 rounded-full bg-slate-200"></div>
+              <div class="w-7 h-7 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center shrink-0"><span class="font-display text-[13px] font-extrabold text-slate-400">4</span></div>
+            </div>
+          </div>
+          <!-- Body -->
+          <main class="flex-1 px-4 pt-5 pb-6">
+            <h4 class="font-display text-[19px] font-bold text-[#0A2E22] mb-1.5">Bạn muốn nhập thông tin CCCD thế nào?</h4>
+            <p class="font-body text-[14px] text-slate-600 mb-5 leading-relaxed">Hai cách dưới đây đều dùng được — chọn cách phù hợp với bạn. Không quét được vẫn có thể nhập tay bình thường.</p>
+
+            <div class="flex flex-col gap-4">
+              <!-- Option A: QR scan (selected example state) -->
+              <button class="text-left rounded-3xl border-2 border-[#00B14F] bg-white p-5 flex flex-col gap-3 cursor-pointer transition-colors duration-200 focus-ring relative">
+                <span class="absolute top-4 right-4 w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.6"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 5 5L20 7"/></svg>
+                </span>
+                <span class="w-12 h-12 rounded-2xl bg-[#E7F8EE] flex items-center justify-center">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2">
+                    <rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/>
+                    <path stroke-linecap="round" d="M14 14h3M14 17.5h6M20 14v6"/>
+                  </svg>
+                </span>
+                <span class="font-display text-[18px] font-bold text-[#0A2E22]">Quét mã QR CCCD</span>
+                <span class="font-body text-[14px] text-slate-600 leading-relaxed">Đưa camera vào mã QR mặt sau thẻ CCCD gắn chip. Nhanh, không cần gõ tay.</span>
+              </button>
+
+              <!-- Option B: Manual entry -->
+              <button class="text-left rounded-3xl border-2 border-slate-200 bg-white p-5 flex flex-col gap-3 cursor-pointer hover:border-[#00B14F] transition-colors duration-200 focus-ring">
+                <span class="w-12 h-12 rounded-2xl bg-[#E7F8EE] flex items-center justify-center">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5Z"/></svg>
+                </span>
+                <span class="font-display text-[18px] font-bold text-[#0A2E22]">Nhập tay thông tin</span>
+                <span class="font-body text-[14px] text-slate-600 leading-relaxed">Không quét được? Điền từng trường thông tin CCCD bằng tay — dùng khi thẻ cũ, hỏng hoặc camera yếu.</span>
+              </button>
+            </div>
+          </main>
+          <!-- Bottom CTA -->
+          <footer class="px-4 pb-6 pt-2 bg-white shrink-0">
+            <button class="w-full min-h-[44px] rounded-2xl bg-[#00B14F] text-[#0E1512] font-body text-[16px] font-bold py-3.5 cursor-pointer hover:bg-[#00B14F]/90 transition-colors duration-200 focus-ring">Tiếp tục</button>
+          </footer>
+        </div>
+      </div>
+
+      <!-- ============ FRAME 2 — BƯỚC 2: XÁC NHẬN THÔNG TIN ============ -->
+      <div class="w-[390px] shrink-0">
+        <h2 class="font-display text-[16px] font-bold text-[#0A2E22] mb-3">Bước 2 — Xác nhận thông tin</h2>
+        <div class="w-[390px] bg-white rounded-[2rem] border-2 border-slate-200 overflow-hidden flex flex-col">
+          <header class="flex items-center gap-2 px-3 h-16 bg-white border-b-4 border-[#00B14F] shrink-0">
+            <button aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-2xl text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
+            </button>
+            <h3 class="font-display text-[20px] font-extrabold text-[#0A2E22] leading-tight">Xác nhận thông tin</h3>
+          </header>
+          <div class="px-4 pt-3 pb-1 bg-white shrink-0">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-body text-[13px] font-semibold text-slate-500">Xác minh CCCD</span>
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#E7F8EE] font-body text-[13px] font-bold text-[#0A2E22]">Bước 2/4</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <div class="w-7 h-7 rounded-full bg-[#00B14F] flex items-center justify-center shrink-0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 5 5L20 7"/></svg></div>
+              <div class="h-[3px] flex-1 rounded-full bg-[#00B14F]"></div>
+              <div class="w-7 h-7 rounded-full bg-[#00B14F] flex items-center justify-center shrink-0"><span class="font-display text-[13px] font-extrabold text-[#0E1512]">2</span></div>
+              <div class="h-[3px] flex-1 rounded-full bg-slate-200"></div>
+              <div class="w-7 h-7 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center shrink-0"><span class="font-display text-[13px] font-extrabold text-slate-400">3</span></div>
+              <div class="h-[3px] flex-1 rounded-full bg-slate-200"></div>
+              <div class="w-7 h-7 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center shrink-0"><span class="font-display text-[13px] font-extrabold text-slate-400">4</span></div>
+            </div>
+          </div>
+          <main class="flex-1 px-4 pt-4 pb-6">
+            <div class="rounded-2xl bg-[#E7F8EE] p-4 flex gap-3 items-start mb-6">
+              <svg class="shrink-0 mt-0.5" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 11v5"/><circle cx="12" cy="8" r="0.9" fill="#0A2E22" stroke="none"/></svg>
+              <p class="font-body text-[14px] text-[#0A2E22] leading-relaxed"><span class="font-bold">Dữ liệu vừa quét từ mã QR.</span> Vui lòng kiểm tra kỹ từng trường và sửa nếu có sai sót trước khi tiếp tục.</p>
+            </div>
+
+            <div class="flex flex-col gap-6">
+              <label class="block">
+                <span class="font-display text-[15px] font-bold text-[#0A2E22] block mb-2">Số CCCD</span>
+                <input type="text" value="079203012345" class="w-full min-h-[44px] rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none px-4 font-body text-[16px] text-[#0E1512]">
+              </label>
+              <label class="block">
+                <span class="font-display text-[15px] font-bold text-[#0A2E22] block mb-2">Họ và tên</span>
+                <input type="text" value="Nguyễn Văn An" class="w-full min-h-[44px] rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none px-4 font-body text-[16px] text-[#0E1512]">
+              </label>
+              <label class="block">
+                <span class="font-display text-[15px] font-bold text-[#0A2E22] block mb-2">Ngày sinh</span>
+                <input type="text" value="12/08/1998" class="w-full min-h-[44px] rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none px-4 font-body text-[16px] text-[#0E1512]">
+              </label>
+              <div>
+                <span class="font-display text-[15px] font-bold text-[#0A2E22] block mb-2">Giới tính</span>
+                <div class="grid grid-cols-2 gap-3">
+                  <button class="min-h-[44px] rounded-2xl bg-[#00B14F] text-[#0E1512] font-body text-[15px] font-bold cursor-pointer focus-ring">Nam</button>
+                  <button class="min-h-[44px] rounded-2xl border-2 border-slate-300 text-[#0A2E22] font-body text-[15px] font-bold cursor-pointer hover:border-[#00B14F] transition-colors duration-200 focus-ring">Nữ</button>
+                </div>
+              </div>
+              <label class="block">
+                <span class="font-display text-[15px] font-bold text-[#0A2E22] block mb-2">Địa chỉ thường trú</span>
+                <textarea rows="2" class="w-full rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none px-4 py-3 font-body text-[16px] text-[#0E1512] resize-none">Thôn 3, xã Bình Minh, huyện Krông Ana, tỉnh Đắk Lắk</textarea>
+              </label>
+              <label class="block">
+                <span class="font-display text-[15px] font-bold text-[#0A2E22] block mb-2">Ngày cấp</span>
+                <input type="text" value="05/03/2021" class="w-full min-h-[44px] rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none px-4 font-body text-[16px] text-[#0E1512]">
+              </label>
+            </div>
+          </main>
+          <footer class="px-4 pb-6 pt-2 bg-white shrink-0">
+            <button class="w-full min-h-[44px] rounded-2xl bg-[#00B14F] text-[#0E1512] font-body text-[16px] font-bold py-3.5 cursor-pointer hover:bg-[#00B14F]/90 transition-colors duration-200 focus-ring">Tiếp tục</button>
+          </footer>
+        </div>
+      </div>
+
+      <!-- ============ FRAME 3 — BƯỚC 3: CHỤP ẢNH CCCD ============ -->
+      <div class="w-[390px] shrink-0">
+        <h2 class="font-display text-[16px] font-bold text-[#0A2E22] mb-3">Bước 3 — Chụp ảnh CCCD</h2>
+        <div class="w-[390px] bg-white rounded-[2rem] border-2 border-slate-200 overflow-hidden flex flex-col">
+          <header class="flex items-center gap-2 px-3 h-16 bg-white border-b-4 border-[#00B14F] shrink-0">
+            <button aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-2xl text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
+            </button>
+            <h3 class="font-display text-[20px] font-extrabold text-[#0A2E22] leading-tight">Chụp ảnh CCCD</h3>
+          </header>
+          <div class="px-4 pt-3 pb-1 bg-white shrink-0">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-body text-[13px] font-semibold text-slate-500">Xác minh CCCD</span>
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#E7F8EE] font-body text-[13px] font-bold text-[#0A2E22]">Bước 3/4</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <div class="w-7 h-7 rounded-full bg-[#00B14F] flex items-center justify-center shrink-0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 5 5L20 7"/></svg></div>
+              <div class="h-[3px] flex-1 rounded-full bg-[#00B14F]"></div>
+              <div class="w-7 h-7 rounded-full bg-[#00B14F] flex items-center justify-center shrink-0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 5 5L20 7"/></svg></div>
+              <div class="h-[3px] flex-1 rounded-full bg-[#00B14F]"></div>
+              <div class="w-7 h-7 rounded-full bg-[#00B14F] flex items-center justify-center shrink-0"><span class="font-display text-[13px] font-extrabold text-[#0E1512]">3</span></div>
+              <div class="h-[3px] flex-1 rounded-full bg-slate-200"></div>
+              <div class="w-7 h-7 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center shrink-0"><span class="font-display text-[13px] font-extrabold text-slate-400">4</span></div>
+            </div>
+          </div>
+          <main class="flex-1 px-4 pt-4 pb-6">
+            <p class="font-body text-[14px] text-slate-600 mb-5 leading-relaxed">Chụp rõ mặt trước và mặt sau CCCD. Ảnh được mã hoá khi lưu, chỉ quản trị viên mới xem được bản gốc.</p>
+
+            <div class="flex flex-col gap-5">
+              <!-- Front: captured -->
+              <div class="rounded-3xl border-2 border-slate-200 overflow-hidden">
+                <div class="h-36 bg-slate-100 flex items-center justify-center relative">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.8"><rect x="2.5" y="5.5" width="19" height="13" rx="2"/><circle cx="8.5" cy="11" r="2"/><path stroke-linecap="round" d="M13 10.5h6M13 13.5h4"/></svg>
+                  <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#E7F8EE] font-body text-[13px] font-bold text-[#0A2E22]">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 5 5L20 7"/></svg>
+                    Đã chụp
+                  </span>
+                </div>
+                <div class="flex items-center justify-between px-4 py-3">
+                  <span class="font-display text-[15px] font-bold text-[#0A2E22]">Mặt trước</span>
+                  <button class="inline-flex items-center gap-1.5 font-body text-[14px] font-bold text-[#0A2E22] cursor-pointer hover:text-[#00B14F] transition-colors duration-200 focus-ring rounded-lg px-1">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0 1 12.8-5.3M19.5 12a7.5 7.5 0 0 1-12.8 5.3M4.5 4.5v4h4M19.5 19.5v-4h-4"/></svg>
+                    Chụp lại
+                  </button>
+                </div>
+              </div>
+
+              <!-- Back: not yet captured -->
+              <div class="rounded-3xl border-2 border-dashed border-slate-300 p-6 flex flex-col items-center justify-center gap-3 text-center">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8.5A1.5 1.5 0 0 1 4.5 7h2.379a1 1 0 0 0 .809-.412l.848-1.176A1 1 0 0 1 9.345 5h5.31a1 1 0 0 1 .809.412l.848 1.176A1 1 0 0 0 17.121 7H19.5A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5v-9Z"/><circle cx="12" cy="13" r="3.25"/></svg>
+                <span class="font-display text-[15px] font-bold text-[#0A2E22]">Mặt sau</span>
+                <button class="min-h-[44px] px-5 rounded-2xl border-2 border-[#00B14F] text-[#0A2E22] font-body text-[14px] font-bold cursor-pointer hover:bg-[#E7F8EE] transition-colors duration-200 focus-ring">Chụp ảnh</button>
+              </div>
+            </div>
+          </main>
+          <footer class="px-4 pb-6 pt-2 bg-white shrink-0">
+            <button disabled class="w-full min-h-[44px] rounded-2xl bg-slate-200 text-slate-400 font-body text-[16px] font-bold py-3.5 cursor-not-allowed">Tiếp tục</button>
+            <p class="font-body text-[13px] text-slate-500 text-center mt-2">Chụp đủ ảnh mặt trước và mặt sau để tiếp tục</p>
+          </footer>
+        </div>
+      </div>
+
+      <!-- ============ FRAME 4 — BƯỚC 4: CHÂN DUNG & GỬI ============ -->
+      <div class="w-[390px] shrink-0">
+        <h2 class="font-display text-[16px] font-bold text-[#0A2E22] mb-3">Bước 4 — Chụp ảnh chân dung &amp; Gửi</h2>
+        <div class="w-[390px] bg-white rounded-[2rem] border-2 border-slate-200 overflow-hidden flex flex-col">
+          <header class="flex items-center gap-2 px-3 h-16 bg-white border-b-4 border-[#00B14F] shrink-0">
+            <button aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-2xl text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
+            </button>
+            <h3 class="font-display text-[20px] font-extrabold text-[#0A2E22] leading-tight">Chụp chân dung &amp; Gửi</h3>
+          </header>
+          <div class="px-4 pt-3 pb-1 bg-white shrink-0">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-body text-[13px] font-semibold text-slate-500">Xác minh CCCD</span>
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#E7F8EE] font-body text-[13px] font-bold text-[#0A2E22]">Bước 4/4</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <div class="w-7 h-7 rounded-full bg-[#00B14F] flex items-center justify-center shrink-0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 5 5L20 7"/></svg></div>
+              <div class="h-[3px] flex-1 rounded-full bg-[#00B14F]"></div>
+              <div class="w-7 h-7 rounded-full bg-[#00B14F] flex items-center justify-center shrink-0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 5 5L20 7"/></svg></div>
+              <div class="h-[3px] flex-1 rounded-full bg-[#00B14F]"></div>
+              <div class="w-7 h-7 rounded-full bg-[#00B14F] flex items-center justify-center shrink-0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 5 5L20 7"/></svg></div>
+              <div class="h-[3px] flex-1 rounded-full bg-[#00B14F]"></div>
+              <div class="w-7 h-7 rounded-full bg-[#00B14F] flex items-center justify-center shrink-0"><span class="font-display text-[13px] font-extrabold text-[#0E1512]">4</span></div>
+            </div>
+          </div>
+          <main class="flex-1 px-4 pt-4 pb-6">
+            <p class="font-body text-[14px] text-slate-600 mb-5 leading-relaxed">Chụp ảnh chân dung rõ mặt, đủ sáng. Không dùng để đối chiếu khuôn mặt — chỉ lưu vào hồ sơ.</p>
+
+            <div class="rounded-3xl border-2 border-slate-200 overflow-hidden mb-6">
+              <div class="h-44 bg-slate-100 flex items-center justify-center relative">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.8"><circle cx="12" cy="9" r="3.25"/><path stroke-linecap="round" stroke-linejoin="round" d="M5.5 19.5c1-3.5 4-5.5 6.5-5.5s5.5 2 6.5 5.5"/></svg>
+                <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#E7F8EE] font-body text-[13px] font-bold text-[#0A2E22]">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 5 5L20 7"/></svg>
+                  Đã chụp
+                </span>
+              </div>
+              <div class="flex items-center justify-between px-4 py-3">
+                <span class="font-display text-[15px] font-bold text-[#0A2E22]">Ảnh chân dung</span>
+                <button class="inline-flex items-center gap-1.5 font-body text-[14px] font-bold text-[#0A2E22] cursor-pointer hover:text-[#00B14F] transition-colors duration-200 focus-ring rounded-lg px-1">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0 1 12.8-5.3M19.5 12a7.5 7.5 0 0 1-12.8 5.3M4.5 4.5v4h4M19.5 19.5v-4h-4"/></svg>
+                  Chụp lại
+                </button>
+              </div>
+            </div>
+
+            <div class="rounded-2xl bg-[#E7F8EE] p-4 flex gap-3 items-start mb-5">
+              <svg class="shrink-0 mt-0.5" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2"><rect x="5" y="10.5" width="14" height="9" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+              <p class="font-body text-[14px] text-[#0A2E22] leading-relaxed">Ảnh CCCD và ảnh chân dung được <span class="font-bold">mã hoá khi lưu trữ</span>. Chỉ quản trị viên mới có quyền xem bản gốc.</p>
+            </div>
+
+            <div class="rounded-2xl border-2 border-slate-200 p-4 flex items-center justify-between gap-3">
+              <p class="font-body text-[14px] text-slate-600 leading-relaxed">Sau khi gửi, hồ sơ chuyển sang trạng thái:</p>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#DBEAFE] font-body text-[13px] font-bold text-[#1D4ED8] shrink-0">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2"/></svg>
+                Chờ duyệt
+              </span>
+            </div>
+          </main>
+          <footer class="px-4 pb-6 pt-2 bg-white shrink-0">
+            <button class="w-full min-h-[44px] rounded-2xl bg-[#00B14F] text-[#0E1512] font-body text-[16px] font-bold py-3.5 cursor-pointer hover:bg-[#00B14F]/90 transition-colors duration-200 focus-ring">Gửi hồ sơ</button>
+          </footer>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

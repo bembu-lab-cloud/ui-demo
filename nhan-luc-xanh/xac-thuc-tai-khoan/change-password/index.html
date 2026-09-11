@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Đổi mật khẩu — Nhân Lực Xanh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'Source Sans 3', sans-serif; background: #EEF2F0; color: #0E1512; }
+  .font-display { font-family: 'Be Vietnam Pro', sans-serif; }
+  .frame { width: 390px; height: 800px; background: #F5F8F6; }
+  input[type="password"], input[type="text"] { font-family: 'Source Sans 3', sans-serif; }
+  *:focus-visible { outline: 3px solid #00B14F; outline-offset: 2px; border-radius: 8px; }
+  .cursor-pointer, button { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body class="p-8">
+
+<h1 class="font-display text-2xl font-extrabold text-[#0A2E22] mb-1">Đổi mật khẩu — xac-thuc-tai-khoan</h1>
+<p class="text-slate-600 mb-8 text-base">Đối chiếu 5 trạng thái: mặc định, sai mật khẩu cũ, xác nhận không khớp, đang xử lý, thành công.</p>
+
+<div class="flex gap-8 overflow-x-auto pb-8" style="scrollbar-width: thin;">
+
+<!-- STATE 1: DEFAULT -->
+<div class="shrink-0">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Mặc định</h2>
+  <div class="frame rounded-3xl border-2 border-slate-200 overflow-hidden flex flex-col">
+    <header class="h-14 bg-white border-b-4 border-[#00B14F] flex items-center px-3 gap-2 shrink-0">
+      <button type="button" aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-2xl text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <h1 class="font-display text-[22px] font-extrabold text-[#0A2E22]">Đổi mật khẩu</h1>
+    </header>
+    <div class="flex-1 overflow-y-auto px-4 py-6">
+      <p class="text-base text-slate-600 mb-6 leading-relaxed">Nhập mật khẩu hiện tại và mật khẩu mới để cập nhật tài khoản của bạn.</p>
+
+      <div class="mb-6">
+        <label for="f1-old" class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Mật khẩu cũ</label>
+        <div class="relative">
+          <input id="f1-old" type="password" placeholder="Nhập mật khẩu hiện tại" class="w-full min-h-[44px] rounded-2xl border-2 border-slate-300 bg-white pl-4 pr-14 py-3 text-base text-[#0E1512] placeholder:text-slate-400 focus:border-[#00B14F] focus:outline-none transition-colors duration-200" />
+          <button type="button" class="pw-toggle absolute right-0 top-0 h-full w-12 flex items-center justify-center text-slate-500 hover:text-[#0A2E22] transition-colors duration-200 rounded-r-2xl" data-target="f1-old" aria-label="Hiện mật khẩu">
+            <svg class="icon-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" /><circle cx="12" cy="12" r="3" /></svg>
+            <svg class="icon-eye-off hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.6 21.6 0 0 1 5.06-5.94M9.9 4.24A10.4 10.4 0 0 1 12 4c7 0 11 7 11 7a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label for="f1-new" class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Mật khẩu mới</label>
+        <div class="relative">
+          <input id="f1-new" type="password" placeholder="Nhập mật khẩu mới" class="w-full min-h-[44px] rounded-2xl border-2 border-slate-300 bg-white pl-4 pr-14 py-3 text-base text-[#0E1512] placeholder:text-slate-400 focus:border-[#00B14F] focus:outline-none transition-colors duration-200" />
+          <button type="button" class="pw-toggle absolute right-0 top-0 h-full w-12 flex items-center justify-center text-slate-500 hover:text-[#0A2E22] transition-colors duration-200 rounded-r-2xl" data-target="f1-new" aria-label="Hiện mật khẩu">
+            <svg class="icon-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" /><circle cx="12" cy="12" r="3" /></svg>
+            <svg class="icon-eye-off hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.6 21.6 0 0 1 5.06-5.94M9.9 4.24A10.4 10.4 0 0 1 12 4c7 0 11 7 11 7a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
+          </button>
+        </div>
+        <div class="flex items-start gap-2 mt-2 text-slate-600">
+          <svg class="shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><line x1="12" y1="11" x2="12" y2="16" /><line x1="12" y1="7.5" x2="12.01" y2="7.5" /></svg>
+          <p class="text-[13px] font-medium leading-snug">Tối thiểu 6 ký tự.</p>
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <label for="f1-confirm" class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Xác nhận mật khẩu mới</label>
+        <div class="relative">
+          <input id="f1-confirm" type="password" placeholder="Nhập lại mật khẩu mới" class="w-full min-h-[44px] rounded-2xl border-2 border-slate-300 bg-white pl-4 pr-14 py-3 text-base text-[#0E1512] placeholder:text-slate-400 focus:border-[#00B14F] focus:outline-none transition-colors duration-200" />
+          <button type="button" class="pw-toggle absolute right-0 top-0 h-full w-12 flex items-center justify-center text-slate-500 hover:text-[#0A2E22] transition-colors duration-200 rounded-r-2xl" data-target="f1-confirm" aria-label="Hiện mật khẩu">
+            <svg class="icon-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" /><circle cx="12" cy="12" r="3" /></svg>
+            <svg class="icon-eye-off hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.6 21.6 0 0 1 5.06-5.94M9.9 4.24A10.4 10.4 0 0 1 12 4c7 0 11 7 11 7a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <button type="button" class="w-full min-h-[44px] rounded-2xl bg-[#00B14F] text-[#0E1512] font-bold text-base font-display transition-colors duration-200 hover:brightness-95 mb-3">Đổi mật khẩu</button>
+      <button type="button" class="w-full min-h-[44px] rounded-2xl bg-white border-2 border-[#0A2E22] text-[#0A2E22] font-bold text-base font-display transition-colors duration-200 hover:bg-[#E7F8EE]">Huỷ</button>
+    </div>
+  </div>
+</div>
+
+<!-- STATE 2: WRONG OLD PASSWORD -->
+<div class="shrink-0">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Sai mật khẩu cũ</h2>
+  <div class="frame rounded-3xl border-2 border-slate-200 overflow-hidden flex flex-col">
+    <header class="h-14 bg-white border-b-4 border-[#00B14F] flex items-center px-3 gap-2 shrink-0">
+      <button type="button" aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-2xl text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <h1 class="font-display text-[22px] font-extrabold text-[#0A2E22]">Đổi mật khẩu</h1>
+    </header>
+    <div class="flex-1 overflow-y-auto px-4 py-6">
+      <p class="text-base text-slate-600 mb-6 leading-relaxed">Nhập mật khẩu hiện tại và mật khẩu mới để cập nhật tài khoản của bạn.</p>
+
+      <div class="mb-2">
+        <label for="f2-old" class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Mật khẩu cũ</label>
+        <div class="relative">
+          <input id="f2-old" type="password" value="•••••••" class="w-full min-h-[44px] rounded-2xl border-2 border-[#B91C1C] bg-white pl-4 pr-14 py-3 text-base text-[#0E1512] focus:outline-none transition-colors duration-200" />
+          <button type="button" class="pw-toggle absolute right-0 top-0 h-full w-12 flex items-center justify-center text-slate-500 hover:text-[#0A2E22] transition-colors duration-200 rounded-r-2xl" data-target="f2-old" aria-label="Hiện mật khẩu">
+            <svg class="icon-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" /><circle cx="12" cy="12" r="3" /></svg>
+            <svg class="icon-eye-off hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.6 21.6 0 0 1 5.06-5.94M9.9 4.24A10.4 10.4 0 0 1 12 4c7 0 11 7 11 7a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
+          </button>
+        </div>
+        <div class="flex items-start gap-2 mt-2 text-[#B91C1C]">
+          <svg class="shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><line x1="12" y1="8" x2="12" y2="13" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+          <p class="text-[13px] font-semibold leading-snug">Mật khẩu cũ không đúng. Vui lòng thử lại.</p>
+        </div>
+      </div>
+
+      <div class="mb-6 mt-6">
+        <label for="f2-new" class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Mật khẩu mới</label>
+        <div class="relative">
+          <input id="f2-new" type="password" placeholder="Nhập mật khẩu mới" class="w-full min-h-[44px] rounded-2xl border-2 border-slate-300 bg-white pl-4 pr-14 py-3 text-base text-[#0E1512] placeholder:text-slate-400 focus:border-[#00B14F] focus:outline-none transition-colors duration-200" />
+          <button type="button" class="pw-toggle absolute right-0 top-0 h-full w-12 flex items-center justify-center text-slate-500 hover:text-[#0A2E22] transition-colors duration-200 rounded-r-2xl" data-target="f2-new" aria-label="Hiện mật khẩu">
+            <svg class="icon-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" /><circle cx="12" cy="12" r="3" /></svg>
+            <svg class="icon-eye-off hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.6 21.6 0 0 1 5.06-5.94M9.9 4.24A10.4 10.4 0 0 1 12 4c7 0 11 7 11 7a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <label for="f2-confirm" class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Xác nhận mật khẩu mới</label>
+        <div class="relative">
+          <input id="f2-confirm" type="password" placeholder="Nhập lại mật khẩu mới" class="w-full min-h-[44px] rounded-2xl border-2 border-slate-300 bg-white pl-4 pr-14 py-3 text-base text-[#0E1512] placeholder:text-slate-400 focus:border-[#00B14F] focus:outline-none transition-colors duration-200" />
+          <button type="button" class="pw-toggle absolute right-0 top-0 h-full w-12 flex items-center justify-center text-slate-500 hover:text-[#0A2E22] transition-colors duration-200 rounded-r-2xl" data-target="f2-confirm" aria-label="Hiện mật khẩu">
+            <svg class="icon-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" /><circle cx="12" cy="12" r="3" /></svg>
+            <svg class="icon-eye-off hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.6 21.6 0 0 1 5.06-5.94M9.9 4.24A10.4 10.4 0 0 1 12 4c7 0 11 7 11 7a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <button type="button" class="w-full min-h-[44px] rounded-2xl bg-[#00B14F] text-[#0E1512] font-bold text-base font-display transition-colors duration-200 hover:brightness-95 mb-3">Đổi mật khẩu</button>
+      <button type="button" class="w-full min-h-[44px] rounded-2xl bg-white border-2 border-[#0A2E22] text-[#0A2E22] font-bold text-base font-display transition-colors duration-200 hover:bg-[#E7F8EE]">Huỷ</button>
+    </div>
+  </div>
+</div>
+
+<!-- STATE 3: MISMATCH CONFIRM -->
+<div class="shrink-0">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Xác nhận không khớp</h2>
+  <div class="frame rounded-3xl border-2 border-slate-200 overflow-hidden flex flex-col">
+    <header class="h-14 bg-white border-b-4 border-[#00B14F] flex items-center px-3 gap-2 shrink-0">
+      <button type="button" aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-2xl text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <h1 class="font-display text-[22px] font-extrabold text-[#0A2E22]">Đổi mật khẩu</h1>
+    </header>
+    <div class="flex-1 overflow-y-auto px-4 py-6">
+      <p class="text-base text-slate-600 mb-6 leading-relaxed">Nhập mật khẩu hiện tại và mật khẩu mới để cập nhật tài khoản của bạn.</p>
+
+      <div class="mb-6">
+        <label for="f3-old" class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Mật khẩu cũ</label>
+        <div class="relative">
+          <input id="f3-old" type="password" value="•••••••" class="w-full min-h-[44px] rounded-2xl border-2 border-slate-300 bg-white pl-4 pr-14 py-3 text-base text-[#0E1512] focus:border-[#00B14F] focus:outline-none transition-colors duration-200" />
+          <button type="button" class="pw-toggle absolute right-0 top-0 h-full w-12 flex items-center justify-center text-slate-500 hover:text-[#0A2E22] transition-colors duration-200 rounded-r-2xl" data-target="f3-old" aria-label="Hiện mật khẩu">
+            <svg class="icon-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" /><circle cx="12" cy="12" r="3" /></svg>
+            <svg class="icon-eye-off hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.6 21.6 0 0 1 5.06-5.94M9.9 4.24A10.4 10.4 0 0 1 12 4c7 0 11 7 11 7a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <label for="f3-new" class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Mật khẩu mới</label>
+        <div class="relative">
+          <input id="f3-new" type="password" value="•••••••••" class="w-full min-h-[44px] rounded-2xl border-2 border-[#B91C1C] bg-white pl-4 pr-14 py-3 text-base text-[#0E1512] focus:outline-none transition-colors duration-200" />
+          <button type="button" class="pw-toggle absolute right-0 top-0 h-full w-12 flex items-center justify-center text-slate-500 hover:text-[#0A2E22] transition-colors duration-200 rounded-r-2xl" data-target="f3-new" aria-label="Hiện mật khẩu">
+            <svg class="icon-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" /><circle cx="12" cy="12" r="3" /></svg>
+            <svg class="icon-eye-off hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.6 21.6 0 0 1 5.06-5.94M9.9 4.24A10.4 10.4 0 0 1 12 4c7 0 11 7 11 7a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <label for="f3-confirm" class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Xác nhận mật khẩu mới</label>
+        <div class="relative">
+          <input id="f3-confirm" type="password" value="•••••••" class="w-full min-h-[44px] rounded-2xl border-2 border-[#B91C1C] bg-white pl-4 pr-14 py-3 text-base text-[#0E1512] focus:outline-none transition-colors duration-200" />
+          <button type="button" class="pw-toggle absolute right-0 top-0 h-full w-12 flex items-center justify-center text-slate-500 hover:text-[#0A2E22] transition-colors duration-200 rounded-r-2xl" data-target="f3-confirm" aria-label="Hiện mật khẩu">
+            <svg class="icon-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" /><circle cx="12" cy="12" r="3" /></svg>
+            <svg class="icon-eye-off hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.6 21.6 0 0 1 5.06-5.94M9.9 4.24A10.4 10.4 0 0 1 12 4c7 0 11 7 11 7a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
+          </button>
+        </div>
+        <div class="flex items-start gap-2 mt-2 text-[#B91C1C]">
+          <svg class="shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><line x1="12" y1="8" x2="12" y2="13" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+          <p class="text-[13px] font-semibold leading-snug">Mật khẩu xác nhận không khớp với mật khẩu mới.</p>
+        </div>
+      </div>
+
+      <button type="button" class="w-full min-h-[44px] rounded-2xl bg-[#00B14F] text-[#0E1512] font-bold text-base font-display transition-colors duration-200 hover:brightness-95 mb-3">Đổi mật khẩu</button>
+      <button type="button" class="w-full min-h-[44px] rounded-2xl bg-white border-2 border-[#0A2E22] text-[#0A2E22] font-bold text-base font-display transition-colors duration-200 hover:bg-[#E7F8EE]">Huỷ</button>
+    </div>
+  </div>
+</div>
+
+<!-- STATE 4: SUBMITTING -->
+<div class="shrink-0">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Đang xử lý</h2>
+  <div class="frame rounded-3xl border-2 border-slate-200 overflow-hidden flex flex-col">
+    <header class="h-14 bg-white border-b-4 border-[#00B14F] flex items-center px-3 gap-2 shrink-0">
+      <button type="button" aria-label="Quay lại" disabled class="w-11 h-11 flex items-center justify-center rounded-2xl text-slate-300">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <h1 class="font-display text-[22px] font-extrabold text-[#0A2E22]">Đổi mật khẩu</h1>
+    </header>
+    <div class="flex-1 overflow-y-auto px-4 py-6">
+      <p class="text-base text-slate-600 mb-6 leading-relaxed">Nhập mật khẩu hiện tại và mật khẩu mới để cập nhật tài khoản của bạn.</p>
+
+      <div class="mb-6">
+        <label class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Mật khẩu cũ</label>
+        <input type="password" value="•••••••" disabled class="w-full min-h-[44px] rounded-2xl border-2 border-slate-200 bg-slate-50 pl-4 pr-14 py-3 text-base text-slate-400" />
+      </div>
+      <div class="mb-6">
+        <label class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Mật khẩu mới</label>
+        <input type="password" value="•••••••••" disabled class="w-full min-h-[44px] rounded-2xl border-2 border-slate-200 bg-slate-50 pl-4 pr-14 py-3 text-base text-slate-400" />
+      </div>
+      <div class="mb-8">
+        <label class="block text-[15px] font-bold text-[#0A2E22] mb-2 font-display">Xác nhận mật khẩu mới</label>
+        <input type="password" value="•••••••••" disabled class="w-full min-h-[44px] rounded-2xl border-2 border-slate-200 bg-slate-50 pl-4 pr-14 py-3 text-base text-slate-400" />
+      </div>
+
+      <button type="button" disabled aria-label="Đang xử lý yêu cầu đổi mật khẩu" class="w-full min-h-[44px] rounded-2xl bg-slate-200 text-slate-400 font-bold text-base font-display flex items-center justify-center gap-2 mb-3">
+        <svg class="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2.5" stroke-opacity="0.3" /><path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg>
+        Đang xử lý...
+      </button>
+      <button type="button" disabled class="w-full min-h-[44px] rounded-2xl bg-white border-2 border-slate-200 text-slate-300 font-bold text-base font-display">Huỷ</button>
+    </div>
+  </div>
+</div>
+
+<!-- STATE 5: SUCCESS -->
+<div class="shrink-0">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Thành công</h2>
+  <div class="frame rounded-3xl border-2 border-slate-200 overflow-hidden flex flex-col">
+    <header class="h-14 bg-white border-b-4 border-[#00B14F] flex items-center px-3 gap-2 shrink-0">
+      <button type="button" aria-label="Quay lại" class="w-11 h-11 flex items-center justify-center rounded-2xl text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <h1 class="font-display text-[22px] font-extrabold text-[#0A2E22]">Đổi mật khẩu</h1>
+    </header>
+    <div class="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center">
+      <div class="w-20 h-20 rounded-full bg-[#E7F8EE] flex items-center justify-center mb-6">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+      </div>
+      <h2 class="font-display text-[22px] font-extrabold text-[#0A2E22] mb-3">Đổi mật khẩu thành công</h2>
+      <p class="text-base text-slate-600 leading-relaxed mb-8">Mật khẩu của bạn đã được cập nhật. Hãy dùng mật khẩu mới cho lần đăng nhập tiếp theo.</p>
+      <button type="button" class="w-full min-h-[44px] rounded-2xl bg-[#00B14F] text-[#0E1512] font-bold text-base font-display transition-colors duration-200 hover:brightness-95">Quay lại Cài đặt tài khoản</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.pw-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var input = document.getElementById(btn.dataset.target);
+      if (!input || input.disabled) return;
+      var eye = btn.querySelector('.icon-eye');
+      var eyeOff = btn.querySelector('.icon-eye-off');
+      var showing = input.type === 'text';
+      input.type = showing ? 'password' : 'text';
+      eye.classList.toggle('hidden');
+      eyeOff.classList.toggle('hidden');
+      btn.setAttribute('aria-label', showing ? 'Hiện mật khẩu' : 'Ẩn mật khẩu');
+    });
+  });
+</script>
+</body>
+</html>

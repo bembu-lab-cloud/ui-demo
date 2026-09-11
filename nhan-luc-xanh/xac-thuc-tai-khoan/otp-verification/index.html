@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xác thực OTP — Nhân Lực Xanh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['"Be Vietnam Pro"', 'sans-serif'],
+          body: ['"Source Sans 3"', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html, body { background: #EDF1EF; font-family: 'Source Sans 3', sans-serif; }
+  .frame { width: 390px; min-width: 390px; }
+  .otp-box {
+    width: 48px; height: 56px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+  .focus-ring:focus-visible { outline: none; box-shadow: 0 0 0 3px #00B14F, 0 0 0 5px #F5F8F6; }
+</style>
+</head>
+<body class="text-[#0E1512]">
+
+<div class="max-w-full overflow-x-auto py-8 px-6">
+  <div class="flex gap-8 items-start w-max mx-auto">
+
+    <!-- ============= FRAME 1: MẶC ĐỊNH — ĐANG NHẬP MÃ, ĐẾM NGƯỢC 60S ============= -->
+    <div>
+      <h2 class="font-display font-extrabold text-lg text-[#0A2E22] mb-3">Trạng thái: Mặc định (đang đếm ngược)</h2>
+      <div class="frame bg-[#F5F8F6] rounded-3xl overflow-hidden border-2 border-slate-200">
+
+        <!-- App bar -->
+        <header class="h-16 bg-white border-b-4 border-[#00B14F] flex items-center px-2">
+          <button class="w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring" aria-label="Quay lại">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <h1 class="font-display font-extrabold text-[22px] text-[#0A2E22] ml-1">Xác thực OTP</h1>
+        </header>
+
+        <main class="px-4 pt-6 pb-8">
+          <!-- Icon + instructions -->
+          <div class="flex flex-col items-center text-center mb-8">
+            <div class="w-16 h-16 rounded-2xl bg-[#E7F8EE] flex items-center justify-center mb-4">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/><path d="M9 6h6" stroke="#00B14F"/></svg>
+            </div>
+            <p class="font-body text-base text-slate-600 leading-snug">Nhập mã gồm 6 chữ số vừa được gửi đến số điện thoại</p>
+            <p class="font-display font-bold text-lg text-[#0A2E22] mt-1">090 123 4567</p>
+          </div>
+
+          <!-- OTP boxes -->
+          <div class="flex justify-between gap-2 mb-3" role="group" aria-label="Nhập mã OTP 6 chữ số">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512] transition-colors duration-200" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" value="4" aria-label="Số 1">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512] transition-colors duration-200" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" value="8" aria-label="Số 2">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512] transition-colors duration-200" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" value="2" aria-label="Số 3">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512] transition-colors duration-200" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" value="" aria-label="Số 4" autofocus>
+            <input class="otp-box focus-ring rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512] transition-colors duration-200" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" value="" aria-label="Số 5">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512] transition-colors duration-200" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" value="" aria-label="Số 6">
+          </div>
+
+          <!-- OTP validity countdown -->
+          <div class="flex items-center gap-1.5 mb-8">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <p class="font-body text-sm font-medium text-slate-500">Mã có hiệu lực trong <span class="font-semibold text-slate-600">04:32</span></p>
+          </div>
+
+          <!-- Primary confirm button (disabled until 6 digits) -->
+          <button class="w-full min-h-[44px] rounded-2xl bg-slate-200 text-slate-400 font-body font-bold text-base py-3 cursor-not-allowed mb-6 focus-ring" disabled>Xác nhận</button>
+
+          <!-- Resend row, countdown active -->
+          <div class="flex items-center justify-center gap-1.5 mb-6">
+            <p class="font-body text-sm text-slate-500">Chưa nhận được mã?</p>
+            <p class="font-body text-sm font-semibold text-slate-400">Gửi lại sau 00:47</p>
+          </div>
+
+          <!-- Support fallback -->
+          <button class="w-full flex items-center justify-center gap-2 min-h-[44px] rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11a9 9 0 0118 0v6a2 2 0 01-2 2h-1v-8h3M3 11v8h3v-8H3M3 11a9 9 0 0118 0"/></svg>
+            <span class="font-body text-sm font-semibold text-[#0A2E22] underline">Không nhận được mã? Gọi hỗ trợ</span>
+          </button>
+        </main>
+      </div>
+    </div>
+
+    <!-- ============= FRAME 2: NHẬP SAI MÃ (LỖI) ============= -->
+    <div>
+      <h2 class="font-display font-extrabold text-lg text-[#0A2E22] mb-3">Trạng thái: Nhập sai mã (Lỗi)</h2>
+      <div class="frame bg-[#F5F8F6] rounded-3xl overflow-hidden border-2 border-slate-200">
+
+        <header class="h-16 bg-white border-b-4 border-[#00B14F] flex items-center px-2">
+          <button class="w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring" aria-label="Quay lại">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <h1 class="font-display font-extrabold text-[22px] text-[#0A2E22] ml-1">Xác thực OTP</h1>
+        </header>
+
+        <main class="px-4 pt-6 pb-8">
+          <div class="flex flex-col items-center text-center mb-8">
+            <div class="w-16 h-16 rounded-2xl bg-[#E7F8EE] flex items-center justify-center mb-4">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/><path d="M9 6h6" stroke="#00B14F"/></svg>
+            </div>
+            <p class="font-body text-base text-slate-600 leading-snug">Nhập mã gồm 6 chữ số vừa được gửi đến số điện thoại</p>
+            <p class="font-display font-bold text-lg text-[#0A2E22] mt-1">090 123 4567</p>
+          </div>
+
+          <div class="flex justify-between gap-2 mb-3" role="group" aria-label="Nhập mã OTP 6 chữ số">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-[#B91C1C] bg-[#FEE2E2] focus:outline-none text-center text-2xl font-bold text-[#B91C1C]" type="text" inputmode="numeric" maxlength="1" value="4">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-[#B91C1C] bg-[#FEE2E2] focus:outline-none text-center text-2xl font-bold text-[#B91C1C]" type="text" inputmode="numeric" maxlength="1" value="8">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-[#B91C1C] bg-[#FEE2E2] focus:outline-none text-center text-2xl font-bold text-[#B91C1C]" type="text" inputmode="numeric" maxlength="1" value="2">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-[#B91C1C] bg-[#FEE2E2] focus:outline-none text-center text-2xl font-bold text-[#B91C1C]" type="text" inputmode="numeric" maxlength="1" value="9">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-[#B91C1C] bg-[#FEE2E2] focus:outline-none text-center text-2xl font-bold text-[#B91C1C]" type="text" inputmode="numeric" maxlength="1" value="0">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-[#B91C1C] bg-[#FEE2E2] focus:outline-none text-center text-2xl font-bold text-[#B91C1C]" type="text" inputmode="numeric" maxlength="1" value="1">
+          </div>
+
+          <!-- Error message -->
+          <div class="flex items-start gap-2 mb-6 px-1">
+            <svg class="shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+            <p class="font-body text-sm font-medium text-[#B91C1C]">Mã OTP không đúng. Vui lòng kiểm tra và nhập lại — các số đã nhập không tự xoá.</p>
+          </div>
+
+          <button class="w-full min-h-[44px] rounded-2xl bg-slate-200 text-slate-400 font-body font-bold text-base py-3 cursor-not-allowed mb-6 focus-ring" disabled>Xác nhận</button>
+
+          <div class="flex items-center justify-center gap-1.5 mb-6">
+            <p class="font-body text-sm text-slate-500">Chưa nhận được mã?</p>
+            <p class="font-body text-sm font-semibold text-slate-400">Gửi lại sau 00:22</p>
+          </div>
+
+          <button class="w-full flex items-center justify-center gap-2 min-h-[44px] rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11a9 9 0 0118 0v6a2 2 0 01-2 2h-1v-8h3M3 11v8h3v-8H3M3 11a9 9 0 0118 0"/></svg>
+            <span class="font-body text-sm font-semibold text-[#0A2E22] underline">Không nhận được mã? Gọi hỗ trợ</span>
+          </button>
+        </main>
+      </div>
+    </div>
+
+    <!-- ============= FRAME 3: SẴN SÀNG GỬI LẠI MÃ ============= -->
+    <div>
+      <h2 class="font-display font-extrabold text-lg text-[#0A2E22] mb-3">Trạng thái: Sẵn sàng gửi lại mã</h2>
+      <div class="frame bg-[#F5F8F6] rounded-3xl overflow-hidden border-2 border-slate-200">
+
+        <header class="h-16 bg-white border-b-4 border-[#00B14F] flex items-center px-2">
+          <button class="w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring" aria-label="Quay lại">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <h1 class="font-display font-extrabold text-[22px] text-[#0A2E22] ml-1">Xác thực OTP</h1>
+        </header>
+
+        <main class="px-4 pt-6 pb-8">
+          <div class="flex flex-col items-center text-center mb-8">
+            <div class="w-16 h-16 rounded-2xl bg-[#E7F8EE] flex items-center justify-center mb-4">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/><path d="M9 6h6" stroke="#00B14F"/></svg>
+            </div>
+            <p class="font-body text-base text-slate-600 leading-snug">Nhập mã gồm 6 chữ số vừa được gửi đến số điện thoại</p>
+            <p class="font-display font-bold text-lg text-[#0A2E22] mt-1">090 123 4567</p>
+          </div>
+
+          <div class="flex justify-between gap-2 mb-3" role="group" aria-label="Nhập mã OTP 6 chữ số">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512]" type="text" inputmode="numeric" maxlength="1" value="">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512]" type="text" inputmode="numeric" maxlength="1" value="">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512]" type="text" inputmode="numeric" maxlength="1" value="">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512]" type="text" inputmode="numeric" maxlength="1" value="">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512]" type="text" inputmode="numeric" maxlength="1" value="">
+            <input class="otp-box focus-ring rounded-2xl border-2 border-slate-300 focus:border-[#00B14F] focus:outline-none text-center text-2xl font-bold text-[#0E1512]" type="text" inputmode="numeric" maxlength="1" value="">
+          </div>
+
+          <!-- Expired notice -->
+          <div class="flex items-center gap-1.5 mb-8">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#92400E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg>
+            <p class="font-body text-sm font-medium text-[#92400E]">Mã cũ đã hết hiệu lực. Bấm "Gửi lại mã" để nhận mã mới.</p>
+          </div>
+
+          <button class="w-full min-h-[44px] rounded-2xl bg-slate-200 text-slate-400 font-body font-bold text-base py-3 cursor-not-allowed mb-6 focus-ring" disabled>Xác nhận</button>
+
+          <!-- Resend row, active -->
+          <div class="flex flex-col items-center gap-1 mb-2">
+            <p class="font-body text-sm text-slate-500">Chưa nhận được mã?</p>
+            <button class="flex items-center gap-1.5 min-h-[44px] px-4 rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 16v-4h4"/></svg>
+              <span class="font-body text-base font-bold text-[#0A2E22] underline">Gửi lại mã</span>
+            </button>
+          </div>
+          <p class="font-body text-xs text-slate-500 text-center mb-6">Bạn đã gửi lại 3/5 lần hôm nay</p>
+
+          <button class="w-full flex items-center justify-center gap-2 min-h-[44px] rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11a9 9 0 0118 0v6a2 2 0 01-2 2h-1v-8h3M3 11v8h3v-8H3M3 11a9 9 0 0118 0"/></svg>
+            <span class="font-body text-sm font-semibold text-[#0A2E22] underline">Không nhận được mã? Gọi hỗ trợ</span>
+          </button>
+        </main>
+      </div>
+    </div>
+
+    <!-- ============= FRAME 4: THÀNH CÔNG ============= -->
+    <div>
+      <h2 class="font-display font-extrabold text-lg text-[#0A2E22] mb-3">Trạng thái: Xác thực thành công</h2>
+      <div class="frame bg-[#F5F8F6] rounded-3xl overflow-hidden border-2 border-slate-200">
+
+        <header class="h-16 bg-white border-b-4 border-[#00B14F] flex items-center px-2">
+          <button class="w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer focus-ring" aria-label="Quay lại">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <h1 class="font-display font-extrabold text-[22px] text-[#0A2E22] ml-1">Xác thực OTP</h1>
+        </header>
+
+        <main class="px-4 pt-16 pb-8 flex flex-col items-center text-center">
+          <div class="w-20 h-20 rounded-full bg-[#00B14F] flex items-center justify-center mb-6">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h2 class="font-display font-extrabold text-[22px] text-[#0A2E22] mb-2">Xác thực thành công!</h2>
+          <p class="font-body text-base text-slate-600 leading-snug mb-10">Số điện thoại 090 123 4567 đã được xác nhận. Tiếp tục để đặt mật khẩu cho tài khoản của bạn.</p>
+          <button class="w-full min-h-[44px] rounded-2xl bg-[#00B14F] text-[#0E1512] font-body font-bold text-base py-3 cursor-pointer hover:brightness-95 transition-all duration-200 focus-ring">Tiếp tục</button>
+        </main>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Auto-advance focus between OTP boxes for realism (all frames)
+  document.querySelectorAll('.otp-box').forEach((input, idx, all) => {
+    input.addEventListener('input', () => {
+      input.value = input.value.replace(/[^0-9]/g, '').slice(0, 1);
+      if (input.value && all[idx + 1]) all[idx + 1].focus();
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !input.value && all[idx - 1]) all[idx - 1].focus();
+    });
+  });
+</script>
+</body>
+</html>

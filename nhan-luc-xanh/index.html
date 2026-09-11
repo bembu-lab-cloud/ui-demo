@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nhân Lực Xanh — Screen Viewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#00B14F;
+    --secondary:#0A2E22;
+    --tint:#E7F8EE;
+    --bonus:#FF8A00;
+    --bg:#F5F8F6;
+    --text:#0E1512;
+    --slate-200:#e2e8f0;
+    --slate-400:#94a3b8;
+    --slate-500:#64748b;
+    --slate-600:#475569;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;height:100%;}
+  body{
+    font-family:'Source Sans 3', sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    display:flex;
+    height:100vh;
+    overflow:hidden;
+  }
+  h1,h2,h3,.heading{font-family:'Be Vietnam Pro', sans-serif;}
+
+  /* Sidebar */
+  #sidebar{
+    width:340px;
+    min-width:340px;
+    background:#fff;
+    border-right:2px solid var(--slate-200);
+    display:flex;
+    flex-direction:column;
+    height:100%;
+  }
+  #sidebar-header{
+    padding:20px 20px 16px;
+    border-bottom:4px solid var(--primary);
+  }
+  #sidebar-header h1{
+    font-size:20px;
+    font-weight:800;
+    color:var(--secondary);
+    margin:0 0 4px;
+  }
+  #sidebar-header p{
+    margin:0;
+    font-size:13px;
+    color:var(--slate-500);
+    font-weight:500;
+  }
+  #search-wrap{
+    padding:14px 16px;
+    border-bottom:2px solid var(--slate-200);
+  }
+  #search{
+    width:100%;
+    min-height:44px;
+    padding:0 14px;
+    border-radius:16px;
+    border:2px solid var(--slate-200);
+    font-family:inherit;
+    font-size:14px;
+    color:var(--text);
+    background:var(--bg);
+    outline:none;
+  }
+  #search:focus{border-color:var(--primary);}
+  #nav-list{
+    flex:1;
+    overflow-y:auto;
+    padding:8px 12px 20px;
+  }
+  .group{
+    margin-bottom:6px;
+  }
+  .group-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:10px 8px;
+    font-family:'Be Vietnam Pro', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    color:var(--secondary);
+    text-align:left;
+  }
+  .group-header:hover{color:var(--primary);}
+  .group-count{
+    font-size:12px;
+    font-weight:600;
+    color:#fff;
+    background:var(--secondary);
+    border-radius:999px;
+    padding:2px 8px;
+    min-width:22px;
+    text-align:center;
+  }
+  .chevron{
+    transition:transform 150ms ease;
+    color:var(--slate-500);
+    margin-right:4px;
+  }
+  .group.collapsed .chevron{transform:rotate(-90deg);}
+  .group.collapsed .screen-list{display:none;}
+  .screen-list{
+    list-style:none;
+    margin:0;
+    padding:0 0 6px 6px;
+  }
+  .screen-item a{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:var(--text);
+    font-size:14px;
+    font-weight:500;
+    padding:9px 12px;
+    border-radius:12px;
+    border:2px solid transparent;
+  }
+  .screen-item a:hover{
+    background:var(--tint);
+  }
+  .screen-item a.active{
+    background:var(--tint);
+    border-color:var(--primary);
+    color:var(--secondary);
+    font-weight:700;
+  }
+  .dot{
+    width:6px;height:6px;border-radius:999px;
+    background:var(--slate-400);
+    flex:none;
+  }
+  .screen-item a.active .dot{background:var(--primary);}
+  #hidden-empty{
+    display:none;
+    padding:24px 16px;
+    text-align:center;
+    color:var(--slate-500);
+    font-size:14px;
+  }
+
+  /* Main area */
+  #main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    min-width:0;
+  }
+  #topbar{
+    height:64px;
+    min-height:64px;
+    background:#fff;
+    border-bottom:4px solid var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 24px;
+  }
+  #topbar .title-wrap{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+  #topbar .crumb{
+    font-size:12px;
+    font-weight:600;
+    color:var(--slate-500);
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  #topbar .screen-title{
+    font-family:'Be Vietnam Pro', sans-serif;
+    font-size:18px;
+    font-weight:800;
+    color:var(--secondary);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    min-height:40px;
+    padding:0 16px;
+    border-radius:16px;
+    font-family:'Source Sans 3', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    text-decoration:none;
+    border:2px solid var(--secondary);
+    color:var(--secondary);
+    background:#fff;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .btn:hover{background:var(--tint);}
+  .btn.primary{
+    background:var(--primary);
+    border-color:var(--primary);
+    color:var(--text);
+  }
+  .btn.primary:hover{filter:brightness(0.96);}
+
+  #stage{
+    flex:1;
+    overflow:hidden;
+    display:flex;
+    align-items:stretch;
+    justify-content:stretch;
+    padding:0;
+  }
+  #stage iframe{
+    width:100%;
+    height:100%;
+    border:none;
+    display:block;
+    background:#fff;
+  }
+  #empty-state{
+    margin:auto;
+    text-align:center;
+    color:var(--slate-500);
+    max-width:320px;
+  }
+  #empty-state svg{margin-bottom:12px;color:var(--slate-400);}
+  #empty-state h2{
+    font-size:18px;
+    color:var(--secondary);
+    margin:0 0 6px;
+  }
+  #empty-state p{margin:0;font-size:14px;}
+
+  ::-webkit-scrollbar{width:10px;height:10px;}
+  ::-webkit-scrollbar-thumb{background:var(--slate-200);border-radius:999px;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--slate-400);}
+</style>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div id="sidebar-header">
+    <h1>Nhân Lực Xanh</h1>
+    <p>Thư viện màn hình thiết kế · <span id="total-count">0</span> màn hình</p>
+  </div>
+  <div id="search-wrap">
+    <input id="search" type="text" placeholder="Tìm màn hình…" autocomplete="off">
+  </div>
+  <nav id="nav-list"></nav>
+  <div id="hidden-empty">Không tìm thấy màn hình nào.</div>
+</aside>
+
+<main id="main">
+  <div id="topbar">
+    <div class="title-wrap">
+      <span class="crumb" id="crumb-feature">—</span>
+      <span class="screen-title" id="crumb-screen">Chọn một màn hình để xem</span>
+    </div>
+    <a class="btn primary" id="open-new-tab" href="#" target="_blank" rel="noopener">
+      Mở tab mới ↗
+    </a>
+  </div>
+  <div id="stage">
+    <div id="empty-state">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+      <h2>Chưa chọn màn hình</h2>
+      <p>Chọn một màn hình ở danh sách bên trái để xem trước trong khung điện thoại 390px.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+// Feature-folder groups, in intended app-flow order, mapped to Vietnamese display names.
+const groups = [
+  { dir: "xac-thuc-tai-khoan", label: "Xác thực tài khoản", screens: [
+    "splash","login","register","forgot-password","otp-verification","complete-profile","account-settings","change-password"
+  ]},
+  { dir: "kham-pha-viec-lam", label: "Khám phá việc làm", screens: [
+    "home","job-detail","job-filters","saved-jobs"
+  ]},
+  { dir: "ung-tuyen-gioi-thieu", label: "Ứng tuyển & Giới thiệu", screens: [
+    "apply-form","apply-confirmation","my-applications","refer-friend","my-referrals"
+  ]},
+  { dir: "cham-cong", label: "Chấm công", screens: [
+    "attendance-home","check-in-out","face-enrollment","attendance-calendar","attendance-table","attendance-dispute"
+  ]},
+  { dir: "luong-thuong", label: "Lương & Thưởng", screens: [
+    "payroll","bonus-tracker"
+  ]},
+  { dir: "yeu-cau-thanh-toan", label: "Yêu cầu thanh toán", screens: [
+    "payment-request-form","payment-request-history"
+  ]},
+  { dir: "ho-so-ca-nhan", label: "Hồ sơ cá nhân", screens: [
+    "profile","id-verification","bank-account","work-history"
+  ]},
+  { dir: "thong-bao-ho-tro", label: "Thông báo & Hỗ trợ", screens: [
+    "notifications","support","faq-legal"
+  ]},
+  { dir: "tien-ich-app", label: "Tiện ích ứng dụng", screens: [
+    "force-update"
+  ]},
+];
+
+function titleize(slug){
+  return slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+}
+
+const navList = document.getElementById("nav-list");
+const totalCountEl = document.getElementById("total-count");
+let total = 0;
+
+groups.forEach((group, gi) => {
+  total += group.screens.length;
+
+  const groupEl = document.createElement("div");
+  groupEl.className = "group";
+  groupEl.dataset.dir = group.dir;
+
+  const header = document.createElement("button");
+  header.type = "button";
+  header.className = "group-header";
+  header.innerHTML = `
+    <span style="display:flex;align-items:center;gap:6px;">
+      <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      ${group.label}
+    </span>
+    <span class="group-count">${group.screens.length}</span>
+  `;
+  header.addEventListener("click", () => groupEl.classList.toggle("collapsed"));
+
+  const list = document.createElement("ul");
+  list.className = "screen-list";
+
+  group.screens.forEach(slug => {
+    const path = `${group.dir}/${slug}/index.html`;
+    const li = document.createElement("li");
+    li.className = "screen-item";
+    const a = document.createElement("a");
+    a.href = "#";
+    a.dataset.path = path;
+    a.dataset.feature = group.label;
+    a.dataset.title = titleize(slug);
+    a.innerHTML = `<span class="dot"></span>${titleize(slug)}`;
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      selectScreen(a);
+    });
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+
+  groupEl.appendChild(header);
+  groupEl.appendChild(list);
+  navList.appendChild(groupEl);
+});
+
+totalCountEl.textContent = total;
+
+const stage = document.getElementById("stage");
+const crumbFeature = document.getElementById("crumb-feature");
+const crumbScreen = document.getElementById("crumb-screen");
+const openNewTab = document.getElementById("open-new-tab");
+
+function selectScreen(linkEl){
+  document.querySelectorAll(".screen-item a.active").forEach(el => el.classList.remove("active"));
+  linkEl.classList.add("active");
+
+  const path = linkEl.dataset.path;
+  crumbFeature.textContent = linkEl.dataset.feature;
+  crumbScreen.textContent = linkEl.dataset.title;
+  openNewTab.href = path;
+
+  stage.innerHTML = `<iframe src="${path}" title="${linkEl.dataset.title}"></iframe>`;
+
+  if (history.replaceState) {
+    history.replaceState(null, "", "#" + path);
+  }
+}
+
+// Search filter
+const search = document.getElementById("search");
+const hiddenEmpty = document.getElementById("hidden-empty");
+search.addEventListener("input", () => {
+  const q = search.value.trim().toLowerCase();
+  let visibleCount = 0;
+  document.querySelectorAll(".group").forEach(groupEl => {
+    let groupHasMatch = false;
+    groupEl.querySelectorAll(".screen-item").forEach(li => {
+      const a = li.querySelector("a");
+      const match = !q || a.dataset.title.toLowerCase().includes(q) || a.dataset.feature.toLowerCase().includes(q);
+      li.style.display = match ? "" : "none";
+      if (match){ groupHasMatch = true; visibleCount++; }
+    });
+    groupEl.style.display = groupHasMatch ? "" : "none";
+    if (q && groupHasMatch) groupEl.classList.remove("collapsed");
+  });
+  hiddenEmpty.style.display = visibleCount === 0 ? "block" : "none";
+});
+
+// Deep-link support via hash
+window.addEventListener("DOMContentLoaded", () => {
+  const hash = decodeURIComponent(location.hash.replace(/^#/, ""));
+  if (hash) {
+    const link = document.querySelector(`.screen-item a[data-path="${hash}"]`);
+    if (link) {
+      selectScreen(link);
+      link.scrollIntoView({ block: "center" });
+    }
+  }
+});
+</script>
+</body>
+</html>

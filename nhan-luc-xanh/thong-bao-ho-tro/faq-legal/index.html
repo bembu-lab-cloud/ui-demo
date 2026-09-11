@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ &amp; Điều khoản — Nhân Lực Xanh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html { font-family: 'Source Sans 3', sans-serif; }
+  h1,h2,h3,.font-display { font-family: 'Be Vietnam Pro', sans-serif; }
+  .phone { width: 390px; }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  .chevron { transition: transform 200ms; }
+  details[open] .chevron { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body class="bg-slate-100">
+<div class="min-w-max flex gap-8 p-8 overflow-x-auto items-start">
+
+  <!-- ==================== STATE 1: FAQ default (one item expanded) ==================== -->
+  <div>
+    <h2 class="font-display font-bold text-lg text-[#0A2E22] mb-3">Trạng thái: FAQ (mặc định)</h2>
+    <div class="phone bg-[#F5F8F6] border border-slate-300 rounded-[2rem] overflow-hidden">
+
+      <!-- App bar -->
+      <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-4 h-16">
+        <button type="button" aria-label="Quay lại" class="w-11 h-11 -ml-2 flex items-center justify-center rounded-full cursor-pointer text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <h1 class="font-display font-extrabold text-[20px] text-[#0A2E22]">Hỏi đáp &amp; Điều khoản</h1>
+      </header>
+
+      <div class="p-4">
+        <!-- Segmented control -->
+        <div class="flex gap-2 bg-white border-2 border-slate-200 rounded-2xl p-1.5 mb-4" role="tablist" aria-label="Chọn nội dung">
+          <button type="button" role="tab" aria-selected="true" class="flex-1 rounded-xl px-2 py-2.5 text-center text-xs font-bold leading-tight bg-[#00B14F] text-[#0E1512] cursor-pointer focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">Câu hỏi<br>thường gặp</button>
+          <button type="button" role="tab" aria-selected="false" class="flex-1 rounded-xl px-2 py-2.5 text-center text-xs font-bold leading-tight text-slate-600 cursor-pointer hover:bg-[#E7F8EE] transition-colors duration-200 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">Điều khoản<br>sử dụng</button>
+          <button type="button" role="tab" aria-selected="false" class="flex-1 rounded-xl px-2 py-2.5 text-center text-xs font-bold leading-tight text-slate-600 cursor-pointer hover:bg-[#E7F8EE] transition-colors duration-200 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">Chính sách<br>bảo mật</button>
+        </div>
+
+        <p class="text-[13px] text-slate-600 mb-4">Chọn một câu hỏi để xem câu trả lời.</p>
+
+        <!-- Accordion -->
+        <div class="flex flex-col gap-3 pb-2">
+
+          <details class="bg-white border-2 border-slate-200 rounded-3xl p-4 open:border-[#00B14F] transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3 font-bold text-[16px] text-[#0A2E22] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2 rounded-xl">
+              <span>Tôi chưa nhận được lương, phải làm sao?</span>
+              <svg class="chevron shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <p class="mt-3 text-[16px] leading-relaxed text-[#0E1512]">Lương thường được chuyển trong vòng 3-5 ngày sau kỳ trả lương. Nếu quá thời gian này mà bạn vẫn chưa nhận được, hãy vào mục "Lương &amp; Thưởng" để xem trạng thái, hoặc gọi số hỗ trợ ở màn hình "Cá nhân" để được kiểm tra giúp.</p>
+          </details>
+
+          <details class="bg-white border-2 border-slate-200 rounded-3xl p-4 open:border-[#00B14F] transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3 font-bold text-[16px] text-[#0A2E22] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2 rounded-xl">
+              <span>Làm sao để đăng ký nhận việc?</span>
+              <svg class="chevron shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+          </details>
+
+          <details class="bg-white border-2 border-slate-200 rounded-3xl p-4 open:border-[#00B14F] transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3 font-bold text-[16px] text-[#0A2E22] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2 rounded-xl">
+              <span>Tiền thưởng được tính và trả khi nào?</span>
+              <svg class="chevron shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+          </details>
+
+          <details class="bg-white border-2 border-slate-200 rounded-3xl p-4 open:border-[#00B14F] transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3 font-bold text-[16px] text-[#0A2E22] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2 rounded-xl">
+              <span>Dùng ứng dụng có mất phí không?</span>
+              <svg class="chevron shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+          </details>
+
+          <details class="bg-white border-2 border-slate-200 rounded-3xl p-4 open:border-[#00B14F] transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3 font-bold text-[16px] text-[#0A2E22] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2 rounded-xl">
+              <span>Tôi quên mật khẩu thì làm sao?</span>
+              <svg class="chevron shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+          </details>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== STATE 2: Chính sách bảo mật ==================== -->
+  <div>
+    <h2 class="font-display font-bold text-lg text-[#0A2E22] mb-3">Trạng thái: Chính sách bảo mật</h2>
+    <div class="phone bg-[#F5F8F6] border border-slate-300 rounded-[2rem] overflow-hidden">
+
+      <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-4 h-16">
+        <button type="button" aria-label="Quay lại" class="w-11 h-11 -ml-2 flex items-center justify-center rounded-full cursor-pointer text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <h1 class="font-display font-extrabold text-[20px] text-[#0A2E22]">Hỏi đáp &amp; Điều khoản</h1>
+      </header>
+
+      <div class="p-4">
+        <div class="flex gap-2 bg-white border-2 border-slate-200 rounded-2xl p-1.5 mb-4" role="tablist" aria-label="Chọn nội dung">
+          <button type="button" role="tab" aria-selected="false" class="flex-1 rounded-xl px-2 py-2.5 text-center text-xs font-bold leading-tight text-slate-600 cursor-pointer hover:bg-[#E7F8EE] transition-colors duration-200 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">Câu hỏi<br>thường gặp</button>
+          <button type="button" role="tab" aria-selected="false" class="flex-1 rounded-xl px-2 py-2.5 text-center text-xs font-bold leading-tight text-slate-600 cursor-pointer hover:bg-[#E7F8EE] transition-colors duration-200 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">Điều khoản<br>sử dụng</button>
+          <button type="button" role="tab" aria-selected="true" class="flex-1 rounded-xl px-2 py-2.5 text-center text-xs font-bold leading-tight bg-[#00B14F] text-[#0E1512] cursor-pointer focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">Chính sách<br>bảo mật</button>
+        </div>
+
+        <!-- Plain-language summary box -->
+        <div class="bg-[#E7F8EE] border-2 border-[#00B14F]/30 rounded-3xl p-4 mb-4">
+          <div class="flex items-center gap-2 mb-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            <h2 class="font-display font-bold text-[16px] text-[#0A2E22]">Tóm tắt dễ hiểu</h2>
+          </div>
+          <p class="text-[15px] leading-relaxed text-[#0A2E22]">Chúng tôi chỉ thu thập thông tin cần thiết để giới thiệu việc làm và trả lương cho bạn (họ tên, số điện thoại, CCCD, số tài khoản ngân hàng...). Chúng tôi không bán hay chia sẻ thông tin của bạn cho bên khác nếu chưa được bạn đồng ý, trừ khi pháp luật yêu cầu. Bạn có thể yêu cầu xem, sửa hoặc xoá thông tin của mình bất cứ lúc nào.</p>
+        </div>
+
+        <p class="text-[13px] text-slate-600 mb-2">Cập nhật lần cuối: 01/09/2026</p>
+
+        <!-- Full legal text, scrollable -->
+        <div class="bg-white border-2 border-slate-200 rounded-3xl p-4 max-h-[420px] overflow-y-auto">
+          <h3 class="font-display font-bold text-[16px] text-[#0A2E22] mb-1">1. Thông tin chúng tôi thu thập</h3>
+          <p class="text-[15px] leading-relaxed text-[#0E1512] mb-3">Chúng tôi thu thập họ tên, ngày sinh, số điện thoại, số CCCD, ảnh chân dung, địa chỉ và thông tin tài khoản ngân hàng do bạn tự nguyện cung cấp khi đăng ký và trong quá trình sử dụng ứng dụng, phù hợp Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân.</p>
+          <h3 class="font-display font-bold text-[16px] text-[#0A2E22] mb-1">2. Mục đích sử dụng thông tin</h3>
+          <p class="text-[15px] leading-relaxed text-[#0E1512] mb-3">Thông tin được dùng để xác minh danh tính, giới thiệu việc làm phù hợp, chấm công, tính và chi trả lương, thưởng, cũng như hỗ trợ bạn khi có thắc mắc. Chúng tôi không dùng thông tin cho mục đích nào khác ngoài các mục đích này.</p>
+          <h3 class="font-display font-bold text-[16px] text-[#0A2E22] mb-1">3. Chia sẻ thông tin</h3>
+          <p class="text-[15px] leading-relaxed text-[#0E1512] mb-3">Thông tin có thể được chia sẻ với nhà máy/doanh nghiệp nơi bạn được giới thiệu làm việc, chỉ ở mức cần thiết để hoàn tất thủ tục tuyển dụng và chấm công. Chúng tôi không bán thông tin cho bên thứ ba vì mục đích quảng cáo.</p>
+          <h3 class="font-display font-bold text-[16px] text-[#0A2E22] mb-1">4. Bảo mật thông tin</h3>
+          <p class="text-[15px] leading-relaxed text-[#0E1512] mb-3">Dữ liệu của bạn được lưu trữ trên hệ thống có mã hoá và kiểm soát truy cập. Chúng tôi áp dụng các biện pháp kỹ thuật hợp lý để ngăn ngừa truy cập trái phép, mất mát hoặc rò rỉ dữ liệu.</p>
+          <h3 class="font-display font-bold text-[16px] text-[#0A2E22] mb-1">5. Quyền của bạn</h3>
+          <p class="text-[15px] leading-relaxed text-[#0E1512] mb-3">Bạn có quyền yêu cầu xem lại, chỉnh sửa hoặc xoá thông tin cá nhân của mình, cũng như rút lại sự đồng ý cung cấp dữ liệu bất cứ lúc nào bằng cách liên hệ bộ phận hỗ trợ trong mục "Cá nhân".</p>
+          <h3 class="font-display font-bold text-[16px] text-[#0A2E22] mb-1">6. Liên hệ</h3>
+          <p class="text-[15px] leading-relaxed text-[#0E1512]">Nếu có thắc mắc về chính sách này, bạn có thể liên hệ hotline hỗ trợ hoặc gửi yêu cầu qua mục "Cá nhân &gt; Hỗ trợ" trong ứng dụng.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== STATE 3: Lỗi tải nội dung ==================== -->
+  <div>
+    <h2 class="font-display font-bold text-lg text-[#0A2E22] mb-3">Trạng thái: Lỗi tải nội dung</h2>
+    <div class="phone bg-[#F5F8F6] border border-slate-300 rounded-[2rem] overflow-hidden">
+
+      <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-4 h-16">
+        <button type="button" aria-label="Quay lại" class="w-11 h-11 -ml-2 flex items-center justify-center rounded-full cursor-pointer text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <h1 class="font-display font-extrabold text-[20px] text-[#0A2E22]">Hỏi đáp &amp; Điều khoản</h1>
+      </header>
+
+      <div class="p-4">
+        <div class="flex gap-2 bg-white border-2 border-slate-200 rounded-2xl p-1.5 mb-4" role="tablist" aria-label="Chọn nội dung">
+          <button type="button" role="tab" aria-selected="true" class="flex-1 rounded-xl px-2 py-2.5 text-center text-xs font-bold leading-tight bg-[#00B14F] text-[#0E1512] cursor-pointer focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">Câu hỏi<br>thường gặp</button>
+          <button type="button" role="tab" aria-selected="false" class="flex-1 rounded-xl px-2 py-2.5 text-center text-xs font-bold leading-tight text-slate-600 cursor-pointer hover:bg-[#E7F8EE] transition-colors duration-200 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">Điều khoản<br>sử dụng</button>
+          <button type="button" role="tab" aria-selected="false" class="flex-1 rounded-xl px-2 py-2.5 text-center text-xs font-bold leading-tight text-slate-600 cursor-pointer hover:bg-[#E7F8EE] transition-colors duration-200 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#00B14F] focus-visible:outline-offset-2">Chính sách<br>bảo mật</button>
+        </div>
+
+        <div class="bg-white border-2 border-slate-200 rounded-3xl p-6 flex flex-col items-center text-center mt-6">
+          <div class="w-16 h-16 rounded-full bg-[#FEE2E2] flex items-center justify-center mb-4">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L14.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          </div>
+          <h2 class="font-display font-bold text-[18px] text-[#0A2E22] mb-2">Không tải được nội dung</h2>
+          <p class="text-[15px] leading-relaxed text-slate-600 mb-5">Vui lòng kiểm tra kết nối mạng của bạn rồi thử lại. Nội dung đã xem trước đó (nếu có) vẫn hiển thị được khi mất mạng.</p>
+          <button type="button" class="w-full min-h-[44px] bg-[#00B14F] text-[#0E1512] font-bold text-[15px] rounded-2xl px-6 py-3 inline-flex items-center justify-center gap-2 cursor-pointer hover:brightness-95 transition-colors duration-200 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#0A2E22] focus-visible:outline-offset-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.3 6.4L3 16"/><path d="M3 21v-5h5"/></svg>
+            Thử lại
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

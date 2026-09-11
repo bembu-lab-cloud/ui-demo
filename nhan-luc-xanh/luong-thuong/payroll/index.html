@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bảng lương — Nhân Lực Xanh</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif; background:#EEF2F0; color:#0E1512; }
+  h1,h2,h3,.font-display { font-family: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif; }
+  :focus-visible { outline: 3px solid #00B14F; outline-offset: 2px; border-radius: 4px; }
+  .frame { width:390px; min-width:390px; }
+  .screen { background:#F5F8F6; }
+  .row { min-height:52px; }
+  th, td { white-space:nowrap; }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+</style>
+</head>
+<body class="antialiased p-6 md:p-10">
+
+<svg style="display:none">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12h.01"/><path d="M3 10h18"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V10l5 3v-3l5 3V4l8 5v12H3Z"/><path d="M7 21v-4M12 21v-4M17 21v-4"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7Z"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l4 2"/></symbol>
+  <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M3 12h5l2 3h4l2-3h5"/><path d="M5.5 5h13l2.5 7v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5"/></symbol>
+  <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 3v14M7 17l-4-4M7 17l4-4"/><path d="M17 21V7M17 7l4 4M17 7l-4 4"/></symbol>
+</svg>
+
+<h1 class="font-display text-2xl font-extrabold text-[#0A2E22] mb-1">Bảng lương — S5.1</h1>
+<p class="text-slate-600 mb-6">3 trạng thái màn hình, xem cạnh nhau (cuộn ngang).</p>
+
+<div class="flex gap-8 overflow-x-auto pb-8 items-start">
+
+<!-- ============ STATE 1: NLĐ THỜI VỤ — CÓ SỐ TIỀN ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: NLĐ thời vụ — chi tiết tiền công</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:900px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center justify-between px-4" style="height:60px; min-height:60px;">
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Bảng lương</h3>
+      <button aria-label="Thông báo" class="cursor-pointer relative w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-[#0A2E22]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-bell"/></svg>
+      </button>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-5 space-y-5">
+
+      <!-- Employment / period selector (BR-06) -->
+      <button class="cursor-pointer w-full bg-white rounded-2xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 p-3 flex items-center gap-3 text-left">
+        <span class="w-10 h-10 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-briefcase"/></svg>
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="font-title font-bold text-[15px] text-[#0A2E22] truncate">Cty TNHH Cơ khí Phương Nam</p>
+          <p class="text-slate-600 text-sm">Kỳ lương: Tháng 08/2026 · NLĐ thời vụ</p>
+        </div>
+        <svg viewBox="0 0 24 24" class="w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron-down"/></svg>
+      </button>
+
+      <!-- Breakdown table by day type -->
+      <div>
+        <p class="font-title font-bold text-[16px] text-[#0A2E22] mb-2 px-1">Chi tiết công theo loại ngày</p>
+        <div class="bg-white rounded-3xl border-2 border-slate-200 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-[#0A2E22] text-white">
+                  <th class="px-3 py-2.5 text-[13px] font-semibold">Loại ngày</th>
+                  <th class="px-2 py-2.5 text-[13px] font-semibold text-center">Công</th>
+                  <th class="px-2 py-2.5 text-[13px] font-semibold text-right">Đơn giá</th>
+                  <th class="px-3 py-2.5 text-[13px] font-semibold text-right">Thành tiền</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y-2 divide-slate-100">
+                <tr class="hover:bg-[#E7F8EE] transition-colors duration-200">
+                  <td class="px-3 py-2.5 text-[14px] font-medium text-[#0A2E22]">Hành chính</td>
+                  <td class="px-2 py-2.5 text-[14px] font-medium text-center">22</td>
+                  <td class="px-2 py-2.5 text-[14px] font-medium text-right">220.000</td>
+                  <td class="px-3 py-2.5 text-[14px] font-semibold text-right text-[#0A2E22]">4.840.000</td>
+                </tr>
+                <tr class="hover:bg-[#E7F8EE] transition-colors duration-200">
+                  <td class="px-3 py-2.5 text-[14px] font-medium text-[#0A2E22]">Tăng ca</td>
+                  <td class="px-2 py-2.5 text-[14px] font-medium text-center">8</td>
+                  <td class="px-2 py-2.5 text-[14px] font-medium text-right">330.000</td>
+                  <td class="px-3 py-2.5 text-[14px] font-semibold text-right text-[#0A2E22]">2.640.000</td>
+                </tr>
+                <tr class="hover:bg-[#E7F8EE] transition-colors duration-200">
+                  <td class="px-3 py-2.5 text-[14px] font-medium text-[#0A2E22]">Chủ nhật</td>
+                  <td class="px-2 py-2.5 text-[14px] font-medium text-center">2</td>
+                  <td class="px-2 py-2.5 text-[14px] font-medium text-right">440.000</td>
+                  <td class="px-3 py-2.5 text-[14px] font-semibold text-right text-[#0A2E22]">880.000</td>
+                </tr>
+                <tr class="hover:bg-[#E7F8EE] transition-colors duration-200">
+                  <td class="px-3 py-2.5 text-[14px] font-medium text-[#0A2E22]">Ngày lễ</td>
+                  <td class="px-2 py-2.5 text-[14px] font-medium text-center">1</td>
+                  <td class="px-2 py-2.5 text-[14px] font-medium text-right">660.000</td>
+                  <td class="px-3 py-2.5 text-[14px] font-semibold text-right text-[#0A2E22]">660.000</td>
+                </tr>
+                <tr class="hover:bg-[#E7F8EE] transition-colors duration-200">
+                  <td class="px-3 py-2.5 text-[14px] font-medium text-[#0A2E22]">Ngày chỉ định</td>
+                  <td class="px-2 py-2.5 text-[14px] font-medium text-center">0</td>
+                  <td class="px-2 py-2.5 text-[14px] font-medium text-right">220.000</td>
+                  <td class="px-3 py-2.5 text-[14px] font-semibold text-right text-[#0A2E22]">0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-slate-500 text-[12px] px-3 py-2 border-t-2 border-slate-100">Khấu trừ thuế TNCN: Không áp dụng</p>
+        </div>
+      </div>
+
+      <!-- Summary card -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 space-y-3">
+        <div class="flex items-center justify-between">
+          <p class="text-[15px] font-semibold text-slate-600">Tổng cộng</p>
+          <p class="font-display text-[24px] font-extrabold text-[#0A2E22]">9.020.000 đ</p>
+        </div>
+        <div class="flex items-center justify-between">
+          <p class="text-[15px] font-semibold text-slate-600">Đã thanh toán</p>
+          <p class="font-title text-[16px] font-bold text-[#0A2E22]">5.000.000 đ</p>
+        </div>
+        <div class="flex items-center justify-between bg-[#E7F8EE] rounded-2xl px-3 py-2.5 -mx-1">
+          <p class="text-[15px] font-bold text-[#0A2E22]">Còn lại</p>
+          <p class="font-display text-[20px] font-extrabold text-[#0A2E22]">4.020.000 đ</p>
+        </div>
+      </div>
+
+      <p class="text-slate-500 text-[12px] text-center">Cập nhật lần cuối lúc 08:15, 09/09/2026</p>
+
+      <!-- Actions -->
+      <button class="cursor-pointer w-full bg-[#00B14F] hover:bg-[#00A047] text-[#0E1512] font-bold rounded-2xl min-h-[52px] flex items-center justify-center gap-2 transition-colors duration-200 text-base">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-send"/></svg>
+        Gửi yêu cầu thanh toán
+      </button>
+      <div class="flex items-center justify-center gap-6 pb-1">
+        <button class="cursor-pointer flex items-center gap-1.5 text-[#0A2E22] font-semibold text-sm hover:text-[#00B14F] transition-colors duration-200">
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-table"/></svg>
+          Xem chi tiết chấm công
+        </button>
+        <button class="cursor-pointer flex items-center gap-1.5 text-[#0A2E22] font-semibold text-sm hover:text-[#00B14F] transition-colors duration-200">
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-history"/></svg>
+          Lịch sử yêu cầu
+        </button>
+      </div>
+    </div>
+
+    <nav class="bg-white border-t-2 border-slate-200 flex items-stretch flex-shrink-0" style="height:64px; min-height:64px;">
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Trang chủ">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-home"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Trang chủ</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Chấm công">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Chấm công</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Lương và thưởng" aria-current="page">
+        <span class="w-10 h-7 rounded-full bg-[#E7F8EE] flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-wallet"/></svg>
+        </span>
+        <span class="text-[11px] font-semibold text-[#0A2E22] leading-tight text-center">Lương &amp; Thưởng</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Cá nhân">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-user"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Cá nhân</span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ STATE 2: NLĐ CHÍNH THỨC — KHÔNG HIỆN TIỀN ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: NLĐ chính thức — đối soát công, không hiện tiền</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:900px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center justify-between px-4" style="height:60px; min-height:60px;">
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Bảng lương</h3>
+      <button aria-label="Thông báo" class="cursor-pointer relative w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-[#0A2E22]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-bell"/></svg>
+      </button>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-5 space-y-5">
+
+      <!-- Prominent fixed banner — required at very top per accessibility constraint -->
+      <div class="bg-[#0A2E22] rounded-3xl p-4 flex items-center gap-3">
+        <span class="w-11 h-11 rounded-2xl bg-white/15 flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-factory"/></svg>
+        </span>
+        <div>
+          <p class="font-display font-extrabold text-[17px] text-white leading-snug">Lương do nhà máy chi trả</p>
+          <p class="text-[#E7F8EE] text-[13px] leading-relaxed">Ứng dụng chỉ hiện bảng công để đối soát, không hiện số tiền</p>
+        </div>
+      </div>
+
+      <!-- Employment / period selector (BR-06) -->
+      <button class="cursor-pointer w-full bg-white rounded-2xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 p-3 flex items-center gap-3 text-left">
+        <span class="w-10 h-10 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-briefcase"/></svg>
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="font-title font-bold text-[15px] text-[#0A2E22] truncate">Cty CP Điện tử Miền Đông</p>
+          <p class="text-slate-600 text-sm">Kỳ lương: Tháng 08/2026 · NLĐ chính thức</p>
+        </div>
+        <svg viewBox="0 0 24 24" class="w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron-down"/></svg>
+      </button>
+
+      <!-- Attendance-only reconciliation table (no money columns) -->
+      <div>
+        <p class="font-title font-bold text-[16px] text-[#0A2E22] mb-2 px-1">Bảng công đối soát</p>
+        <div class="bg-white rounded-3xl border-2 border-slate-200 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-[#0A2E22] text-white">
+                  <th class="px-3 py-2.5 text-[13px] font-semibold">Ngày</th>
+                  <th class="px-2 py-2.5 text-[13px] font-semibold">Giờ vào - ra</th>
+                  <th class="px-2 py-2.5 text-[13px] font-semibold">Loại ngày</th>
+                  <th class="px-2 py-2.5 text-[13px] font-semibold text-center"></th>
+                </tr>
+              </thead>
+              <tbody class="divide-y-2 divide-slate-100">
+                <tr class="hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer">
+                  <td class="px-3 py-2.5 text-[14px] font-medium text-[#0A2E22]">05/08</td>
+                  <td class="px-2 py-2.5 text-[13px] font-medium text-slate-600">07:00–16:00</td>
+                  <td class="px-2 py-2.5 text-[13px] font-medium text-slate-600">Hành chính</td>
+                  <td class="px-2 py-2.5 text-center"><svg viewBox="0 0 24 24" class="w-4 h-4 text-slate-400 inline" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></td>
+                </tr>
+                <tr class="hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer">
+                  <td class="px-3 py-2.5 text-[14px] font-medium text-[#0A2E22]">06/08</td>
+                  <td class="px-2 py-2.5 text-[13px] font-medium text-slate-600">07:00–16:00</td>
+                  <td class="px-2 py-2.5 text-[13px] font-medium text-slate-600">Hành chính</td>
+                  <td class="px-2 py-2.5 text-center"><svg viewBox="0 0 24 24" class="w-4 h-4 text-slate-400 inline" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></td>
+                </tr>
+                <tr class="hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer">
+                  <td class="px-3 py-2.5 text-[14px] font-medium text-[#0A2E22]">07/08</td>
+                  <td class="px-2 py-2.5 text-[13px] font-medium text-slate-600">07:00–20:00</td>
+                  <td class="px-2 py-2.5 text-[13px] font-medium text-slate-600">Tăng ca</td>
+                  <td class="px-2 py-2.5 text-center"><svg viewBox="0 0 24 24" class="w-4 h-4 text-slate-400 inline" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></td>
+                </tr>
+                <tr class="hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer">
+                  <td class="px-3 py-2.5 text-[14px] font-medium text-[#0A2E22]">08/08</td>
+                  <td class="px-2 py-2.5 text-[13px] font-medium text-slate-600">Nghỉ</td>
+                  <td class="px-2 py-2.5 text-[13px] font-medium text-slate-600">Chủ nhật</td>
+                  <td class="px-2 py-2.5 text-center"><svg viewBox="0 0 24 24" class="w-4 h-4 text-slate-400 inline" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total công summary (units only, no money) -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 flex items-center justify-between">
+        <p class="text-[15px] font-bold text-[#0A2E22]">Tổng số công trong kỳ</p>
+        <p class="font-display text-[22px] font-extrabold text-[#0A2E22]">23 công</p>
+      </div>
+
+      <p class="text-slate-500 text-[12px] text-center">Cập nhật lần cuối lúc 08:15, 09/09/2026</p>
+
+      <button class="cursor-pointer w-full bg-white border-2 border-[#0A2E22] hover:bg-[#E7F8EE] text-[#0A2E22] font-bold rounded-2xl min-h-[52px] flex items-center justify-center gap-2 transition-colors duration-200 text-base">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-table"/></svg>
+        Xem chi tiết chấm công
+      </button>
+    </div>
+
+    <nav class="bg-white border-t-2 border-slate-200 flex items-stretch flex-shrink-0" style="height:64px; min-height:64px;">
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Trang chủ">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-home"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Trang chủ</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Chấm công">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Chấm công</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Lương và thưởng" aria-current="page">
+        <span class="w-10 h-7 rounded-full bg-[#E7F8EE] flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-wallet"/></svg>
+        </span>
+        <span class="text-[11px] font-semibold text-[#0A2E22] leading-tight text-center">Lương &amp; Thưởng</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Cá nhân">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-user"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Cá nhân</span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ STATE 3: TRỐNG — CHƯA CÓ DỮ LIỆU LƯƠNG TRONG KỲ ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Trống — chưa có dữ liệu lương trong kỳ</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:900px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center justify-between px-4" style="height:60px; min-height:60px;">
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Bảng lương</h3>
+      <button aria-label="Thông báo" class="cursor-pointer relative w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-[#0A2E22]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-bell"/></svg>
+      </button>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-5 flex flex-col">
+
+      <!-- Employment / period selector (BR-06) -->
+      <button class="cursor-pointer w-full bg-white rounded-2xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 p-3 flex items-center gap-3 text-left mb-2">
+        <span class="w-10 h-10 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-briefcase"/></svg>
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="font-title font-bold text-[15px] text-[#0A2E22] truncate">Cty TNHH Gỗ An Phát</p>
+          <p class="text-slate-600 text-sm">Kỳ lương: Tháng 09/2026 · NLĐ thời vụ</p>
+        </div>
+        <svg viewBox="0 0 24 24" class="w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron-down"/></svg>
+      </button>
+
+      <div class="flex-1 flex flex-col items-center justify-center text-center gap-4 py-10">
+        <span class="w-20 h-20 rounded-full bg-[#E7F8EE] flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-10 h-10 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-inbox"/></svg>
+        </span>
+        <div class="space-y-1 px-4">
+          <p class="font-display text-xl font-extrabold text-[#0A2E22]">Chưa có dữ liệu lương trong kỳ này</p>
+          <p class="text-slate-600 text-[15px] leading-relaxed">Bạn mới nhận việc hoặc chưa đủ dữ liệu chấm công để tính lương kỳ này. Xem bảng công đã chấm hoặc đổi sang công ty/kỳ khác.</p>
+        </div>
+      </div>
+
+      <div class="space-y-3 pb-2">
+        <button class="cursor-pointer w-full bg-white border-2 border-[#0A2E22] hover:bg-[#E7F8EE] text-[#0A2E22] font-bold rounded-2xl min-h-[52px] flex items-center justify-center gap-2 transition-colors duration-200 text-base">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-table"/></svg>
+          Xem bảng công
+        </button>
+        <button class="cursor-pointer w-full bg-transparent text-[#0A2E22] font-bold rounded-2xl min-h-[52px] flex items-center justify-center gap-2 hover:bg-[#E7F8EE] transition-colors duration-200 text-base">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-swap"/></svg>
+          Đổi công ty/kỳ khác
+        </button>
+      </div>
+    </div>
+
+    <nav class="bg-white border-t-2 border-slate-200 flex items-stretch flex-shrink-0" style="height:64px; min-height:64px;">
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Trang chủ">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-home"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Trang chủ</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Chấm công">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Chấm công</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Lương và thưởng" aria-current="page">
+        <span class="w-10 h-7 rounded-full bg-[#E7F8EE] flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-wallet"/></svg>
+        </span>
+        <span class="text-[11px] font-semibold text-[#0A2E22] leading-tight text-center">Lương &amp; Thưởng</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Cá nhân">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-user"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Cá nhân</span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

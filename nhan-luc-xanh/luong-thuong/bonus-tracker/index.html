@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bảng thưởng — Nhân Lực Xanh</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif; background:#EEF2F0; color:#0E1512; }
+  h1,h2,h3,.font-display { font-family: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif; }
+  :focus-visible { outline: 3px solid #00B14F; outline-offset: 2px; border-radius: 4px; }
+  .frame { width:390px; min-width:390px; }
+  .screen { background:#F5F8F6; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body class="antialiased p-6 md:p-10">
+
+<!-- Icon sprite (reused across frames) -->
+<svg style="display:none">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12h.01"/><path d="M3 10h18"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 12h18"/><path d="M12 8c-1.5 0-4-.5-4-3a2.5 2.5 0 0 1 4-2c1 1 1 3 1 3s0-2 1-3a2.5 2.5 0 0 1 4 2c0 2.5-2.5 3-4 3"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5"/></symbol>
+  <symbol id="i-checkmark" viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h13l-3 4 3 4H5"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></symbol>
+</svg>
+
+<h1 class="font-display text-2xl font-extrabold text-[#0A2E22] mb-1">Bảng thưởng — S5.2</h1>
+<p class="text-slate-600 mb-6">3 trạng thái màn hình, xem cạnh nhau (cuộn ngang).</p>
+
+<div class="flex gap-8 overflow-x-auto pb-8 items-start">
+
+<!-- ============ STATE 1: MẶC ĐỊNH — NHIỀU MỐC Ở CÁC GIAI ĐOẠN KHÁC NHAU ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Mặc định</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:920px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center justify-between px-4" style="height:60px; min-height:60px;">
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Bảng thưởng</h3>
+      <button aria-label="Thông báo" class="cursor-pointer relative w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-[#0A2E22]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-bell"/></svg>
+      </button>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+
+      <!-- Company selector (BR-06) -->
+      <button class="cursor-pointer w-full bg-white rounded-2xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 flex items-center gap-3 px-4 py-3 text-left">
+        <span class="w-10 h-10 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-briefcase"/></svg>
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="text-slate-500 text-xs">Đang xem công ty</p>
+          <p class="font-title font-bold text-[15px] text-[#0A2E22] truncate">Công ty TNHH Cơ khí Phương Nam</p>
+        </div>
+        <svg viewBox="0 0 24 24" class="w-4 h-4 text-slate-400 flex-shrink-0 rotate-90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg>
+      </button>
+      <p class="text-slate-500 text-xs px-1 -mt-2">Cập nhật lần cuối: hôm nay 10:32</p>
+
+      <p class="font-display text-[18px] font-bold text-[#0A2E22] px-1">Các mốc thưởng của bạn</p>
+
+      <!-- Milestone: Đã chi -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-start gap-2 min-w-0">
+            <span class="w-9 h-9 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-flag"/></svg>
+            </span>
+            <div class="min-w-0">
+              <p class="font-title font-bold text-[15px] text-[#0A2E22] leading-snug">Nhận việc ngay</p>
+              <p class="text-slate-500 text-xs">Đợt chi: sau ngày làm đầu tiên</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#0A2E22] text-white text-[12px] font-semibold flex-shrink-0">
+            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>
+            Đã chi
+          </span>
+        </div>
+        <div class="flex items-center" aria-hidden="true">
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" class="w-2.5 h-2.5 text-[#0E1512]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><use href="#i-checkmark"/></svg></span>
+          <span class="flex-1 h-0.5 bg-[#00B14F]"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" class="w-2.5 h-2.5 text-[#0E1512]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><use href="#i-checkmark"/></svg></span>
+          <span class="flex-1 h-0.5 bg-[#00B14F]"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" class="w-2.5 h-2.5 text-[#0E1512]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><use href="#i-checkmark"/></svg></span>
+          <span class="flex-1 h-0.5 bg-[#00B14F]"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" class="w-2.5 h-2.5 text-[#0E1512]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><use href="#i-checkmark"/></svg></span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-slate-600 text-sm">Tiến độ <span class="font-bold text-[#0A2E22]">1/1 công</span></span>
+          <span class="font-display font-extrabold text-[22px] bg-[#FF8A00] text-[#0E1512] px-3 py-1 rounded-xl">500.000đ</span>
+        </div>
+        <p class="flex items-center gap-1.5 text-slate-500 text-xs">
+          <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 flex-shrink-0 text-[#0A2E22]" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>
+          Đã chuyển vào ngày 05/08/2026
+        </p>
+      </div>
+
+      <!-- Milestone: Chưa đủ điều kiện (in progress, emotional core) -->
+      <div class="bg-white rounded-3xl border-2 border-[#00B14F] p-4 space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-start gap-2 min-w-0">
+            <span class="w-9 h-9 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-calendar"/></svg>
+            </span>
+            <div class="min-w-0">
+              <p class="font-title font-bold text-[15px] text-[#0A2E22] leading-snug">Đủ 26 công trong tháng</p>
+              <p class="text-slate-500 text-xs">Đợt chi: cuối tháng</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 text-slate-500 text-[12px] font-semibold flex-shrink-0">
+            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-lock"/></svg>
+            Chưa đủ điều kiện
+          </span>
+        </div>
+        <div class="flex items-center" aria-hidden="true">
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex-shrink-0"></span>
+          <span class="flex-1 h-0.5 bg-slate-300"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+          <span class="flex-1 h-0.5 bg-slate-300"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+          <span class="flex-1 h-0.5 bg-slate-300"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+        </div>
+        <div>
+          <div class="flex items-center justify-between text-sm mb-1.5">
+            <span class="text-slate-600">Tiến độ <span class="font-bold text-[#0A2E22]">18/26 công</span></span>
+            <span class="font-bold text-[#0A2E22]">69%</span>
+          </div>
+          <div class="w-full h-3 rounded-full bg-slate-200 overflow-hidden">
+            <div class="h-full rounded-full bg-[#00B14F]" style="width:69%"></div>
+          </div>
+        </div>
+        <div class="bg-[#F5F8F6] rounded-2xl p-3 flex items-center gap-2.5">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#FF8A00] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-gift"/></svg>
+          <p class="text-[15px] text-[#0A2E22] leading-snug">Còn <span class="font-extrabold">8 công</span> nữa để nhận <span class="font-display font-extrabold text-[20px] bg-[#FF8A00] text-[#0E1512] px-2 py-0.5 rounded-lg inline-block">1.500.000đ</span></p>
+        </div>
+      </div>
+
+      <!-- Milestone: Đủ điều kiện (active button) -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-start gap-2 min-w-0">
+            <span class="w-9 h-9 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-calendar"/></svg>
+            </span>
+            <div class="min-w-0">
+              <p class="font-title font-bold text-[15px] text-[#0A2E22] leading-snug">Đủ 3 tháng làm việc</p>
+              <p class="text-slate-500 text-xs">Đợt chi: ngay khi được duyệt</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border-2 border-[#00B14F] text-[#0A2E22] text-[12px] font-semibold flex-shrink-0">
+            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-flag"/></svg>
+            Đủ điều kiện
+          </span>
+        </div>
+        <div class="flex items-center" aria-hidden="true">
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" class="w-2.5 h-2.5 text-[#0E1512]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><use href="#i-checkmark"/></svg></span>
+          <span class="flex-1 h-0.5 bg-[#00B14F]"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex-shrink-0"></span>
+          <span class="flex-1 h-0.5 bg-slate-300"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+          <span class="flex-1 h-0.5 bg-slate-300"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-slate-600 text-sm">Tiến độ <span class="font-bold text-[#0A2E22]">3/3 tháng</span></span>
+          <span class="font-display font-extrabold text-[22px] bg-[#FF8A00] text-[#0E1512] px-3 py-1 rounded-xl">3.000.000đ</span>
+        </div>
+        <button class="cursor-pointer w-full bg-[#FF8A00] hover:bg-[#E67A00] text-[#0E1512] font-bold rounded-2xl min-h-[44px] flex items-center justify-center gap-2 transition-colors duration-200">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-wallet"/></svg>
+          Gửi yêu cầu thanh toán
+        </button>
+      </div>
+
+      <!-- Milestone: Đã duyệt -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-start gap-2 min-w-0">
+            <span class="w-9 h-9 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-calendar"/></svg>
+            </span>
+            <div class="min-w-0">
+              <p class="font-title font-bold text-[15px] text-[#0A2E22] leading-snug">Đủ 6 tháng làm việc</p>
+              <p class="text-slate-500 text-xs">Đợt chi: đầu tháng kế tiếp</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#E7F8EE] text-[#0A2E22] text-[12px] font-semibold flex-shrink-0">
+            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>
+            Đã duyệt
+          </span>
+        </div>
+        <div class="flex items-center" aria-hidden="true">
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" class="w-2.5 h-2.5 text-[#0E1512]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><use href="#i-checkmark"/></svg></span>
+          <span class="flex-1 h-0.5 bg-[#00B14F]"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" class="w-2.5 h-2.5 text-[#0E1512]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><use href="#i-checkmark"/></svg></span>
+          <span class="flex-1 h-0.5 bg-[#00B14F]"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex-shrink-0"></span>
+          <span class="flex-1 h-0.5 bg-slate-300"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-slate-600 text-sm">Tiến độ <span class="font-bold text-[#0A2E22]">6/6 tháng</span></span>
+          <span class="font-display font-extrabold text-[22px] bg-[#FF8A00] text-[#0E1512] px-3 py-1 rounded-xl">5.000.000đ</span>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed">Yêu cầu đã được duyệt, đang chờ chi trả. Bạn không cần thao tác gì thêm.</p>
+      </div>
+    </div>
+
+    <nav class="bg-white border-t-2 border-slate-200 flex items-stretch flex-shrink-0" style="height:64px; min-height:64px;">
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Trang chủ">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-home"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Trang chủ</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Chấm công">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Chấm công</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Lương và thưởng" aria-current="page">
+        <span class="w-10 h-7 rounded-full bg-[#E7F8EE] flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-wallet"/></svg>
+        </span>
+        <span class="text-[11px] font-semibold text-[#0A2E22] leading-tight text-center">Lương &amp; Thưởng</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Cá nhân">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-user"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Cá nhân</span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ STATE 2: TRỐNG — KHÔNG CÓ CHƯƠNG TRÌNH THƯỞNG ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Trống</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:920px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center justify-between px-4" style="height:60px; min-height:60px;">
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Bảng thưởng</h3>
+      <button aria-label="Thông báo" class="cursor-pointer relative w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-[#0A2E22]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-bell"/></svg>
+      </button>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-4 flex flex-col">
+      <button class="cursor-pointer w-full bg-white rounded-2xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 flex items-center gap-3 px-4 py-3 text-left">
+        <span class="w-10 h-10 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-briefcase"/></svg>
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="text-slate-500 text-xs">Đang xem công ty</p>
+          <p class="font-title font-bold text-[15px] text-[#0A2E22] truncate">Công ty CP Dệt May Sông Hồng</p>
+        </div>
+        <svg viewBox="0 0 24 24" class="w-4 h-4 text-slate-400 flex-shrink-0 rotate-90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg>
+      </button>
+
+      <div class="flex-1 flex flex-col items-center justify-center text-center gap-4 py-10">
+        <span class="w-20 h-20 rounded-full bg-[#E7F8EE] flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-10 h-10 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-gift"/></svg>
+        </span>
+        <div class="space-y-1 px-4">
+          <p class="font-display text-xl font-extrabold text-[#0A2E22]">Chưa có chương trình thưởng nào áp dụng cho công việc hiện tại</p>
+          <p class="text-slate-600 text-[15px] leading-relaxed">Công ty này chưa gán cơ chế thưởng cho công việc của bạn. Bạn vẫn có thể xem bảng lương và chấm công như bình thường.</p>
+        </div>
+      </div>
+
+      <div class="pb-2">
+        <button class="cursor-pointer w-full bg-white border-2 border-[#0A2E22] hover:bg-[#E7F8EE] text-[#0A2E22] font-bold rounded-2xl min-h-[56px] flex items-center justify-center gap-2 transition-colors duration-200 text-base">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-search"/></svg>
+          Tìm công việc khác
+        </button>
+      </div>
+    </div>
+
+    <nav class="bg-white border-t-2 border-slate-200 flex items-stretch flex-shrink-0" style="height:64px; min-height:64px;">
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Trang chủ">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-home"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Trang chủ</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Chấm công">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Chấm công</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Lương và thưởng" aria-current="page">
+        <span class="w-10 h-7 rounded-full bg-[#E7F8EE] flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-wallet"/></svg>
+        </span>
+        <span class="text-[11px] font-semibold text-[#0A2E22] leading-tight text-center">Lương &amp; Thưởng</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Cá nhân">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-user"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Cá nhân</span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ STATE 3: ĐÃ CÓ YÊU CẦU ĐANG XỬ LÝ CHO MỘT MỐC ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Yêu cầu đang xử lý</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:920px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center justify-between px-4" style="height:60px; min-height:60px;">
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Bảng thưởng</h3>
+      <button aria-label="Thông báo" class="cursor-pointer relative w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-[#0A2E22]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-bell"/></svg>
+      </button>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+      <button class="cursor-pointer w-full bg-white rounded-2xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 flex items-center gap-3 px-4 py-3 text-left">
+        <span class="w-10 h-10 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-briefcase"/></svg>
+        </span>
+        <div class="flex-1 min-w-0">
+          <p class="text-slate-500 text-xs">Đang xem công ty</p>
+          <p class="font-title font-bold text-[15px] text-[#0A2E22] truncate">Công ty TNHH Cơ khí Phương Nam</p>
+        </div>
+        <svg viewBox="0 0 24 24" class="w-4 h-4 text-slate-400 flex-shrink-0 rotate-90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg>
+      </button>
+      <p class="text-slate-500 text-xs px-1 -mt-2">Cập nhật lần cuối: hôm nay 09:05</p>
+
+      <p class="font-display text-[18px] font-bold text-[#0A2E22] px-1">Các mốc thưởng của bạn</p>
+
+      <!-- Milestone: Đủ điều kiện, nút bị vô hiệu vì đã có yêu cầu đang xử lý -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-start gap-2 min-w-0">
+            <span class="w-9 h-9 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-calendar"/></svg>
+            </span>
+            <div class="min-w-0">
+              <p class="font-title font-bold text-[15px] text-[#0A2E22] leading-snug">Đủ 3 tháng làm việc</p>
+              <p class="text-slate-500 text-xs">Đợt chi: ngay khi được duyệt</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border-2 border-[#00B14F] text-[#0A2E22] text-[12px] font-semibold flex-shrink-0">
+            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-flag"/></svg>
+            Đủ điều kiện
+          </span>
+        </div>
+        <div class="flex items-center" aria-hidden="true">
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" class="w-2.5 h-2.5 text-[#0E1512]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><use href="#i-checkmark"/></svg></span>
+          <span class="flex-1 h-0.5 bg-[#00B14F]"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-[#00B14F] flex-shrink-0"></span>
+          <span class="flex-1 h-0.5 bg-slate-300"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+          <span class="flex-1 h-0.5 bg-slate-300"></span>
+          <span class="w-3.5 h-3.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-slate-600 text-sm">Tiến độ <span class="font-bold text-[#0A2E22]">3/3 tháng</span></span>
+          <span class="font-display font-extrabold text-[22px] bg-[#FF8A00] text-[#0E1512] px-3 py-1 rounded-xl">3.000.000đ</span>
+        </div>
+        <div>
+          <button disabled aria-disabled="true" class="w-full bg-slate-200 text-slate-400 font-bold rounded-2xl min-h-[44px] flex items-center justify-center gap-2 cursor-not-allowed">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-wallet"/></svg>
+            Gửi yêu cầu thanh toán
+          </button>
+          <p class="flex items-center gap-1.5 text-slate-500 text-xs mt-2">
+            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-alert"/></svg>
+            Đã có yêu cầu đang xử lý cho mốc này
+          </p>
+        </div>
+      </div>
+
+      <!-- Milestone: Chưa đủ điều kiện, để đối chiếu -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-start gap-2 min-w-0">
+            <span class="w-9 h-9 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-calendar"/></svg>
+            </span>
+            <div class="min-w-0">
+              <p class="font-title font-bold text-[15px] text-[#0A2E22] leading-snug">Đủ 26 công trong tháng</p>
+              <p class="text-slate-500 text-xs">Đợt chi: cuối tháng</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 text-slate-500 text-[12px] font-semibold flex-shrink-0">
+            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-lock"/></svg>
+            Chưa đủ điều kiện
+          </span>
+        </div>
+        <div>
+          <div class="flex items-center justify-between text-sm mb-1.5">
+            <span class="text-slate-600">Tiến độ <span class="font-bold text-[#0A2E22]">9/26 công</span></span>
+            <span class="font-bold text-[#0A2E22]">35%</span>
+          </div>
+          <div class="w-full h-3 rounded-full bg-slate-200 overflow-hidden">
+            <div class="h-full rounded-full bg-[#00B14F]" style="width:35%"></div>
+          </div>
+        </div>
+        <div class="bg-[#F5F8F6] rounded-2xl p-3 flex items-center gap-2.5">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#FF8A00] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-gift"/></svg>
+          <p class="text-[15px] text-[#0A2E22] leading-snug">Còn <span class="font-extrabold">17 công</span> nữa để nhận <span class="font-display font-extrabold text-[20px] bg-[#FF8A00] text-[#0E1512] px-2 py-0.5 rounded-lg inline-block">1.500.000đ</span></p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="bg-white border-t-2 border-slate-200 flex items-stretch flex-shrink-0" style="height:64px; min-height:64px;">
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Trang chủ">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-home"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Trang chủ</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Chấm công">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Chấm công</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Lương và thưởng" aria-current="page">
+        <span class="w-10 h-7 rounded-full bg-[#E7F8EE] flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-[#00B14F]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-wallet"/></svg>
+        </span>
+        <span class="text-[11px] font-semibold text-[#0A2E22] leading-tight text-center">Lương &amp; Thưởng</span>
+      </button>
+      <button class="cursor-pointer flex-1 flex flex-col items-center justify-center gap-1" aria-label="Cá nhân">
+        <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-user"/></svg>
+        <span class="text-[11px] font-semibold text-slate-400 leading-tight">Cá nhân</span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

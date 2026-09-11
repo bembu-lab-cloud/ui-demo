@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng ký khuôn mặt — Nhân Lực Xanh</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif; background:#EEF2F0; color:#0E1512; }
+  h1,h2,h3,.font-display { font-family: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif; }
+  :focus-visible { outline: 3px solid #00B14F; outline-offset: 2px; border-radius: 4px; }
+  .frame { width:390px; min-width:390px; }
+  .screen { background:#F5F8F6; }
+  @keyframes pulse-dot { 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
+  .pulse-dot { animation: pulse-dot 1.4s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .pulse-dot { animation: none; } }
+</style>
+</head>
+<body class="antialiased p-6 md:p-10">
+
+<h1 class="font-display text-2xl font-extrabold text-[#0A2E22] mb-1">Đăng ký khuôn mặt — S4.2</h1>
+<p class="text-slate-600 mb-6">Wizard 5 bước, các trạng thái xem cạnh nhau (cuộn ngang). Push-navigation từ Chấm công, không có tab bar.</p>
+
+<div class="flex gap-8 overflow-x-auto pb-8 items-start">
+
+<!-- ============ STATE 1: HƯỚNG DẪN ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Hướng dẫn</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:800px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-3" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Đăng ký khuôn mặt</h3>
+    </header>
+
+    <!-- Step indicator: step 1 active -->
+    <div class="px-5 pt-4">
+      <div class="flex items-center">
+        <span class="w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center text-[11px] font-bold text-[#0E1512] flex-shrink-0">1</span>
+        <span class="flex-1 h-0.5 bg-slate-300 mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-[11px] font-bold text-slate-400 flex-shrink-0">2</span>
+        <span class="flex-1 h-0.5 bg-slate-300 mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-[11px] font-bold text-slate-400 flex-shrink-0">3</span>
+        <span class="flex-1 h-0.5 bg-slate-300 mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-[11px] font-bold text-slate-400 flex-shrink-0">4</span>
+        <span class="flex-1 h-0.5 bg-slate-300 mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-[11px] font-bold text-slate-400 flex-shrink-0">5</span>
+      </div>
+      <div class="grid grid-cols-5 text-center mt-1">
+        <span class="text-[10px] font-semibold text-[#0A2E22]">Hướng dẫn</span>
+        <span class="text-[10px] font-medium text-slate-400">Chụp</span>
+        <span class="text-[10px] font-medium text-slate-400">Xem lại</span>
+        <span class="text-[10px] font-medium text-slate-400">Gửi</span>
+        <span class="text-[10px] font-medium text-slate-400">Kết quả</span>
+      </div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-4 py-5 space-y-4">
+      <div>
+        <h2 class="font-display text-xl font-extrabold text-[#0A2E22]">Chuẩn bị trước khi chụp</h2>
+        <p class="text-slate-600 mt-1">Ảnh này dùng để đối chiếu mỗi lần chấm công. Làm theo 3 điều dưới đây:</p>
+      </div>
+
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 flex items-center gap-4">
+        <span class="w-14 h-14 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-9 h-9"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </span>
+        <div>
+          <p class="font-title font-bold text-[16px] text-[#0A2E22]">Đủ ánh sáng</p>
+          <p class="text-slate-600 text-sm">Đứng ở nơi sáng, tránh ngược sáng</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 flex items-center gap-4">
+        <span class="relative w-14 h-14 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-9 h-9"><circle cx="12" cy="12" r="8"/><circle cx="9" cy="10" r="1" fill="#00B14F" stroke="none"/><circle cx="15" cy="10" r="1" fill="#00B14F" stroke="none"/><path d="M8 15c1.2 1 2.6 1.5 4 1.5s2.8-.5 4-1.5"/></svg>
+          <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-red-100 border-2 border-red-500 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2.4" class="w-3.5 h-3.5"><circle cx="12" cy="12" r="9"/><path d="M6 18L18 6" stroke-linecap="round"/></svg>
+          </span>
+        </span>
+        <div>
+          <p class="font-title font-bold text-[16px] text-[#0A2E22]">Không che mặt</p>
+          <p class="text-slate-600 text-sm">Bỏ khẩu trang, kính râm, mũ trùm</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4 flex items-center gap-4">
+        <span class="w-14 h-14 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-9 h-9"><circle cx="12" cy="12" r="8"/><circle cx="9" cy="10" r="1" fill="#00B14F" stroke="none"/><circle cx="15" cy="10" r="1" fill="#00B14F" stroke="none"/><path d="M9 15h6"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2" stroke-dasharray="2 2"/></svg>
+        </span>
+        <div>
+          <p class="font-title font-bold text-[16px] text-[#0A2E22]">Nhìn thẳng vào camera</p>
+          <p class="text-slate-600 text-sm">Giữ đầu thẳng, không nghiêng</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-4 pb-6 pt-2">
+      <button class="cursor-pointer w-full bg-[#00B14F] hover:bg-[#00A047] text-[#0E1512] font-bold rounded-2xl min-h-[64px] flex items-center justify-center gap-3 transition-colors duration-200 text-lg">
+        Bắt đầu chụp ảnh
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STATE 2: CHỤP ẢNH ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Chụp ảnh</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:800px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-3" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Đăng ký khuôn mặt</h3>
+    </header>
+
+    <div class="px-5 pt-4">
+      <div class="flex items-center">
+        <span class="w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        <span class="flex-1 h-0.5 bg-[#00B14F] mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center text-[11px] font-bold text-[#0E1512] flex-shrink-0">2</span>
+        <span class="flex-1 h-0.5 bg-slate-300 mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-[11px] font-bold text-slate-400 flex-shrink-0">3</span>
+        <span class="flex-1 h-0.5 bg-slate-300 mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-[11px] font-bold text-slate-400 flex-shrink-0">4</span>
+        <span class="flex-1 h-0.5 bg-slate-300 mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-[11px] font-bold text-slate-400 flex-shrink-0">5</span>
+      </div>
+      <div class="grid grid-cols-5 text-center mt-1">
+        <span class="text-[10px] font-medium text-slate-400">Hướng dẫn</span>
+        <span class="text-[10px] font-semibold text-[#0A2E22]">Chụp</span>
+        <span class="text-[10px] font-medium text-slate-400">Xem lại</span>
+        <span class="text-[10px] font-medium text-slate-400">Gửi</span>
+        <span class="text-[10px] font-medium text-slate-400">Kết quả</span>
+      </div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-4 py-5 space-y-5">
+      <p class="text-center text-slate-600">Đặt khuôn mặt vào giữa khung hình</p>
+
+      <!-- Camera viewfinder mockup -->
+      <div class="relative rounded-3xl border-2 border-slate-800 bg-slate-800 overflow-hidden flex items-center justify-center" style="height:400px;">
+        <!-- corner brackets -->
+        <svg class="absolute top-4 left-4 w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="3" stroke-linecap="round"><path d="M2 9V3h6"/></svg>
+        <svg class="absolute top-4 right-4 w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="3" stroke-linecap="round"><path d="M16 3h6v6"/></svg>
+        <svg class="absolute bottom-4 left-4 w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="3" stroke-linecap="round"><path d="M8 21H2v-6"/></svg>
+        <svg class="absolute bottom-4 right-4 w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="3" stroke-linecap="round"><path d="M22 15v6h-6"/></svg>
+        <!-- face guide oval -->
+        <div class="w-40 h-52 rounded-[50%] border-4 border-dashed border-white/80"></div>
+      </div>
+
+      <div class="flex items-center justify-center gap-2 px-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+        <p class="text-slate-700 text-sm font-medium">Đủ sáng · Không che mặt · Nhìn thẳng</p>
+      </div>
+    </div>
+
+    <!-- Shutter button -->
+    <div class="px-4 pb-6 pt-2 flex flex-col items-center gap-2">
+      <button aria-label="Chụp ảnh" class="cursor-pointer w-[72px] h-[72px] rounded-full bg-white border-4 border-[#00B14F] flex items-center justify-center transition-colors duration-200 hover:bg-[#E7F8EE]">
+        <span class="w-14 h-14 rounded-full bg-[#00B14F]"></span>
+      </button>
+      <p class="text-slate-500 text-xs">Chạm để chụp</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STATE 3: XEM LẠI ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Xem lại ảnh</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:800px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-3" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Đăng ký khuôn mặt</h3>
+    </header>
+
+    <div class="px-5 pt-4">
+      <div class="flex items-center">
+        <span class="w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+        <span class="flex-1 h-0.5 bg-[#00B14F] mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+        <span class="flex-1 h-0.5 bg-[#00B14F] mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center text-[11px] font-bold text-[#0E1512] flex-shrink-0">3</span>
+        <span class="flex-1 h-0.5 bg-slate-300 mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-[11px] font-bold text-slate-400 flex-shrink-0">4</span>
+        <span class="flex-1 h-0.5 bg-slate-300 mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-[11px] font-bold text-slate-400 flex-shrink-0">5</span>
+      </div>
+      <div class="grid grid-cols-5 text-center mt-1">
+        <span class="text-[10px] font-medium text-slate-400">Hướng dẫn</span>
+        <span class="text-[10px] font-medium text-slate-400">Chụp</span>
+        <span class="text-[10px] font-semibold text-[#0A2E22]">Xem lại</span>
+        <span class="text-[10px] font-medium text-slate-400">Gửi</span>
+        <span class="text-[10px] font-medium text-slate-400">Kết quả</span>
+      </div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-4 py-5 space-y-5">
+      <div>
+        <h2 class="font-display text-xl font-extrabold text-[#0A2E22]">Kiểm tra ảnh trước khi gửi</h2>
+        <p class="text-slate-600 mt-1">Ảnh có rõ mặt, đủ sáng không?</p>
+      </div>
+
+      <div class="relative rounded-3xl border-2 border-slate-300 bg-slate-800 flex items-center justify-center overflow-hidden" style="height:340px;">
+        <div class="w-36 h-48 rounded-[50%] border-4 border-white/70"></div>
+      </div>
+    </div>
+
+    <!-- Chụp lại vs Tiếp tục — large, clearly separated -->
+    <div class="px-4 pb-6 pt-2 space-y-4">
+      <button class="cursor-pointer w-full bg-white border-2 border-[#0A2E22] hover:bg-[#E7F8EE] text-[#0A2E22] font-bold rounded-2xl min-h-[56px] flex items-center justify-center gap-2 transition-colors duration-200 text-base">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 12a9 9 0 1 1-3.2-6.9"/><path d="M21 3v6h-6"/></svg>
+        Chụp lại
+      </button>
+      <button class="cursor-pointer w-full bg-[#00B14F] hover:bg-[#00A047] text-[#0E1512] font-bold rounded-2xl min-h-[64px] flex items-center justify-center gap-3 transition-colors duration-200 text-lg">
+        Tiếp tục
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STATE 4: ĐÃ GỬI — CHỜ XỬ LÝ ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Đã gửi — Chờ xử lý</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:800px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-3" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Đăng ký khuôn mặt</h3>
+    </header>
+
+    <div class="px-5 pt-4">
+      <div class="flex items-center">
+        <span class="w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+        <span class="flex-1 h-0.5 bg-[#00B14F] mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+        <span class="flex-1 h-0.5 bg-[#00B14F] mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+        <span class="flex-1 h-0.5 bg-[#00B14F] mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center flex-shrink-0"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+        <span class="flex-1 h-0.5 bg-[#00B14F] mx-1"></span>
+        <span class="w-6 h-6 rounded-full bg-[#00B14F] flex items-center justify-center text-[11px] font-bold text-[#0E1512] flex-shrink-0">5</span>
+      </div>
+      <div class="grid grid-cols-5 text-center mt-1">
+        <span class="text-[10px] font-medium text-slate-400">Hướng dẫn</span>
+        <span class="text-[10px] font-medium text-slate-400">Chụp</span>
+        <span class="text-[10px] font-medium text-slate-400">Xem lại</span>
+        <span class="text-[10px] font-medium text-slate-400">Gửi</span>
+        <span class="text-[10px] font-semibold text-[#0A2E22]">Kết quả</span>
+      </div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-4 py-6 flex flex-col items-center text-center gap-4">
+      <span class="w-20 h-20 rounded-full bg-[#DBEAFE] flex items-center justify-center">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-11 h-11"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      </span>
+      <h2 class="font-display text-xl font-extrabold text-[#0A2E22]">Đã gửi ảnh mẫu</h2>
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#DBEAFE] text-[#1D4ED8] text-sm font-semibold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        Chờ duyệt
+      </span>
+      <p class="text-slate-600 leading-relaxed px-2">Ảnh mẫu của bạn đang chờ quản trị viên xử lý. Bạn sẽ được thông báo khi có kết quả. Chưa thể chấm công cho đến khi ảnh mẫu được duyệt.</p>
+
+      <div class="w-full bg-white rounded-3xl border-2 border-slate-200 p-4 flex items-center gap-3 text-left mt-2">
+        <span class="w-11 h-11 rounded-2xl bg-[#E7F8EE] flex items-center justify-center flex-shrink-0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+        </span>
+        <div>
+          <p class="font-title font-bold text-[15px] text-[#0A2E22]">Đã gửi lúc 08:14, 09/09/2026</p>
+          <p class="text-slate-600 text-sm">Không cần chụp lại khi vào lại màn hình này</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-4 pb-6 pt-2">
+      <button class="cursor-pointer w-full bg-white border-2 border-[#0A2E22] hover:bg-[#E7F8EE] text-[#0A2E22] font-bold rounded-2xl min-h-[56px] flex items-center justify-center gap-2 transition-colors duration-200 text-base">
+        Về trang chấm công
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STATE 5: ĐÃ DUYỆT — KHÔNG THỂ ĐĂNG KÝ LẠI ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Đã duyệt — Không thể đăng ký lại</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:800px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-3" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Đăng ký khuôn mặt</h3>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-6 flex flex-col items-center text-center gap-4">
+      <span class="w-20 h-20 rounded-full bg-[#E7F8EE] flex items-center justify-center">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-11 h-11"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+      </span>
+      <h2 class="font-display text-xl font-extrabold text-[#0A2E22]">Ảnh mẫu đã được duyệt</h2>
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E7F8EE] text-[#0A2E22] text-sm font-semibold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M20 6L9 17l-5-5"/></svg>
+        Hợp lệ
+      </span>
+      <p class="text-slate-600 leading-relaxed px-2">Bạn đã có ảnh mẫu được duyệt và có thể chấm công bình thường. Vì lý do bảo mật, bạn không thể tự đăng ký lại trong ứng dụng.</p>
+
+      <div class="w-full bg-white rounded-3xl border-2 border-slate-200 p-4 text-left mt-2">
+        <p class="font-title font-bold text-[15px] text-[#0A2E22] mb-1">Cần đổi ảnh mẫu?</p>
+        <p class="text-slate-600 text-sm leading-relaxed">Chỉ quản trị viên mới có thể mở lại quyền đăng ký. Vui lòng liên hệ hotline hoặc Zalo hỗ trợ để được xử lý.</p>
+      </div>
+    </div>
+
+    <div class="px-4 pb-6 pt-2 space-y-3">
+      <button class="cursor-pointer w-full bg-[#00B14F] hover:bg-[#00A047] text-[#0E1512] font-bold rounded-2xl min-h-[56px] flex items-center justify-center gap-2 transition-colors duration-200 text-base">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"/></svg>
+        Liên hệ hỗ trợ (Hotline/Zalo)
+      </button>
+      <button class="cursor-pointer w-full bg-white border-2 border-[#0A2E22] hover:bg-[#E7F8EE] text-[#0A2E22] font-bold rounded-2xl min-h-[56px] flex items-center justify-center gap-2 transition-colors duration-200 text-base">
+        Về trang chấm công
+      </button>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

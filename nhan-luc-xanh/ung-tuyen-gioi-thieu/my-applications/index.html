@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đơn đã ứng tuyển — Nhân Lực Xanh (S3.4)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif; background:#EEF2F0; color:#0E1512; }
+  h1,h2,h3,.font-display { font-family: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif; }
+  :focus-visible { outline: 3px solid #00B14F; outline-offset: 2px; border-radius: 6px; }
+  .frame { width:390px; min-width:390px; }
+  .screen { background:#F5F8F6; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spin { animation: spin 1s linear infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .spin, .animate-pulse { animation: none !important; }
+  }
+</style>
+</head>
+<body class="antialiased p-6 md:p-10">
+
+<h1 class="font-display text-2xl font-extrabold text-[#0A2E22] mb-1">Đơn đã ứng tuyển — S3.4</h1>
+<p class="text-slate-600 mb-6">3 trạng thái màn hình, xem cạnh nhau (cuộn ngang).</p>
+
+<div class="flex gap-8 overflow-x-auto pb-8 items-start">
+
+<!-- ============ STATE 1: MẶC ĐỊNH — DANH SÁCH ĐƠN ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Mặc định — Danh sách đơn</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:844px;">
+
+    <!-- App bar -->
+    <header class="shrink-0 bg-white border-b-4 border-[#00B14F] flex items-center gap-2 px-3" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22] flex-1">Đơn đã ứng tuyển</h3>
+      <button aria-label="Kéo để làm mới" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg>
+      </button>
+    </header>
+
+    <main class="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+
+      <!-- SĐT-matching note -->
+      <p class="flex items-start gap-1.5 text-xs text-slate-500 leading-snug">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 mt-0.5 shrink-0"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        Chỉ hiển thị đơn nộp bằng số điện thoại hiện tại của bạn (0987 654 321).
+      </p>
+
+      <!-- Card: Đã nhận việc -->
+      <article class="bg-white rounded-3xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 p-4">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <div class="min-w-0">
+            <h4 class="font-display text-base font-extrabold text-[#0A2E22] truncate">Công nhân đóng gói</h4>
+            <p class="text-sm text-slate-600 flex items-center gap-1 mt-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              Cty TNHH Sản Xuất Sao Việt
+            </p>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+        <span class="inline-flex items-center gap-1.5 bg-[#0A2E22] text-white text-[13px] font-bold px-3 py-1.5 rounded-full mb-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><path d="M20 6 9 17l-5-5"/><path d="m20 12-8.5 8.5L9 18"/></svg>
+          Đã nhận việc
+        </span>
+        <p class="text-sm text-[#0A2E22] font-semibold leading-snug mb-3">Chúc mừng! Bạn đã được nhận vào làm. Hãy bắt đầu chấm công cho ca đầu tiên.</p>
+        <div class="flex items-center justify-between text-xs text-slate-500 mb-3">
+          <span>Nộp ngày 28/08/2026</span>
+          <span>Tự ứng tuyển</span>
+        </div>
+        <button class="cursor-pointer w-full min-h-[44px] bg-[#00B14F] hover:bg-[#00963f] text-[#0E1512] font-bold text-sm rounded-2xl transition-colors duration-200 flex items-center justify-center gap-1.5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+          Vào Chấm công
+        </button>
+      </article>
+
+      <!-- Card: Trúng tuyển -->
+      <article class="bg-white rounded-3xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 p-4">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <div class="min-w-0">
+            <h4 class="font-display text-base font-extrabold text-[#0A2E22] truncate">Bốc xếp kho hàng</h4>
+            <p class="text-sm text-slate-600 flex items-center gap-1 mt-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              Kho vận Tân Cảng
+            </p>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+        <span class="inline-flex items-center gap-1.5 bg-[#E7F8EE] text-[#0A2E22] text-[13px] font-bold px-3 py-1.5 rounded-full mb-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>
+          Trúng tuyển
+        </span>
+        <p class="text-sm text-[#0A2E22] font-semibold leading-snug mb-3">Bạn đã trúng tuyển. Nhân viên tuyển dụng sẽ liên hệ hướng dẫn nhận việc.</p>
+        <div class="flex items-center justify-between text-xs text-slate-500">
+          <span>Nộp ngày 25/08/2026</span>
+          <span>Qua giới thiệu</span>
+        </div>
+      </article>
+
+      <!-- Card: Hẹn phỏng vấn -->
+      <article class="bg-white rounded-3xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 p-4">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <div class="min-w-0">
+            <h4 class="font-display text-base font-extrabold text-[#0A2E22] truncate">Vận hành máy may</h4>
+            <p class="text-sm text-slate-600 flex items-center gap-1 mt-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              Cty May Thái Bình
+            </p>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+        <span class="inline-flex items-center gap-1.5 bg-[#DBEAFE] text-[#1D4ED8] text-[13px] font-bold px-3 py-1.5 rounded-full mb-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+          Hẹn phỏng vấn
+        </span>
+        <p class="text-sm text-[#0A2E22] font-semibold leading-snug mb-3">Bạn có lịch phỏng vấn. Nhân viên tuyển dụng sẽ gọi báo giờ hẹn cụ thể.</p>
+        <div class="flex items-center justify-between text-xs text-slate-500">
+          <span>Nộp ngày 20/08/2026</span>
+          <span>Tự ứng tuyển</span>
+        </div>
+      </article>
+
+      <!-- Card: Không liên lạc được -->
+      <article class="bg-white rounded-3xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 p-4">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <div class="min-w-0">
+            <h4 class="font-display text-base font-extrabold text-[#0A2E22] truncate">Kiểm hàng QC</h4>
+            <p class="text-sm text-slate-600 flex items-center gap-1 mt-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              Cty Điện tử Đông Nam
+            </p>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+        <span class="inline-flex items-center gap-1.5 bg-[#FEF3C7] text-[#92400E] text-[13px] font-bold px-3 py-1.5 rounded-full mb-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#92400E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          Không liên lạc được
+        </span>
+        <p class="text-sm text-[#0A2E22] font-semibold leading-snug mb-3">Nhân viên tuyển dụng chưa liên hệ được với bạn. Đơn chưa bị từ chối — hãy gọi hotline để cập nhật số điện thoại.</p>
+        <div class="flex items-center justify-between text-xs text-slate-500 mb-3">
+          <span>Nộp ngày 15/08/2026</span>
+          <span>Tự ứng tuyển</span>
+        </div>
+        <button class="cursor-pointer w-full min-h-[44px] bg-white border-2 border-[#0A2E22] hover:bg-[#E7F8EE] text-[#0A2E22] font-bold text-sm rounded-2xl transition-colors duration-200 flex items-center justify-center gap-1.5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>
+          Gọi hotline hỗ trợ
+        </button>
+      </article>
+
+      <!-- Card: Đã liên hệ -->
+      <article class="bg-white rounded-3xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 p-4">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <div class="min-w-0">
+            <h4 class="font-display text-base font-extrabold text-[#0A2E22] truncate">Lái xe container</h4>
+            <p class="text-sm text-slate-600 flex items-center gap-1 mt-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              Cty Vận Tải Phương Nam
+            </p>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+        <span class="inline-flex items-center gap-1.5 bg-[#DBEAFE] text-[#1D4ED8] text-[13px] font-bold px-3 py-1.5 rounded-full mb-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>
+          Đã liên hệ
+        </span>
+        <p class="text-sm text-[#0A2E22] font-semibold leading-snug mb-3">Nhân viên tuyển dụng đã liên hệ với bạn và đang xử lý hồ sơ.</p>
+        <div class="flex items-center justify-between text-xs text-slate-500">
+          <span>Nộp ngày 10/08/2026</span>
+          <span>Tự ứng tuyển</span>
+        </div>
+      </article>
+
+      <!-- Card: Mới -->
+      <article class="bg-white rounded-3xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 p-4">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <div class="min-w-0">
+            <h4 class="font-display text-base font-extrabold text-[#0A2E22] truncate">Nhân viên đóng gói thực phẩm</h4>
+            <p class="text-sm text-slate-600 flex items-center gap-1 mt-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              Cty Thực Phẩm An Lành
+            </p>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+        <span class="inline-flex items-center gap-1.5 bg-[#DBEAFE] text-[#1D4ED8] text-[13px] font-bold px-3 py-1.5 rounded-full mb-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Đang chờ nhân viên liên hệ
+        </span>
+        <p class="text-sm text-[#0A2E22] font-semibold leading-snug mb-3">Đơn của bạn đã được ghi nhận, đang chờ nhân viên tuyển dụng liên hệ.</p>
+        <div class="flex items-center justify-between text-xs text-slate-500">
+          <span>Nộp ngày 08/08/2026</span>
+          <span>Tự ứng tuyển</span>
+        </div>
+      </article>
+
+      <!-- Card: Không đạt -->
+      <article class="bg-white rounded-3xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 p-4">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <div class="min-w-0">
+            <h4 class="font-display text-base font-extrabold text-[#0A2E22] truncate">Vận hành máy CNC</h4>
+            <p class="text-sm text-slate-600 flex items-center gap-1 mt-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              Cty Cơ Khí Phương Nam
+            </p>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+        <span class="inline-flex items-center gap-1.5 bg-[#FEE2E2] text-[#B91C1C] text-[13px] font-bold px-3 py-1.5 rounded-full mb-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg>
+          Không đạt yêu cầu
+        </span>
+        <p class="text-sm text-[#0A2E22] font-semibold leading-snug mb-3">Rất tiếc, đơn ứng tuyển này không đạt yêu cầu tuyển dụng của nhà máy.</p>
+        <div class="flex items-center justify-between text-xs text-slate-500">
+          <span>Nộp ngày 02/08/2026</span>
+          <span>Qua giới thiệu</span>
+        </div>
+      </article>
+
+      <!-- Card: Huỷ -->
+      <article class="bg-white rounded-3xl border-2 border-slate-200 hover:border-[#00B14F] transition-colors duration-200 p-4">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <div class="min-w-0">
+            <h4 class="font-display text-base font-extrabold text-[#0A2E22] truncate">Bảo vệ nhà máy</h4>
+            <p class="text-sm text-slate-600 flex items-center gap-1 mt-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              Cty Dịch Vụ Bảo Vệ Miền Nam
+            </p>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 shrink-0 mt-0.5"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+        <span class="inline-flex items-center gap-1.5 bg-[#FEE2E2] text-[#B91C1C] text-[13px] font-bold px-3 py-1.5 rounded-full mb-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 shrink-0"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg>
+          Đơn đã huỷ
+        </span>
+        <p class="text-sm text-[#0A2E22] font-semibold leading-snug mb-3">Đơn ứng tuyển này đã được huỷ.</p>
+        <div class="flex items-center justify-between text-xs text-slate-500">
+          <span>Nộp ngày 28/07/2026</span>
+          <span>Tự ứng tuyển</span>
+        </div>
+      </article>
+
+      <!-- Bottom CTA -->
+      <button class="cursor-pointer w-full min-h-[44px] bg-white border-2 border-[#0A2E22] hover:bg-[#E7F8EE] text-[#0A2E22] font-bold text-sm rounded-2xl transition-colors duration-200 mt-1">Ứng tuyển việc khác</button>
+
+    </main>
+  </div>
+</div>
+
+<!-- ============ STATE 2: TRỐNG — CHƯA CÓ ĐƠN ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Trống — Chưa có đơn</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:844px;">
+
+    <header class="shrink-0 bg-white border-b-4 border-[#00B14F] flex items-center gap-2 px-3" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22] flex-1">Đơn đã ứng tuyển</h3>
+      <button aria-label="Kéo để làm mới" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl text-[#0A2E22] hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg>
+      </button>
+    </header>
+
+    <main class="flex-1 overflow-y-auto px-4 py-4">
+      <p class="flex items-start gap-1.5 text-xs text-slate-500 leading-snug mb-6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 mt-0.5 shrink-0"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        Chỉ hiển thị đơn nộp bằng số điện thoại hiện tại của bạn (0987 654 321).
+      </p>
+      <div class="flex flex-col items-center text-center px-6 pt-16">
+        <span class="w-20 h-20 rounded-full bg-[#E7F8EE] flex items-center justify-center mb-5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10"><path d="M9 12h6M9 16h6M9 8h6"/><rect x="4" y="3" width="16" height="18" rx="2"/></svg>
+        </span>
+        <h3 class="font-display text-xl font-extrabold text-[#0A2E22] mb-2">Bạn chưa ứng tuyển đơn nào</h3>
+        <p class="text-slate-600 text-base mb-6 leading-relaxed">Khám phá việc làm phù hợp và ứng tuyển ngay để bắt đầu theo dõi tiến trình xử lý tại đây.</p>
+        <button class="cursor-pointer w-full min-h-[44px] bg-[#00B14F] hover:bg-[#00963f] text-[#0E1512] font-bold text-base rounded-2xl px-6 transition-colors duration-200">Xem việc làm ngay</button>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ============ STATE 3: ĐANG TẢI ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Đang tải</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:844px;">
+
+    <header class="shrink-0 bg-white border-b-4 border-[#00B14F] flex items-center gap-2 px-3" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22] flex-1">Đơn đã ứng tuyển</h3>
+      <button aria-label="Kéo để làm mới" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl text-slate-300">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg>
+      </button>
+    </header>
+
+    <main class="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+      <p class="text-sm font-semibold text-slate-500 flex items-center gap-2 pb-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 spin"><path d="M21 12a9 9 0 1 1-9-9"/></svg>
+        Đang tải danh sách đơn ứng tuyển...
+      </p>
+
+      <!-- Skeleton cards -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <div class="animate-pulse bg-slate-200 h-5 w-3/5 rounded"></div>
+          <div class="animate-pulse bg-slate-200 h-5 w-5 rounded shrink-0"></div>
+        </div>
+        <div class="animate-pulse bg-slate-200 h-3 w-2/5 rounded mb-3"></div>
+        <div class="animate-pulse bg-slate-200 h-7 w-28 rounded-full mb-3"></div>
+        <div class="animate-pulse bg-slate-200 h-3 w-full rounded mb-1.5"></div>
+        <div class="animate-pulse bg-slate-200 h-3 w-4/5 rounded mb-3"></div>
+        <div class="animate-pulse bg-slate-200 h-3 w-1/2 rounded"></div>
+      </div>
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <div class="animate-pulse bg-slate-200 h-5 w-2/5 rounded"></div>
+          <div class="animate-pulse bg-slate-200 h-5 w-5 rounded shrink-0"></div>
+        </div>
+        <div class="animate-pulse bg-slate-200 h-3 w-1/3 rounded mb-3"></div>
+        <div class="animate-pulse bg-slate-200 h-7 w-24 rounded-full mb-3"></div>
+        <div class="animate-pulse bg-slate-200 h-3 w-full rounded mb-1.5"></div>
+        <div class="animate-pulse bg-slate-200 h-3 w-3/5 rounded mb-3"></div>
+        <div class="animate-pulse bg-slate-200 h-3 w-1/2 rounded"></div>
+      </div>
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <div class="animate-pulse bg-slate-200 h-5 w-3/5 rounded"></div>
+          <div class="animate-pulse bg-slate-200 h-5 w-5 rounded shrink-0"></div>
+        </div>
+        <div class="animate-pulse bg-slate-200 h-3 w-2/5 rounded mb-3"></div>
+        <div class="animate-pulse bg-slate-200 h-7 w-32 rounded-full mb-3"></div>
+        <div class="animate-pulse bg-slate-200 h-3 w-full rounded mb-1.5"></div>
+        <div class="animate-pulse bg-slate-200 h-3 w-2/3 rounded mb-3"></div>
+        <div class="animate-pulse bg-slate-200 h-3 w-1/2 rounded"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

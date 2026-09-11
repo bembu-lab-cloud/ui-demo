@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bảng công — Nhân Lực Xanh</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif; background:#EEF2F0; color:#0E1512; }
+  h1,h2,h3,.font-display { font-family: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif; }
+  .font-title { font-family: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif; }
+  :focus-visible { outline: 3px solid #00B14F; outline-offset: 2px; border-radius: 4px; }
+  .frame { width:390px; min-width:390px; }
+  .screen { background:#F5F8F6; }
+  table { border-collapse: separate; border-spacing: 0; }
+  th, td { transition: background-color 200ms; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body class="antialiased p-6 md:p-10">
+
+<h1 class="font-display text-2xl font-extrabold text-[#0A2E22] mb-1">Bảng công — S4.5</h1>
+<p class="text-slate-600 mb-6">3 trạng thái màn hình, xem cạnh nhau (cuộn ngang). Bảng cuộn ngang riêng bên trong từng khung.</p>
+
+<div class="flex gap-8 overflow-x-auto pb-8 items-start">
+
+<!-- ============ STATE 1: MẶC ĐỊNH — ĐỦ DỮ LIỆU 4 TRẠNG THÁI ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Mặc định</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:900px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-3" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Bảng công</h3>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+
+      <!-- Period selector -->
+      <button class="cursor-pointer w-full flex items-center justify-between bg-white rounded-2xl border-2 border-slate-300 px-4 py-2.5 hover:border-[#00B14F] transition-colors duration-200">
+        <span class="font-title font-bold text-[#0A2E22] text-[15px]">Kỳ: Tháng 09/2026 (01/09 – 30/09)</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+
+      <!-- Identity block -->
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+        <p class="text-xs text-slate-500 font-semibold mb-3">Thông tin đối soát</p>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-3">
+          <div><p class="text-xs text-slate-500">Họ tên</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">Nguyễn Văn An</p></div>
+          <div><p class="text-xs text-slate-500">SĐT</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">0912 345 678</p></div>
+          <div><p class="text-xs text-slate-500">CCCD</p><p class="font-title font-bold text-amber-700 text-[15px]">— chưa cập nhật</p></div>
+          <div><p class="text-xs text-slate-500">Nhà máy</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">Cty TNHH Cơ khí Phương Nam</p></div>
+          <div class="col-span-2"><p class="text-xs text-slate-500">Ngày vào làm</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">15/03/2026</p></div>
+        </div>
+      </div>
+
+      <!-- Missing-info nudge banner -->
+      <div class="flex items-start gap-2.5 bg-[#FEF3C7] border-2 border-amber-300 rounded-2xl p-3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#92400E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+        <div class="flex-1">
+          <p class="text-[#92400E] text-sm font-bold">Thiếu số CCCD trong hồ sơ</p>
+          <p class="text-[#92400E] text-xs mt-0.5">Bổ sung để bảng công có đầy đủ giá trị đối soát khi in/chụp lại.</p>
+        </div>
+        <button class="cursor-pointer text-xs font-bold text-[#92400E] underline flex-shrink-0 min-h-[44px] flex items-center">Bổ sung</button>
+      </div>
+
+      <!-- Table -->
+      <div class="rounded-3xl border-2 border-slate-200 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="text-sm" style="min-width:820px;">
+            <thead>
+              <tr>
+                <th class="sticky left-0 z-20 bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3 border-r-2 border-white/10" style="min-width:96px;">Ngày</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:84px;">Giờ vào</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:84px;">Giờ ra</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:96px;">Số giờ làm</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:100px;">Loại ngày</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:120px;">Số công quy đổi</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:190px;">Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y-2 divide-slate-100">
+              <tr class="group cursor-pointer"><td class="sticky left-0 z-10 bg-white group-hover:bg-[#E7F8EE] px-3 py-3 border-r-2 border-slate-200"><p class="font-title font-bold text-[#0A2E22]">01/09</p><p class="text-xs text-slate-500">Thứ Ba</p></td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">07:02</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">16:05</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">8.5h</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">Hành chính</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700 font-semibold">1.0</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E7F8EE] text-[#0A2E22] text-sm font-semibold"><svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5"/></svg>Hợp lệ</span><p class="text-[11px] text-[#00B14F] font-bold mt-1 flex items-center gap-1"><svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3"><path d="M20 6L9 17l-5-5"/></svg>Tính vào lương</p></td></tr>
+              <tr class="group cursor-pointer"><td class="sticky left-0 z-10 bg-white group-hover:bg-[#E7F8EE] px-3 py-3 border-r-2 border-slate-200"><p class="font-title font-bold text-[#0A2E22]">02/09</p><p class="text-xs text-slate-500">Thứ Tư</p></td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">07:00</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">16:00</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">8.0h</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">Hành chính</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700 font-semibold">1.0</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E7F8EE] text-[#0A2E22] text-sm font-semibold"><svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5"/></svg>Hợp lệ</span><p class="text-[11px] text-[#00B14F] font-bold mt-1 flex items-center gap-1"><svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3"><path d="M20 6L9 17l-5-5"/></svg>Tính vào lương</p></td></tr>
+              <tr class="group cursor-pointer"><td class="sticky left-0 z-10 bg-white group-hover:bg-[#E7F8EE] px-3 py-3 border-r-2 border-slate-200"><p class="font-title font-bold text-[#0A2E22]">03/09</p><p class="text-xs text-slate-500">Thứ Năm</p></td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">07:05</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">19:10</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">11.2h</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">Tăng ca</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700 font-semibold">1.5</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#DBEAFE] text-[#1D4ED8] text-sm font-semibold"><svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Chờ duyệt</span></td></tr>
+              <tr class="group cursor-pointer"><td class="sticky left-0 z-10 bg-white group-hover:bg-[#E7F8EE] px-3 py-3 border-r-2 border-slate-200"><p class="font-title font-bold text-[#0A2E22]">04/09</p><p class="text-xs text-slate-500">Thứ Sáu</p></td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">06:58</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">16:02</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">8.1h</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">Hành chính</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700 font-semibold">1.0</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border-2 border-dashed border-[#64748B] bg-transparent text-[#475569] text-sm font-semibold"><svg viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M21 12a9 9 0 1 0-3.2 6.9"/><path d="M21 3v6h-6"/></svg>Chờ đồng bộ</span></td></tr>
+              <tr class="group cursor-pointer"><td class="sticky left-0 z-10 bg-white group-hover:bg-[#E7F8EE] px-3 py-3 border-r-2 border-slate-200"><p class="font-title font-bold text-[#0A2E22]">05/09</p><p class="text-xs text-slate-500">Thứ Bảy</p></td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">07:01</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">16:00</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">8.0h</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">Hành chính</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700 font-semibold">1.0</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E7F8EE] text-[#0A2E22] text-sm font-semibold"><svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5"/></svg>Hợp lệ</span><p class="text-[11px] text-[#00B14F] font-bold mt-1 flex items-center gap-1"><svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3"><path d="M20 6L9 17l-5-5"/></svg>Tính vào lương</p></td></tr>
+              <tr class="group cursor-pointer"><td class="sticky left-0 z-10 bg-white group-hover:bg-[#E7F8EE] px-3 py-3 border-r-2 border-slate-200"><p class="font-title font-bold text-[#0A2E22]">06/09</p><p class="text-xs text-slate-500">Chủ nhật</p></td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">07:00</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">15:30</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">7.5h</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">Chủ nhật</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700 font-semibold">1.0</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FEE2E2] text-[#B91C1C] text-sm font-semibold"><svg viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5l5 5M14.5 9.5l-5 5"/></svg>Bị từ chối</span><p class="text-[11px] text-[#B91C1C] mt-1 max-w-[170px] leading-snug">Lý do: ảnh chấm công mờ, không xác định khuôn mặt</p></td></tr>
+              <tr class="group cursor-pointer"><td class="sticky left-0 z-10 bg-white group-hover:bg-[#E7F8EE] px-3 py-3 border-r-2 border-slate-200"><p class="font-title font-bold text-[#0A2E22]">07/09</p><p class="text-xs text-slate-500">Thứ Hai · Lễ</p></td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-400">—</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-400">—</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-400">—</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">Ngày lễ</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700 font-semibold">1.0</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E7F8EE] text-[#0A2E22] text-sm font-semibold"><svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5"/></svg>Hợp lệ</span><p class="text-[11px] text-[#00B14F] font-bold mt-1 flex items-center gap-1"><svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3"><path d="M20 6L9 17l-5-5"/></svg>Tính vào lương</p></td></tr>
+              <tr class="group cursor-pointer"><td class="sticky left-0 z-10 bg-white group-hover:bg-[#E7F8EE] px-3 py-3 border-r-2 border-slate-200"><p class="font-title font-bold text-[#0A2E22]">08/09</p><p class="text-xs text-slate-500">Thứ Ba</p></td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">07:03</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-400">—</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-400">—</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">Hành chính</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-400">—</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border-2 border-dashed border-[#64748B] bg-transparent text-[#475569] text-sm font-semibold"><svg viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M21 12a9 9 0 1 0-3.2 6.9"/><path d="M21 3v6h-6"/></svg>Chờ đồng bộ</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 px-1">Chỉ dòng có nhãn "Tính vào lương" (Hợp lệ) được tính vào công, lương và tiến độ thưởng. Bấm vào một dòng để xem chi tiết bản ghi.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STATE 2: TRỐNG — CHƯA CÓ DỮ LIỆU CÔNG ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Trống</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:900px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-3" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Bảng công</h3>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+
+      <button class="cursor-pointer w-full flex items-center justify-between bg-white rounded-2xl border-2 border-slate-300 px-4 py-2.5 hover:border-[#00B14F] transition-colors duration-200">
+        <span class="font-title font-bold text-[#0A2E22] text-[15px]">Kỳ: Tháng 09/2026 (01/09 – 30/09)</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+        <p class="text-xs text-slate-500 font-semibold mb-3">Thông tin đối soát</p>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-3">
+          <div><p class="text-xs text-slate-500">Họ tên</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">Trần Thị Hoa</p></div>
+          <div><p class="text-xs text-slate-500">SĐT</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">0987 654 321</p></div>
+          <div><p class="text-xs text-slate-500">CCCD</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">079301xxxxxx</p></div>
+          <div><p class="text-xs text-slate-500">Nhà máy</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">Cty CP Dệt may Sông Hồng</p></div>
+          <div class="col-span-2"><p class="text-xs text-slate-500">Ngày vào làm</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">02/09/2026</p></div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border-2 border-dashed border-slate-300 p-8 flex flex-col items-center text-center gap-3 mt-6">
+        <span class="w-16 h-16 rounded-3xl bg-[#E7F8EE] flex items-center justify-center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M9.5 14.5l5 5M14.5 14.5l-5 5"/></svg>
+        </span>
+        <p class="font-display font-bold text-[#0A2E22] text-lg">Chưa có dữ liệu công trong kỳ này</p>
+        <p class="text-slate-600 text-sm px-2">Bạn mới nhận việc hoặc chưa chấm công lần nào trong kỳ đang xem. Hãy chấm công ngay hoặc thử đổi sang kỳ khác.</p>
+        <div class="w-full space-y-3 mt-2">
+          <button class="cursor-pointer w-full bg-[#00B14F] hover:bg-[#00A047] text-[#0E1512] font-bold rounded-2xl min-h-[44px] flex items-center justify-center gap-2 transition-colors duration-200">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+            Chấm công ngay
+          </button>
+          <button class="cursor-pointer w-full bg-white border-2 border-[#0A2E22] text-[#0A2E22] font-bold rounded-2xl min-h-[44px] hover:bg-[#E7F8EE] transition-colors duration-200">Đổi kỳ / tháng khác</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STATE 3: NGOẠI TUYẾN — DỮ LIỆU CŨ ĐÃ CACHE ============ -->
+<div class="frame">
+  <h2 class="font-display text-lg font-bold text-[#0A2E22] mb-3">Trạng thái: Ngoại tuyến / dữ liệu cũ</h2>
+  <div class="screen frame rounded-[32px] border-2 border-slate-200 overflow-hidden flex flex-col" style="height:900px;">
+
+    <header class="bg-white border-b-4 border-[#00B14F] flex items-center gap-3 px-3" style="height:60px; min-height:60px;">
+      <button aria-label="Quay lại" class="cursor-pointer w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <h3 class="font-display text-lg font-extrabold text-[#0A2E22]">Bảng công</h3>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+
+      <button class="cursor-pointer w-full flex items-center justify-between bg-white rounded-2xl border-2 border-slate-300 px-4 py-2.5 opacity-70" disabled>
+        <span class="font-title font-bold text-[#0A2E22] text-[15px]">Kỳ: Tháng 09/2026 (01/09 – 30/09)</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+
+      <!-- Offline / stale-data banner -->
+      <div class="flex items-start gap-2.5 bg-slate-100 border-2 border-slate-300 rounded-2xl p-3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 flex-shrink-0 mt-0.5"><path d="M21 12a9 9 0 1 0-3.2 6.9"/><path d="M21 3v6h-6"/></svg>
+        <div class="flex-1">
+          <p class="text-slate-700 text-sm font-bold">Đang mất mạng — hiển thị dữ liệu đã đồng bộ lần cuối</p>
+          <p class="text-slate-600 text-xs mt-0.5">Cập nhật lần cuối lúc 14:32, 08/09/2026</p>
+        </div>
+        <button class="cursor-pointer text-xs font-bold text-[#0A2E22] underline flex-shrink-0 min-h-[44px] flex items-center">Thử lại</button>
+      </div>
+
+      <div class="bg-white rounded-3xl border-2 border-slate-200 p-4">
+        <p class="text-xs text-slate-500 font-semibold mb-3">Thông tin đối soát</p>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-3">
+          <div><p class="text-xs text-slate-500">Họ tên</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">Lê Minh Tuấn</p></div>
+          <div><p class="text-xs text-slate-500">SĐT</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">0909 112 233</p></div>
+          <div><p class="text-xs text-slate-500">CCCD</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">079188xxxxxx</p></div>
+          <div><p class="text-xs text-slate-500">Nhà máy</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">Cty TNHH Điện tử Vĩnh Phát</p></div>
+          <div class="col-span-2"><p class="text-xs text-slate-500">Ngày vào làm</p><p class="font-title font-bold text-[#0A2E22] text-[15px]">10/01/2026</p></div>
+        </div>
+      </div>
+
+      <div class="rounded-3xl border-2 border-slate-200 overflow-hidden opacity-95">
+        <div class="overflow-x-auto">
+          <table class="text-sm" style="min-width:820px;">
+            <thead>
+              <tr>
+                <th class="sticky left-0 z-20 bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3 border-r-2 border-white/10" style="min-width:96px;">Ngày</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:84px;">Giờ vào</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:84px;">Giờ ra</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:96px;">Số giờ làm</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:100px;">Loại ngày</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:120px;">Số công quy đổi</th>
+                <th class="bg-[#0A2E22] text-white font-display font-bold text-left px-3 py-3" style="min-width:190px;">Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y-2 divide-slate-100">
+              <tr class="group cursor-pointer"><td class="sticky left-0 z-10 bg-white group-hover:bg-[#E7F8EE] px-3 py-3 border-r-2 border-slate-200"><p class="font-title font-bold text-[#0A2E22]">05/09</p><p class="text-xs text-slate-500">Thứ Bảy</p></td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">07:00</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">16:00</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">8.0h</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">Hành chính</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700 font-semibold">1.0</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E7F8EE] text-[#0A2E22] text-sm font-semibold"><svg viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5"/></svg>Hợp lệ</span><p class="text-[11px] text-[#00B14F] font-bold mt-1 flex items-center gap-1"><svg viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3"><path d="M20 6L9 17l-5-5"/></svg>Tính vào lương</p></td></tr>
+              <tr class="group cursor-pointer"><td class="sticky left-0 z-10 bg-white group-hover:bg-[#E7F8EE] px-3 py-3 border-r-2 border-slate-200"><p class="font-title font-bold text-[#0A2E22]">06/09</p><p class="text-xs text-slate-500">Chủ nhật</p></td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">07:02</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">15:40</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">7.6h</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">Chủ nhật</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700 font-semibold">1.0</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#DBEAFE] text-[#1D4ED8] text-sm font-semibold"><svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Chờ duyệt</span></td></tr>
+              <tr class="group"><td class="sticky left-0 z-10 bg-white group-hover:bg-[#E7F8EE] px-3 py-3 border-r-2 border-slate-200"><p class="font-title font-bold text-[#0A2E22]">08/09</p><p class="text-xs text-slate-500">Thứ Ba</p></td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">07:01</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-400">—</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-400">—</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-700">Hành chính</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3 text-slate-400">—</td><td class="group-hover:bg-[#E7F8EE] px-3 py-3"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border-2 border-dashed border-[#64748B] bg-transparent text-[#475569] text-sm font-semibold"><svg viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M21 12a9 9 0 1 0-3.2 6.9"/><path d="M21 3v6h-6"/></svg>Chờ đồng bộ</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 px-1">Không thể tải dữ liệu mới khi mất mạng. Dòng 08/09 chưa từng tải chi tiết nên tạm khoá mở xem cho đến khi có mạng trở lại.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

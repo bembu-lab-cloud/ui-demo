@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xác nhận đã gửi — Nhân Lực Xanh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['"Be Vietnam Pro"', 'sans-serif'],
+          body: ['"Source Sans 3"', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html, body { background: #EDF1EF; font-family: 'Source Sans 3', sans-serif; }
+  .frame { width: 390px; min-width: 390px; height: 760px; }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body class="text-[#0E1512]">
+
+<div class="max-w-full overflow-x-auto py-8 px-6">
+  <div class="flex gap-8 items-start w-max mx-auto">
+
+    <!-- ============= FRAME 1: XÁC NHẬN — ỨNG TUYỂN (tự ứng tuyển) ============= -->
+    <div>
+      <h2 class="font-display font-extrabold text-lg text-[#0A2E22] mb-3">Xác nhận — Ứng tuyển</h2>
+      <div class="frame relative rounded-3xl overflow-hidden border-2 border-slate-200">
+
+        <!-- Underlying screen (dimmed, suggests apply-form behind the modal) -->
+        <div class="absolute inset-0 bg-[#F5F8F6]">
+          <div class="h-16 bg-white border-b-4 border-[#00B14F] flex items-center px-4">
+            <div class="w-6 h-6 rounded-md bg-slate-200"></div>
+            <div class="w-32 h-4 rounded bg-slate-200 ml-3"></div>
+          </div>
+          <div class="px-4 pt-6 space-y-3 opacity-60">
+            <div class="h-24 rounded-3xl bg-white border-2 border-slate-200"></div>
+            <div class="h-4 w-2/3 rounded bg-slate-200"></div>
+            <div class="h-11 w-full rounded-2xl bg-slate-200"></div>
+          </div>
+        </div>
+
+        <!-- Scrim -->
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <!-- Bottom sheet -->
+        <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl px-6 pt-3 pb-8">
+          <div class="w-10 h-1.5 rounded-full bg-slate-300 mx-auto mb-6" aria-hidden="true"></div>
+
+          <!-- Success icon -->
+          <div class="flex justify-center mb-5">
+            <div class="w-20 h-20 rounded-full bg-[#E7F8EE] flex items-center justify-center">
+              <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+            </div>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="font-display font-extrabold text-[22px] text-[#0A2E22] text-center mb-2">Đã gửi thành công!</h1>
+          <p class="font-body text-base text-slate-600 text-center leading-snug mb-1">Nhân viên sẽ gọi lại xác nhận trong vòng</p>
+          <p class="font-display font-extrabold text-xl text-[#0A2E22] text-center mb-4">24 giờ</p>
+          <p class="font-body text-sm text-slate-500 text-center leading-snug mb-7">Thông tin ứng tuyển của bạn đã được ghi nhận. Bạn có thể đóng ứng dụng ngay bây giờ, không cần chờ tại màn hình này.</p>
+
+          <!-- Contact shortcuts -->
+          <p class="font-body text-sm font-semibold text-[#0A2E22] mb-2">Cần hỗ trợ ngay?</p>
+          <div class="grid grid-cols-2 gap-3 mb-3">
+            <a href="tel:19001234" class="min-h-[64px] rounded-2xl bg-[#00B14F] text-[#0E1512] flex flex-col items-center justify-center gap-1 cursor-pointer hover:brightness-95 transition-all duration-200 focus:outline-none focus:ring-[3px] focus:ring-[#00B14F] focus:ring-offset-2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="font-body font-bold text-sm">Gọi hotline</span>
+            </a>
+            <a href="#" class="min-h-[64px] rounded-2xl bg-white border-2 border-[#0A2E22] text-[#0A2E22] flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-[#E7F8EE] transition-colors duration-200 focus:outline-none focus:ring-[3px] focus:ring-[#00B14F] focus:ring-offset-2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-8.5 8.5 8.4 8.4 0 01-3.9-.95L3 20l1.05-3.9A8.4 8.4 0 013.5 12 8.5 8.5 0 0112 3.5a8.5 8.5 0 019 8z"/></svg>
+              <span class="font-body font-bold text-sm">Chat Zalo</span>
+            </a>
+          </div>
+          <p class="font-body text-xs text-slate-500 text-center mb-6">Hotline: 1900 1234 · Nhấn để gọi hoặc chat trực tiếp</p>
+
+          <!-- Primary exit -->
+          <button class="w-full min-h-[44px] rounded-2xl bg-white border-2 border-[#0A2E22] text-[#0A2E22] font-body font-bold text-base py-3 cursor-pointer hover:bg-[#E7F8EE] transition-colors duration-200 mb-3">Về trang chủ</button>
+
+          <!-- Optional: track application (logged-in only) -->
+          <button class="w-full flex items-center justify-center gap-1.5 min-h-[44px] rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer">
+            <span class="font-body text-sm font-semibold text-[#0A2E22] underline">Theo dõi đơn đã nộp</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============= FRAME 2: XÁC NHẬN — GIỚI THIỆU (giới thiệu bạn bè) ============= -->
+    <div>
+      <h2 class="font-display font-extrabold text-lg text-[#0A2E22] mb-3">Xác nhận — Giới thiệu</h2>
+      <div class="frame relative rounded-3xl overflow-hidden border-2 border-slate-200">
+
+        <!-- Underlying screen (dimmed, suggests refer-friend behind the modal) -->
+        <div class="absolute inset-0 bg-[#F5F8F6]">
+          <div class="h-16 bg-white border-b-4 border-[#00B14F] flex items-center px-4">
+            <div class="w-6 h-6 rounded-md bg-slate-200"></div>
+            <div class="w-36 h-4 rounded bg-slate-200 ml-3"></div>
+          </div>
+          <div class="px-4 pt-6 space-y-3 opacity-60">
+            <div class="h-24 rounded-3xl bg-white border-2 border-slate-200"></div>
+            <div class="h-4 w-1/2 rounded bg-slate-200"></div>
+            <div class="h-11 w-full rounded-2xl bg-slate-200"></div>
+          </div>
+        </div>
+
+        <!-- Scrim -->
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <!-- Bottom sheet -->
+        <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl px-6 pt-3 pb-8">
+          <div class="w-10 h-1.5 rounded-full bg-slate-300 mx-auto mb-6" aria-hidden="true"></div>
+
+          <!-- Success icon -->
+          <div class="flex justify-center mb-5">
+            <div class="w-20 h-20 rounded-full bg-[#E7F8EE] flex items-center justify-center">
+              <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#00B14F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+            </div>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="font-display font-extrabold text-[22px] text-[#0A2E22] text-center mb-2">Đã gửi thành công!</h1>
+          <p class="font-body text-base text-slate-600 text-center leading-snug mb-1">Người bạn bạn giới thiệu sẽ được liên hệ trong vòng</p>
+          <p class="font-display font-extrabold text-xl text-[#0A2E22] text-center mb-4">24 giờ</p>
+          <p class="font-body text-sm text-slate-500 text-center leading-snug mb-7">Thông tin giới thiệu đã được ghi nhận. Bạn có thể đóng ứng dụng ngay bây giờ, không cần chờ tại màn hình này.</p>
+
+          <!-- Contact shortcuts -->
+          <p class="font-body text-sm font-semibold text-[#0A2E22] mb-2">Cần hỗ trợ ngay?</p>
+          <div class="grid grid-cols-2 gap-3 mb-3">
+            <a href="tel:19001234" class="min-h-[64px] rounded-2xl bg-[#00B14F] text-[#0E1512] flex flex-col items-center justify-center gap-1 cursor-pointer hover:brightness-95 transition-all duration-200 focus:outline-none focus:ring-[3px] focus:ring-[#00B14F] focus:ring-offset-2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1512" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="font-body font-bold text-sm">Gọi hotline</span>
+            </a>
+            <a href="#" class="min-h-[64px] rounded-2xl bg-white border-2 border-[#0A2E22] text-[#0A2E22] flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-[#E7F8EE] transition-colors duration-200 focus:outline-none focus:ring-[3px] focus:ring-[#00B14F] focus:ring-offset-2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-8.5 8.5 8.4 8.4 0 01-3.9-.95L3 20l1.05-3.9A8.4 8.4 0 013.5 12 8.5 8.5 0 0112 3.5a8.5 8.5 0 019 8z"/></svg>
+              <span class="font-body font-bold text-sm">Chat Zalo</span>
+            </a>
+          </div>
+          <p class="font-body text-xs text-slate-500 text-center mb-6">Hotline: 1900 1234 · Nhấn để gọi hoặc chat trực tiếp</p>
+
+          <!-- Primary exit -->
+          <button class="w-full min-h-[44px] rounded-2xl bg-white border-2 border-[#0A2E22] text-[#0A2E22] font-body font-bold text-base py-3 cursor-pointer hover:bg-[#E7F8EE] transition-colors duration-200 mb-3">Về trang chủ</button>
+
+          <!-- Secondary: refer another friend (ghost, tertiary action specific to this context) -->
+          <button class="w-full flex items-center justify-center gap-1.5 min-h-[44px] rounded-2xl hover:bg-[#E7F8EE] transition-colors duration-200 cursor-pointer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A2E22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            <span class="font-body text-sm font-semibold text-[#0A2E22] underline">Giới thiệu thêm người khác</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
